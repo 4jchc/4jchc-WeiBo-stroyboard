@@ -11,8 +11,10 @@
 		962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668031C33B16500BDD8FE /* AppDelegate.swift */; };
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
-		962668191C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668181C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift */; };
 		962668241C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */; };
+		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
+		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
+		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,20 @@
 			remoteGlobalIDString = 962667FF1C33B16500BDD8FE;
 			remoteInfo = "4jchc-WeiBo-stroyboard";
 		};
+		96C56A2A1C356CB40009F9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 441DDC22B60609BCE68CCC133338C997;
+			remoteInfo = Pods;
+		};
+		96C56A2C1C356CB40009F9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1A37A9F58FD0E71384CA3A7F6B229F50;
+			remoteInfo = SVProgressHUD;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +57,14 @@
 		9626680D1C33B16500BDD8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9626680F1C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		962668141C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-WeiBo-stroyboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		962668181C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_WeiBo_stroyboardTests.swift; sourceTree = "<group>"; };
 		9626681A1C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9626681F1C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-WeiBo-stroyboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_WeiBo_stroyboardUITests.swift; sourceTree = "<group>"; };
 		962668251C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
+		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		96C56A251C356CB40009F9F3 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "../../4jchc-WeiBo-stroyboard副本/4jchc-WeiBo-stroyboard/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
 		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +97,7 @@
 		962667F71C33B16500BDD8FE = {
 			isa = PBXGroup;
 			children = (
+				96C56A251C356CB40009F9F3 /* Pods.xcodeproj */,
 				96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */,
 				962668021C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */,
 				962668171C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardTests */,
@@ -114,7 +133,7 @@
 		962668171C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardTests */ = {
 			isa = PBXGroup;
 			children = (
-				962668181C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift */,
+				96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */,
 				9626681A1C33B16500BDD8FE /* Info.plist */,
 			);
 			path = "4jchc-WeiBo-stroyboardTests";
@@ -149,6 +168,7 @@
 		96389A6D1C352F7A008B5EDD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				96780EFD1C356AD1006A1555 /* NetworkManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -206,6 +226,15 @@
 			children = (
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		96C56A261C356CB40009F9F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96C56A2B1C356CB40009F9F3 /* libPods.a */,
+				96C56A2D1C356CB40009F9F3 /* libSVProgressHUD.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A0D66FE29AE892BDD3BCDA8A /* Pods */ = {
@@ -318,6 +347,12 @@
 			mainGroup = 962667F71C33B16500BDD8FE;
 			productRefGroup = 962668011C33B16500BDD8FE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 96C56A261C356CB40009F9F3 /* Products */;
+					ProjectRef = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				962667FF1C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */,
@@ -326,6 +361,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		96C56A2B1C356CB40009F9F3 /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = 96C56A2A1C356CB40009F9F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96C56A2D1C356CB40009F9F3 /* libSVProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSVProgressHUD.a;
+			remoteRef = 96C56A2C1C356CB40009F9F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		962667FE1C33B16500BDD8FE /* Resources */ = {
@@ -406,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +467,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962668191C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift in Sources */,
+				96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */,
+				96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

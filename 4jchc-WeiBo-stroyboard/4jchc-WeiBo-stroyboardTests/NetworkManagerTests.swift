@@ -1,15 +1,14 @@
 //
-//  _jchc_WeiBo_stroyboardTests.swift
-//  4jchc-WeiBo-stroyboardTests
+//  NetworkManagerTests.swift
+//  4jchc-WeiBo-stroyboard
 //
-//  Created by 蒋进 on 15/12/30.
+//  Created by 蒋进 on 15/12/31.
 //  Copyright © 2015年 sijichcai. All rights reserved.
 //
 
 import XCTest
-@testable import _jchc_WeiBo_stroyboard
 
-class _jchc_WeiBo_stroyboardTests: XCTestCase {
+class NetworkManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -26,9 +25,17 @@ class _jchc_WeiBo_stroyboardTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    ///  测试单例
+    func testSingleton() {
+        let manager1 = NetworkManager.sharedNetworkManager
+        let manager2 = NetworkManager.sharedNetworkManager
+        
+        XCTAssert(manager1 === manager2)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
     }
