@@ -4,7 +4,7 @@
 //
 //  Created by 刘凡 on 15/3/1.
 //  Copyright (c) 2015年 itheima. All rights reserved.
-//
+//---------自学swift.照着黑马刘凡老师的视频敲的.感谢刘老师的微博
 
 import UIKit
 import XCTest
@@ -26,6 +26,7 @@ class RequestJSONTests: XCTestCase {
         super.tearDown()
     }
     
+    
     func testRequestJSON() {
         // 定义一个预期
         let expectation = expectationWithDescription(urlString)
@@ -44,6 +45,7 @@ class RequestJSONTests: XCTestCase {
             XCTAssertNil(error)
         })
     }
+    
     
     ///  测试主方法出错的回调
     func testRequestJSONError() {
@@ -69,6 +71,7 @@ class RequestJSONTests: XCTestCase {
 //            XCTAssertTrue(false, "HTTPBody data is not set")
 //            return
 //        }
+        
         
         
         request = net.request(.POST, urlString, ["name": "zhangsan", "book": "ios 8.0"])
