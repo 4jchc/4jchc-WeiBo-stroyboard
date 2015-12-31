@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SimpleNetwork/SimpleNetwork.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:4jchc-WeiBo-stroyboard/4jchc-WeiBo-stroyboard.xcodeproj">
    </FileRef>
 </Workspace>
