@@ -15,6 +15,11 @@
 		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
+		96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
+		96C56A311C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
+		96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
+		96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
+		96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,9 @@
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
+		96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewControllerTests.swift; sourceTree = "<group>"; };
 		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */,
+				96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */,
 				9626681A1C33B16500BDD8FE /* Info.plist */,
 			);
 			path = "4jchc-WeiBo-stroyboardTests";
@@ -201,6 +210,8 @@
 		96389A761C352F7A008B5EDD /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */,
+				96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -337,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */,
+				96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */,
 				9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C56A311C356FFE0009F9F3 /* OAuth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
+				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +433,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */,
 				96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */,
+				96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
