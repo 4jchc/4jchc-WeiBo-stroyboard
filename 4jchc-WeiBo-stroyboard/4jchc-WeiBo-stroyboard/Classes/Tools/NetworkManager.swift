@@ -24,7 +24,7 @@ class NetworkManager {
     private static let instance = NetworkManager()
 
     /// 定义一个类变量，提供全局的访问入口
-    class var sharedManager: NetworkManager {
+    class var sharedNetworkManager: NetworkManager {
         
         return instance
         

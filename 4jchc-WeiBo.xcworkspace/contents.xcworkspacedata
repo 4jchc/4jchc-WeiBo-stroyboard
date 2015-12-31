@@ -8,6 +8,6 @@
       location = "group:4jchc-WeiBo-stroyboard/4jchc-WeiBo-stroyboard.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:4jchc-WeiBo-stroyboard/../../4jchc-WeiBo-stroyboard&#x526f;&#x672c;/4jchc-WeiBo-stroyboard/Pods/Pods.xcodeproj">
+      location = "group:4jchc-WeiBo-stroyboard/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

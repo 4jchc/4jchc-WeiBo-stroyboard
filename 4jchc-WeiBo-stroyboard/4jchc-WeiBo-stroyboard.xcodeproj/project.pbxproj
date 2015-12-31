@@ -32,20 +32,6 @@
 			remoteGlobalIDString = 962667FF1C33B16500BDD8FE;
 			remoteInfo = "4jchc-WeiBo-stroyboard";
 		};
-		96C56A2A1C356CB40009F9F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 441DDC22B60609BCE68CCC133338C997;
-			remoteInfo = Pods;
-		};
-		96C56A2C1C356CB40009F9F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1A37A9F58FD0E71384CA3A7F6B229F50;
-			remoteInfo = SVProgressHUD;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +50,6 @@
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
-		96C56A251C356CB40009F9F3 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "../../4jchc-WeiBo-stroyboard副本/4jchc-WeiBo-stroyboard/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
 		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +82,6 @@
 		962667F71C33B16500BDD8FE = {
 			isa = PBXGroup;
 			children = (
-				96C56A251C356CB40009F9F3 /* Pods.xcodeproj */,
 				96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */,
 				962668021C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */,
 				962668171C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardTests */,
@@ -228,15 +212,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		96C56A261C356CB40009F9F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				96C56A2B1C356CB40009F9F3 /* libPods.a */,
-				96C56A2D1C356CB40009F9F3 /* libSVProgressHUD.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A0D66FE29AE892BDD3BCDA8A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,12 +322,6 @@
 			mainGroup = 962667F71C33B16500BDD8FE;
 			productRefGroup = 962668011C33B16500BDD8FE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 96C56A261C356CB40009F9F3 /* Products */;
-					ProjectRef = 96C56A251C356CB40009F9F3 /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				962667FF1C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */,
@@ -361,23 +330,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		96C56A2B1C356CB40009F9F3 /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = 96C56A2A1C356CB40009F9F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96C56A2D1C356CB40009F9F3 /* libSVProgressHUD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSVProgressHUD.a;
-			remoteRef = 96C56A2C1C356CB40009F9F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		962667FE1C33B16500BDD8FE /* Resources */ = {
