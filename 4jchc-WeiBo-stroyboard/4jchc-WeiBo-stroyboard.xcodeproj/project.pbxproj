@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0D339C93307E34370AAB8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 503A0840797DA44F7E728B29 /* libPods.a */; };
 		962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668031C33B16500BDD8FE /* AppDelegate.swift */; };
-		962668061C33B16500BDD8FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668051C33B16500BDD8FE /* ViewController.swift */; };
-		962668091C33B16500BDD8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962668071C33B16500BDD8FE /* Main.storyboard */; };
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
 		962668191C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668181C33B16500BDD8FE /* _jchc_WeiBo_stroyboardTests.swift */; };
@@ -34,10 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		503A0840797DA44F7E728B29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE91D3988CD1737FDAD5AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		962668001C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4jchc-WeiBo-stroyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668031C33B16500BDD8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		962668051C33B16500BDD8FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		962668081C33B16500BDD8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9626680A1C33B16500BDD8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9626680D1C33B16500BDD8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9626680F1C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +46,8 @@
 		9626681F1C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-WeiBo-stroyboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_WeiBo_stroyboardUITests.swift; sourceTree = "<group>"; };
 		962668251C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
+		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0D339C93307E34370AAB8F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +79,13 @@
 		962667F71C33B16500BDD8FE = {
 			isa = PBXGroup;
 			children = (
+				96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */,
 				962668021C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */,
 				962668171C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardTests */,
 				962668221C33B16500BDD8FE /* 4jchc-WeiBo-stroyboardUITests */,
 				962668011C33B16500BDD8FE /* Products */,
+				A0D66FE29AE892BDD3BCDA8A /* Pods */,
+				DF0E580792EF28217D3D0F83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +102,8 @@
 		962668021C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard */ = {
 			isa = PBXGroup;
 			children = (
+				96389A691C352F7A008B5EDD /* Classes */,
 				962668031C33B16500BDD8FE /* AppDelegate.swift */,
-				962668051C33B16500BDD8FE /* ViewController.swift */,
-				962668071C33B16500BDD8FE /* Main.storyboard */,
 				9626680A1C33B16500BDD8FE /* Assets.xcassets */,
 				9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */,
 				9626680F1C33B16500BDD8FE /* Info.plist */,
@@ -125,6 +129,102 @@
 			path = "4jchc-WeiBo-stroyboardUITests";
 			sourceTree = "<group>";
 		};
+		96389A691C352F7A008B5EDD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				96389A6A1C352F7A008B5EDD /* BusinessModel */,
+				96389A6D1C352F7A008B5EDD /* Tools */,
+				96389A6F1C352F7A008B5EDD /* UI */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		96389A6A1C352F7A008B5EDD /* BusinessModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessModel;
+			sourceTree = "<group>";
+		};
+		96389A6D1C352F7A008B5EDD /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		96389A6F1C352F7A008B5EDD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				96389A701C352F7A008B5EDD /* Discover */,
+				96389A711C352F7A008B5EDD /* Home */,
+				96389A721C352F7A008B5EDD /* Main */,
+				96389A751C352F7A008B5EDD /* Message */,
+				96389A761C352F7A008B5EDD /* OAuth */,
+				96389A791C352F7A008B5EDD /* Profile */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		96389A701C352F7A008B5EDD /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		96389A711C352F7A008B5EDD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		96389A721C352F7A008B5EDD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		96389A751C352F7A008B5EDD /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		96389A761C352F7A008B5EDD /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		96389A791C352F7A008B5EDD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A0D66FE29AE892BDD3BCDA8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */,
+				5FE91D3988CD1737FDAD5AD6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF0E580792EF28217D3D0F83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				503A0840797DA44F7E728B29 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 962668281C33B16500BDD8FE /* Build configuration list for PBXNativeTarget "4jchc-WeiBo-stroyboard" */;
 			buildPhases = (
+				AF8CDAA75767F7BF974244D1 /* Check Pods Manifest.lock */,
 				962667FC1C33B16500BDD8FE /* Sources */,
 				962667FD1C33B16500BDD8FE /* Frameworks */,
 				962667FE1C33B16500BDD8FE /* Resources */,
+				303F1B529BF183C7CBAD7047 /* Embed Pods Frameworks */,
+				050E126066D43521432B1007 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,7 +334,6 @@
 			files = (
 				9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */,
 				9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */,
-				962668091C33B16500BDD8FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,12 +353,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		050E126066D43521432B1007 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		303F1B529BF183C7CBAD7047 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF8CDAA75767F7BF974244D1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		962667FC1C33B16500BDD8FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962668061C33B16500BDD8FE /* ViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,14 +442,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		962668071C33B16500BDD8FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				962668081C33B16500BDD8FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,6 +493,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,6 +532,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -397,23 +540,27 @@
 		};
 		962668291C33B16500BDD8FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "4jchc-WeiBo-stroyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 			};
 			name = Debug;
 		};
 		9626682A1C33B16500BDD8FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FE91D3988CD1737FDAD5AD6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "4jchc-WeiBo-stroyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 			};
 			name = Release;
 		};
@@ -425,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/4jchc-WeiBo-stroyboard.app/4jchc-WeiBo-stroyboard";
 			};
 			name = Debug;
@@ -437,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/4jchc-WeiBo-stroyboard.app/4jchc-WeiBo-stroyboard";
 			};
 			name = Release;
@@ -484,6 +633,7 @@
 				9626682A1C33B16500BDD8FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9626682B1C33B16500BDD8FE /* Build configuration list for PBXNativeTarget "4jchc-WeiBo-stroyboardTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +642,7 @@
 				9626682D1C33B16500BDD8FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9626682E1C33B16500BDD8FE /* Build configuration list for PBXNativeTarget "4jchc-WeiBo-stroyboardUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +651,7 @@
 				962668301C33B16500BDD8FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
