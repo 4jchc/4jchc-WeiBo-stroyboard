@@ -33,11 +33,11 @@ import Foundation
 }
 
 ///  字典转模型管理器
-public class DictModelManager {
+public class SwiftDictModel {
     
-    private static let instance = DictModelManager()
+    private static let instance = SwiftDictModel()
     /// 全局统一访问入口
-    public class var sharedManager: DictModelManager {
+    public class var sharedManager: SwiftDictModel {
         return instance
     }
     

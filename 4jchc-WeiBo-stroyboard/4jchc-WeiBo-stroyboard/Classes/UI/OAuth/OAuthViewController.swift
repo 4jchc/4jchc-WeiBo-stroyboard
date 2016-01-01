@@ -9,7 +9,7 @@
 import UIKit
 
 
-//import SwiftDictModel
+import SwiftDictModel
 
 // 定义全局常量
 let WB_Login_Successed_Notification = "WB_Login_Successed_Notification"
@@ -90,8 +90,8 @@ extension OAuthViewController: UIWebViewDelegate {
                 print("\(result)----\(params)")
                 
                 ///*****✅调用自定义的模型SDK--SwiftDictModel
-//                let token = SwiftDictModel.sharedManager.objectWithDictionary(result as! NSDictionary, cls: AccessToken.self) as! AccessToken
-//                print("*****\(token.access_token)")
+                let token = SwiftDictModel.sharedManager.objectWithDictionary(result as! NSDictionary, cls: AccessToken.self) as! AccessToken
+                print("*****\(token.access_token)")
                 ///*****✅原始方法--KVC
                 //TODO:
 //                let token = AccessToken(dict: result as! NSDictionary)
@@ -189,7 +189,7 @@ extension OAuthViewController: UIWebViewDelegate {
                         let codestr: NSString = "code="
                         
                         if query.hasPrefix(codestr as String) {
-                            var q = query as NSString!
+                            let q = query as NSString!
                             return (false, q.substringFromIndex(codestr.length), false)
                         } else {
                             return (false, nil, true)

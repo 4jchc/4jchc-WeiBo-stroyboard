@@ -13,6 +13,8 @@
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
 		962668241C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */; };
 		966792601C36288C0027141B /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667925F1C36288C0027141B /* UIKit+Extension.swift */; };
+		966792931C3682070027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
+		966792941C3683190027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
 		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
@@ -55,6 +57,7 @@
 		962668251C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
 		9667925F1C36288C0027141B /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+Extension.swift"; path = "../../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/UIKit+Extension.swift"; sourceTree = "<group>"; };
+		966792921C3682070027141B /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		96389A6D1C352F7A008B5EDD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				966792921C3682070027141B /* AccessToken.swift */,
 				9667925C1C3628160027141B /* Extension */,
 				96780EFD1C356AD1006A1555 /* NetworkManager.swift */,
 			);
@@ -438,6 +442,7 @@
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
+				966792931C3682070027141B /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +454,7 @@
 				96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */,
 				96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */,
+				966792941C3683190027141B /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
