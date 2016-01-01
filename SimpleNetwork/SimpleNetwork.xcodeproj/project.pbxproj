@@ -390,6 +390,7 @@
 				96780EE81C35390C006A1555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96780EE91C35390C006A1555 /* Build configuration list for PBXNativeTarget "SimpleNetworkTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +399,7 @@
 				96780EEB1C35390C006A1555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

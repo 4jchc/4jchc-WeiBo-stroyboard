@@ -113,8 +113,21 @@ public class SimpleNetwork {
             query.append(str)
        
         }
+        print("query.joinWithSeparator\(query.joinWithSeparator("&"))")
+        //return query.joinWithSeparator("&")
         
-        return query.joinWithSeparator("&")
+        var array = [String]()
+        for (key, value) in params! {
+            let str = key + "=" + value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            array.append(str)
+        }
+        print("array.joinWithSeparator\(array.joinWithSeparator("&"))")
+        return array.joinWithSeparator("&")
+        
+        
+        
+        
+        
     }
     
     ///  公共构造函数

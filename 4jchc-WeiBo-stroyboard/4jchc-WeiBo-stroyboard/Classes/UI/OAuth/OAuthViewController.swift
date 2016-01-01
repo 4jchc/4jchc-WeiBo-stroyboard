@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+
 //import SwiftDictModel
 
 // 定义全局常量
@@ -32,7 +34,7 @@ class OAuthViewController: UIViewController {
     ///*****✅读取微博地址:https://api.weibo.com/2/statuses/home_timeline.json
     
     
-    let WB_API_URL_String       = "https://api.weibo.com/"
+    let WB_API_URL_String       = "https://api.weibo.com"
     let WB_Redirect_URL_String  = "http://www.baidu.com/"//没有/无法显示登录页面
     let WB_Client_ID            = "1620692692"
     let WB_Client_Secret        = "07f24cb123c91647e01b347eca27a5f7"
@@ -42,12 +44,10 @@ class OAuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        webView.delegate = self
         loadAuthPage()
+    
     }
-    
-    
-    
     
     /// 加载授权页面
     func loadAuthPage() {
@@ -56,6 +56,8 @@ class OAuthViewController: UIViewController {
         
         webView.loadRequest(NSURLRequest(URL: url!))
     }
+
+    
 }
 
 
@@ -68,11 +70,10 @@ extension OAuthViewController: UIWebViewDelegate {
     /// 页面重定向
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        print(request.URL)
+        print("request.URL___\(request.URL)")
         
         let result = continueWithCode(request.URL!)
-        print("__________\(result.code)")
-        if let code = result.code {
+        if let code:String = result.code {
             
             print("可以换 accesstoke \(code)")
  
@@ -107,21 +108,21 @@ extension OAuthViewController: UIWebViewDelegate {
         }
 
         if !result.load {
-            print(request.URL)
+            print("request.URL\(request.URL)")
 //            SVProgressHUD.showInfoWithStatus("不加载")
             // 如果不加载页面，需要重新刷新授权页面
             // TODO: 有可能会出现多次加载页面，现在真的不正常了！
             // 只有点击取消按钮，才需要重新刷新授权页面
             if result.reloadPage {
+               // SVProgressHUD.showWithStatus("你真的残忍的拒绝吗？")
+               // SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Gradient)
                 
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.None)
-                SVProgressHUD.showWithStatus("你真的残忍的拒绝吗？")
  
                 loadAuthPage()
             }
         }
         print("*****\(result.load)")
-        return result.load
+        return  true//result.load
     }
     
     
@@ -133,38 +134,101 @@ extension OAuthViewController: UIWebViewDelegate {
     ///  :param: url URL
     ///
     ///  :returns: 1. 是否加载当前页面 2. code(如果有) 3. 是否刷新授权页面
-    func continueWithCode(url: NSURL) -> (load: Bool, code: String?, reloadPage: Bool) {
-        
-        // 1. 将url转换成字符串
-        let urlString = url.absoluteString
-        print("urlString\(urlString)")
-        // 2. 如果不是微博的 api 地址，都不加载
-        if urlString.hasPrefix(WB_API_URL_String) {
+    
+//    func continueWithCode(url: NSURL) -> (load: Bool, code: String?, reloadPage: Bool) {
+//        
+//        // 1. 将url转换成字符串
+//        let urlString = url.absoluteString
+//        print("urlString\(urlString)")
+//        // 2. 如果不是微博的 api 地址，都不加载
+//        if !urlString.hasPrefix(WB_API_URL_String) {
+//            
+//            // 3. 如果是回调地址，需要判断 code ithema.com
+//            if urlString.hasPrefix(WB_Redirect_URL_String) {
+//                
+//                if let query = url.query {
+//                    let codestr: NSString = "code="
+//                    
+//                    // 访问新浪微博授权的时候，带有回调地址的url只有两个，一个是正确的，一个是错误的！
+//                    
+//                    if query.hasPrefix(codestr as String) {
+//                        
+//                        let q = query as NSString!
+//                        print("q.substringFromIndex(codestr.length)\(q.substringFromIndex(codestr.length))")
+//                        return (false, q.substringFromIndex(codestr.length), false)
+//                        
+//                    } else {
+//                        
+//                        return (false, nil, true)
+//                    }
+//                }
+//            }
+//            
+//            return (false, nil, false)
+//        }
+//        
+//        return (false, nil, false)
+//    }
+//    
+    
+    
+    
+    
+    
+    
+    
+
+        func continueWithCode(url: NSURL) -> (load: Bool, code: String?, reloadPage: Bool) {
+            let urlString = url.absoluteString
+            print("___!urlString.hasPrefix(WB_API_URL_String)\(!urlString.hasPrefix(WB_API_URL_String))")
             
-            // 3. 如果是回调地址，需要判断 code ithema.com
-            if urlString.hasPrefix(WB_Redirect_URL_String) {
-                
-                if let query = url.query {
-                    let codestr: NSString = "code="
-                    
-                    // 访问新浪微博授权的时候，带有回调地址的url只有两个，一个是正确的，一个是错误的！
-                    
-                    if query.hasPrefix(codestr as String) {
+            print("_____urlString)\(urlString)")
+            if !urlString.hasPrefix(WB_API_URL_String) {
+                if urlString.hasPrefix(WB_Redirect_URL_String) {
+                    if let query = url.query {
+                        let codestr: NSString = "code="
                         
-                        let q = query as NSString!
-                        print("q.substringFromIndex(codestr.length)\(q.substringFromIndex(codestr.length))")
-                        return (false, q.substringFromIndex(codestr.length), false)
-                        
-                    } else {
-                        
-                        return (false, nil, true)
+                        if query.hasPrefix(codestr as String) {
+                            var q = query as NSString!
+                            return (false, q.substringFromIndex(codestr.length), false)
+                        } else {
+                            return (false, nil, true)
+                        }
                     }
                 }
+                return (false, nil, false)
             }
-            
-            return (false, nil, false)
+            return (true, nil, false)
         }
-        
-        return (false, nil, false)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ///*****✅ #pragma mark - webView代理方法
+    func webViewDidFinishLoad(webView: UIWebView) {
+       
+        print("\(webViewDidFinishLoad)")
     }
+    func webViewDidStartLoad(webView: UIWebView) {
+        
+    
+        print("\(webViewDidStartLoad)")
+    }
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        
+        print("didFailLoadWithError)")
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }

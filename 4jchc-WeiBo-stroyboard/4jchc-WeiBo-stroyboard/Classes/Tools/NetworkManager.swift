@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 import SimpleNetwork
 
@@ -25,9 +25,9 @@ class NetworkManager {
 
     /// 定义一个类变量，提供全局的访问入口
     class var sharedNetworkManager: NetworkManager {
-        
+    
         return instance
-        
+    
     }
     
     
