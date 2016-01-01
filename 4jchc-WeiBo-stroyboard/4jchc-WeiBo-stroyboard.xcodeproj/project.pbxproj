@@ -15,6 +15,20 @@
 		966792601C36288C0027141B /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667925F1C36288C0027141B /* UIKit+Extension.swift */; };
 		966792931C3682070027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
 		966792941C3683190027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
+		966792961C36A9B50027141B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792951C36A9B50027141B /* ProfileViewController.swift */; };
+		966792981C36A9C90027141B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792971C36A9C90027141B /* Profile.storyboard */; };
+		9667929A1C36B3A10027141B /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792991C36B3A10027141B /* MessageViewController.swift */; };
+		9667929C1C36B3B50027141B /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667929B1C36B3B50027141B /* Message.storyboard */; };
+		9667929F1C36B4420027141B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667929D1C36B4420027141B /* HomeViewController.swift */; };
+		966792A01C36B4420027141B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667929E1C36B4420027141B /* Home.storyboard */; };
+		966792A31C36B48A0027141B /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792A11C36B48A0027141B /* DiscoverViewController.swift */; };
+		966792A41C36B48A0027141B /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792A21C36B48A0027141B /* Discover.storyboard */; };
+		966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792A51C36B4B30027141B /* MainNavViewController.swift */; };
+		966792AA1C36B4B30027141B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792A61C36B4B30027141B /* MainTabBarController.swift */; };
+		966792AB1C36B4B30027141B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792A71C36B4B30027141B /* MainTabBar.swift */; };
+		966792AC1C36B4B30027141B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792A81C36B4B30027141B /* Main.storyboard */; };
+		966792B01C36B5250027141B /* Compose.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792AE1C36B5250027141B /* Compose.storyboard */; };
+		966792B11C36B5250027141B /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792AF1C36B5250027141B /* ComposeViewController.swift */; };
 		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
@@ -58,6 +72,20 @@
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
 		9667925F1C36288C0027141B /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+Extension.swift"; path = "../../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/UIKit+Extension.swift"; sourceTree = "<group>"; };
 		966792921C3682070027141B /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		966792951C36A9B50027141B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		966792971C36A9C90027141B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		966792991C36B3A10027141B /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		9667929B1C36B3B50027141B /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		9667929D1C36B4420027141B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9667929E1C36B4420027141B /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		966792A11C36B48A0027141B /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		966792A21C36B48A0027141B /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		966792A51C36B4B30027141B /* MainNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavViewController.swift; sourceTree = "<group>"; };
+		966792A61C36B4B30027141B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		966792A71C36B4B30027141B /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		966792A81C36B4B30027141B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		966792AE1C36B5250027141B /* Compose.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Compose.storyboard; sourceTree = "<group>"; };
+		966792AF1C36B5250027141B /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
@@ -176,6 +204,7 @@
 		96389A6F1C352F7A008B5EDD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				966792AD1C36B4FE0027141B /* Compose(撰写微博) */,
 				96389A701C352F7A008B5EDD /* Discover */,
 				96389A711C352F7A008B5EDD /* Home */,
 				96389A721C352F7A008B5EDD /* Main */,
@@ -189,6 +218,8 @@
 		96389A701C352F7A008B5EDD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				966792A11C36B48A0027141B /* DiscoverViewController.swift */,
+				966792A21C36B48A0027141B /* Discover.storyboard */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -196,6 +227,8 @@
 		96389A711C352F7A008B5EDD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9667929D1C36B4420027141B /* HomeViewController.swift */,
+				9667929E1C36B4420027141B /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -203,6 +236,10 @@
 		96389A721C352F7A008B5EDD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				966792A51C36B4B30027141B /* MainNavViewController.swift */,
+				966792A61C36B4B30027141B /* MainTabBarController.swift */,
+				966792A71C36B4B30027141B /* MainTabBar.swift */,
+				966792A81C36B4B30027141B /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -210,6 +247,8 @@
 		96389A751C352F7A008B5EDD /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				966792991C36B3A10027141B /* MessageViewController.swift */,
+				9667929B1C36B3B50027141B /* Message.storyboard */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -226,6 +265,8 @@
 		96389A791C352F7A008B5EDD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				966792951C36A9B50027141B /* ProfileViewController.swift */,
+				966792971C36A9C90027141B /* Profile.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -236,6 +277,15 @@
 				9667925F1C36288C0027141B /* UIKit+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		966792AD1C36B4FE0027141B /* Compose(撰写微博) */ = {
+			isa = PBXGroup;
+			children = (
+				966792AE1C36B5250027141B /* Compose.storyboard */,
+				966792AF1C36B5250027141B /* ComposeViewController.swift */,
+			);
+			path = "Compose(撰写微博)";
 			sourceTree = "<group>";
 		};
 		A0D66FE29AE892BDD3BCDA8A /* Pods */ = {
@@ -364,6 +414,12 @@
 			files = (
 				9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */,
 				96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */,
+				9667929C1C36B3B50027141B /* Message.storyboard in Resources */,
+				966792AC1C36B4B30027141B /* Main.storyboard in Resources */,
+				966792A01C36B4420027141B /* Home.storyboard in Resources */,
+				966792981C36A9C90027141B /* Profile.storyboard in Resources */,
+				966792A41C36B48A0027141B /* Discover.storyboard in Resources */,
+				966792B01C36B5250027141B /* Compose.storyboard in Resources */,
 				9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,11 +494,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966792AB1C36B4B30027141B /* MainTabBar.swift in Sources */,
+				966792A31C36B48A0027141B /* DiscoverViewController.swift in Sources */,
+				966792961C36A9B50027141B /* ProfileViewController.swift in Sources */,
+				966792AA1C36B4B30027141B /* MainTabBarController.swift in Sources */,
 				966792601C36288C0027141B /* UIKit+Extension.swift in Sources */,
+				966792B11C36B5250027141B /* ComposeViewController.swift in Sources */,
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
+				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
+				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 				966792931C3682070027141B /* AccessToken.swift in Sources */,
+				9667929A1C36B3A10027141B /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
