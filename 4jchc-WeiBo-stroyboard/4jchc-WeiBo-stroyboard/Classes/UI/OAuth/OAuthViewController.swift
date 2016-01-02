@@ -85,10 +85,9 @@ extension OAuthViewController: UIWebViewDelegate {
 
             let net = NetworkManager.sharedNetworkManager
             
-            net.requestJSON(.POST, "https://api.weibo.com/oauth2/access_token", params, completion: { (result, error) -> () in
+            net.requestJSON(.POST, "https://api.weibo.com/oauth2/access_token", params, { (result, error) -> () in
                 
-                print("\(result)----\(params)")
-                
+
                 ///*****✅调用自定义的模型SDK--SwiftDictModel
 //                let token = DictModelManager.sharedManager.objectWithDictionary(result as! NSDictionary, cls: AccessToken.self) as! AccessToken
                // print("*****\(token.access_token)")
@@ -102,6 +101,7 @@ extension OAuthViewController: UIWebViewDelegate {
                 // 对于简单的模型，应该直接使用 KVC 即可！
                 // JSON Model 1000，3s / 800M+
                 // 切换UI - 通知
+                
                 NSNotificationCenter.defaultCenter().postNotificationName(WB_Login_Successed_Notification, object: nil)
                 
             })
@@ -129,47 +129,7 @@ extension OAuthViewController: UIWebViewDelegate {
     
     
     
-    ////  根据URL判断是否继续
-    ///
-    ///  :param: url URL
-    ///
-    ///  :returns: 1. 是否加载当前页面 2. code(如果有) 3. 是否刷新授权页面
-    
-//    func continueWithCode(url: NSURL) -> (load: Bool, code: String?, reloadPage: Bool) {
-//        
-//        // 1. 将url转换成字符串
-//        let urlString = url.absoluteString
-//        print("urlString\(urlString)")
-//        // 2. 如果不是微博的 api 地址，都不加载
-//        if !urlString.hasPrefix(WB_API_URL_String) {
-//            
-//            // 3. 如果是回调地址，需要判断 code ithema.com
-//            if urlString.hasPrefix(WB_Redirect_URL_String) {
-//                
-//                if let query = url.query {
-//                    let codestr: NSString = "code="
-//                    
-//                    // 访问新浪微博授权的时候，带有回调地址的url只有两个，一个是正确的，一个是错误的！
-//                    
-//                    if query.hasPrefix(codestr as String) {
-//                        
-//                        let q = query as NSString!
-//                        print("q.substringFromIndex(codestr.length)\(q.substringFromIndex(codestr.length))")
-//                        return (false, q.substringFromIndex(codestr.length), false)
-//                        
-//                    } else {
-//                        
-//                        return (false, nil, true)
-//                    }
-//                }
-//            }
-//            
-//            return (false, nil, false)
-//        }
-//        
-//        return (false, nil, false)
-//    }
-//    
+
     
     
     

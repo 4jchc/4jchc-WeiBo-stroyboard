@@ -18,31 +18,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        if let token = AccessToken.loadAccessToken() {
-            print(token.debugDescription)
-            print(token.uid)
-        }
+
         
         // 实例化对象的时候，()就是调用默认的构造函数
-        let net = SimpleNetwork()
+//        let net = SimpleNetwork()
+//
+//        let urls = ["http://ww1.sinaimg.cn/thumbnail/62c13fbagw1epuww0k4xgj20c8552b29.jpg",
+//        "http://ww3.sinaimg.cn/thumbnail/e362b134jw1epuxb47zoyj20dw0ku421.jpg",
+//        "http://ww1.sinaimg.cn/thumbnail/e362b134jw1epuxbaym1sj20ku0dwgpu.jpg",
+//        "http://ww2.sinaimg.cn/thumbnail/e362b134jw1epuxbdhirmj20dw0kuae8.jpg"]
+//
+//        print(net.downloadImages(urls, { (result, error) -> () in
+//            print("OK")
+//        }))
+        if let token = AccessToken.loadAccessToken() {
+//            print(token.debugDescription)
+            print(token.uid)
+            showMainInterface()
+        } else {
+            
+            
+            let WB_Login_Successed_Notification = "WB_Login_Successed_Notification"
+            NSNotificationCenter.defaultCenter().postNotificationName(WB_Login_Successed_Notification, object: nil)
+            // 添加通知监听，监听用户登录成功
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMainInterface", name: WB_Login_Successed_Notification, object: nil)
+        }
 
-        let urls = ["http://ww1.sinaimg.cn/thumbnail/62c13fbagw1epuww0k4xgj20c8552b29.jpg",
-        "http://ww3.sinaimg.cn/thumbnail/e362b134jw1epuxb47zoyj20dw0ku421.jpg",
-        "http://ww1.sinaimg.cn/thumbnail/e362b134jw1epuxbaym1sj20ku0dwgpu.jpg",
-        "http://ww2.sinaimg.cn/thumbnail/e362b134jw1epuxbdhirmj20dw0kuae8.jpg"]
 
-        print(net.downloadImages(urls, { (result, error) -> () in
-            print("OK")
-        }))
-         setNavAppearance()
-        
-        
-        
-        
-        
         return true
     }
-
+    
+    ///  显示主界面
+    func showMainInterface() {
+        // 通知在不需要的时候，要及时销毁
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: WB_Login_Successed_Notification, object: nil)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        window!.rootViewController = sb.instantiateInitialViewController()
+        
+        // 设置 nav 按钮的外观
+        setNavAppearance()
+    }
+    
+    
+    
+    
+    
     ///  设置按钮的 tintColor
     func setNavAppearance() {
         // 提示：关于外观的设置，应该在 appDelegate 中，程序一启动就设置

@@ -37,7 +37,7 @@ class NetworkManager {
     // 定义了一个类的完成闭包类型
     typealias Completion = (result: AnyObject?, error: NSError?) -> ()
 
-    func requestJSON(method: HTTPMethod, _ urlString: String, _ params: [String: String]?, completion: Completion) {
+    func requestJSON(method: HTTPMethod, _ urlString: String, _ params: [String: String]?, _ completion: Completion) {
         
         net.requestJSON(method, urlString, params, completion)
     }
