@@ -25,6 +25,7 @@ class MainNavViewController: UINavigationController {
         
 //        let bar = UINavigationBar.appearance()
 //        bar.tintColor = UIColor.orangeColor()
+       // UINavigationBar.appearance().tintColor = UIColor.orangeColor()
     }
     
     // 设置 barButtonItem 外观

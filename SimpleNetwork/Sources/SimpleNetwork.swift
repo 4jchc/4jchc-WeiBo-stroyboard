@@ -78,8 +78,11 @@ public class SimpleNetwork {
         case .GET:
             if let query = quertString(params) {
                 urlStr += "?" + query
+                print("urlStr111\( urlStr )")
             }
+            print("urlStr222\( urlStr )---NSMutableURLRequest-\(NSMutableURLRequest(URL: NSURL(string: urlStr)!))")
             request = NSMutableURLRequest(URL: NSURL(string: urlStr)!)
+            
         case .POST:
             if let query = quertString(params) {
                 request = NSMutableURLRequest(URL: NSURL(string: urlStr)!)
@@ -89,7 +92,7 @@ public class SimpleNetwork {
                 request!.HTTPBody = query.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
             }
         }
-        
+       	
         return request
     }
     
@@ -108,21 +111,26 @@ public class SimpleNetwork {
         var query = [String]()
         for (k, v) in params! {
             
-            let str = k + "=" + v.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            let str = k + "=" + v.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
             
             query.append(str)
+            print("query--\(query)")
        
         }
-        print("query.joinWithSeparator\(query.joinWithSeparator("&"))")
-        //return query.joinWithSeparator("&")
+        print("query.joinWithSeparator-----\(query.joinWithSeparator("&"))")
+        return query.joinWithSeparator("&")
         
-        var array = [String]()
-        for (key, value) in params! {
-            let str = key + "=" + value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            array.append(str)
-        }
-        print("array.joinWithSeparator\(array.joinWithSeparator("&"))")
-        return array.joinWithSeparator("&")
+        
+        
+//        var array = [String]()
+//        for (key, value) in params! {
+//            let str = key + "=" + value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+//            array.append(str)
+//        }
+//        print("array.joinWithSeparator---\(array.joinWithSeparator("&"))")
+//        print("array.joinWithSeparator("&")--\(array.joinWithSeparator("&"))")
+//        
+//        return array.joinWithSeparator("&")
         
         
         

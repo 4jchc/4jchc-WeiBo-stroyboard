@@ -20,9 +20,9 @@ class MainTabBar: UITabBar {
     }
     
     override func layoutSubviews() {
-       // super.layoutSubviews()
-        ///*****✅要设置super.layoutSubviews()不然tabbar的背景图片是空的
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "tabbar_background")!)
+        super.layoutSubviews()
+        //MARK: -✅要设置super.layoutSubviews()不然tabbar的背景图片是空的
+        //self.backgroundColor = UIColor(patternImage: UIImage(named: "tabbar_background")!)
     
         setButtonsFrame()
     }

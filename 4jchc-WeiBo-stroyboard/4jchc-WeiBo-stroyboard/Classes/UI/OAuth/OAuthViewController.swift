@@ -90,12 +90,12 @@ extension OAuthViewController: UIWebViewDelegate {
                 print("\(result)----\(params)")
                 
                 ///*****✅调用自定义的模型SDK--SwiftDictModel
-                let token = SwiftDictModel.sharedManager.objectWithDictionary(result as! NSDictionary, cls: AccessToken.self) as! AccessToken
-                print("*****\(token.access_token)")
+//                let token = DictModelManager.sharedManager.objectWithDictionary(result as! NSDictionary, cls: AccessToken.self) as! AccessToken
+               // print("*****\(token.access_token)")
                 ///*****✅原始方法--KVC
                 //TODO:
-//                let token = AccessToken(dict: result as! NSDictionary)
-//                token.saveAccessToken()
+                let token = AccessToken(dict: result as! NSDictionary)
+                token.saveAccessToken()
                 
                 
                 // 提问：对于 AccessToken 字典转模型，我们应该用框架吗？

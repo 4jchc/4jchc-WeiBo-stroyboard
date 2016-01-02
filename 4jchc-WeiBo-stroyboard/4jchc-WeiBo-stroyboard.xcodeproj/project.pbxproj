@@ -29,6 +29,8 @@
 		966792AC1C36B4B30027141B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792A81C36B4B30027141B /* Main.storyboard */; };
 		966792B01C36B5250027141B /* Compose.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792AE1C36B5250027141B /* Compose.storyboard */; };
 		966792B11C36B5250027141B /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792AF1C36B5250027141B /* ComposeViewController.swift */; };
+		966BF2971C37617000AD1879 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2951C37617000AD1879 /* UserInfo.swift */; };
+		966BF2981C37617000AD1879 /* StatusesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2961C37617000AD1879 /* StatusesData.swift */; };
 		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
@@ -86,6 +88,8 @@
 		966792A81C36B4B30027141B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		966792AE1C36B5250027141B /* Compose.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Compose.storyboard; sourceTree = "<group>"; };
 		966792AF1C36B5250027141B /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		966BF2951C37617000AD1879 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		966BF2961C37617000AD1879 /* StatusesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusesData.swift; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		96389A6D1C352F7A008B5EDD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				966BF2951C37617000AD1879 /* UserInfo.swift */,
+				966BF2961C37617000AD1879 /* StatusesData.swift */,
 				966792921C3682070027141B /* AccessToken.swift */,
 				9667925C1C3628160027141B /* Extension */,
 				96780EFD1C356AD1006A1555 /* NetworkManager.swift */,
@@ -501,11 +507,13 @@
 				966792601C36288C0027141B /* UIKit+Extension.swift in Sources */,
 				966792B11C36B5250027141B /* ComposeViewController.swift in Sources */,
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
+				966BF2981C37617000AD1879 /* StatusesData.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
 				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 				966792931C3682070027141B /* AccessToken.swift in Sources */,
+				966BF2971C37617000AD1879 /* UserInfo.swift in Sources */,
 				9667929A1C36B3A10027141B /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,6 +658,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "4jchc-WeiBo-stroyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";
@@ -663,6 +678,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "4jchc-WeiBo-stroyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "swift.-jchc-WeiBo-stroyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HMWeibo-Bridge.h";

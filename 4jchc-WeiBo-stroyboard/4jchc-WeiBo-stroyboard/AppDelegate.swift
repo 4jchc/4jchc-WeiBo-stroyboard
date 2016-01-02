@@ -16,8 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+         setNavAppearance()
         return true
+    }
+
+    ///  设置按钮的 tintColor
+    func setNavAppearance() {
+        // 提示：关于外观的设置，应该在 appDelegate 中，程序一启动就设置
+        // 一经设置，全局有效
+        // 有一个比较常见的外观设置：UISwitch
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
     }
 
     func applicationWillResignActive(application: UIApplication) {

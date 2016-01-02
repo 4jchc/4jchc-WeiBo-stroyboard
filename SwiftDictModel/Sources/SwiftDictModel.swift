@@ -1,6 +1,6 @@
 
 //
-//  SwiftDictModel.swift
+//  DictModelManager.swift
 //
 //
 //  Created by 刘凡 on 15/2/17.
@@ -33,11 +33,11 @@ import Foundation
 }
 
 ///  字典转模型管理器
-public class SwiftDictModel {
+public class DictModelManager {
     
-    private static let instance = SwiftDictModel()
+    private static let instance = DictModelManager()
     /// 全局统一访问入口
-    public class var sharedManager: SwiftDictModel {
+    public class var sharedManager: DictModelManager {
         return instance
     }
     
@@ -49,40 +49,66 @@ public class SwiftDictModel {
     ///  - returns: 模型对象
     public func objectWithDictionary(dict: NSDictionary, cls: AnyClass) -> AnyObject? {
         
+        // 动态获取命名空间
+        let ns = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
+        print("-NSClassFromString----\(ns + "." + "DictModelManager")")
+        
+        if  let i = NSClassFromString(ns + "." + "DictModelManager"){
+            
+            print("iIII\(i)")
+        }
+        
+        
+        print("\(NSClassFromString("DictModelManager"))")
         // 1. 模型信息
         let infoDict = fullModelInfo(cls)
         
         // 2. 实例化对象
-        // let obj: AnyObject = cls.
+         let obj: AnyObject = (cls as! NSObject.Type).init()
         
         autoreleasepool {
             // 3. 遍历模型字典
             for (k, v) in infoDict {
                 if let value: AnyObject = dict[k] {
-                    print("*****\(value)")
+                    print("*value****\(value)")
                     if v.isEmpty {
                         if !(value === NSNull()) {
-                            (cls as AnyObject).setValue(value, forKey: k)
+                            (obj as AnyObject).setValue(value, forKey: k)
                         }
                     } else {
                         let type = "\(value.classForCoder)"
                         
                         if type == "NSDictionary" {
-                            if let subObj: AnyObject = objectWithDictionary(value as! NSDictionary, cls: NSClassFromString(v)!) {
-                                (cls as AnyObject).setValue(subObj, forKey: k)
-                                print("*****\(subObj)")
+                            print("v----\(v)")
+                            if let subObj: AnyObject = objectWithDictionary(value as! NSDictionary, cls: NSClassFromString("\(v)")!) {
+                                (obj as AnyObject).setValue(subObj, forKey: k)
+                                print("**subObj***\(subObj)")
                             }
                         } else if type == "NSArray" {
-                            print("*****\(type)")
-                            if let subObj: AnyObject = objectsWithArray((value as? NSArray)!, cls: NSClassFromString(v)!) {
-                                (cls as AnyObject).setValue(subObj, forKey: k)
+                            
+                            if let i = NSClassFromString(v){
+                                
+                                print("ii\(i)")
+                            }
+                            
+                            
+                           print("---value-\(v)---\(NSClassFromString("\(v)"))-NSClassFromString--\(NSClassFromString(ns + "." + v))")// NSClassFromString(ns + "." + v)!
+                            
+//                            let tempDict = (NSClassFromString(className) as! DictToObject.Type).objectArrayWithKeyValueArray(value as! [[String: AnyObject]])
+//                            
+//                            
+                            
+                            if let subObj: AnyObject = objectsWithArray((value as? NSArray)!, cls: NSClassFromString("\(v)")!) {
+                                
+                                
+                                (obj as AnyObject).setValue(subObj, forKey: k)
                             }
                         }
                     }
                 }
             }
         }
-        return (cls as AnyObject)
+        return (obj as AnyObject)
     }
     
     
@@ -299,7 +325,7 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 
 
 
-////  SwiftDictModel.swift
+////  DictModelManager.swift
 ////  JSONModelSwift
 ////
 ////  Created by mac on 15/2/28.
@@ -308,7 +334,7 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 //
 //import UIKit
 //
-//@objc protocol SwiftDictModelProtocal{
+//@objc protocol DictModelManagerProtocal{
 //    /// 获取属性名和字典key之间的映射 key 属性名字 value 字典的 key
 //    /// return 映射字典
 //    static func propertyNameDictionaryKeyMap() -> [String:String]
@@ -336,8 +362,8 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 //    static func encodeIgnoreProperties() -> [String]
 //}
 //
-//// MARK: SwiftDictModel - 字典转模型
-//extension SwiftDictModel {
+//// MARK: DictModelManager - 字典转模型
+//extension DictModelManager {
 //    // MARK: 字典转模型
 //    /// 字典转模型
 //    public func objectWithDictionary(dict: [String :AnyObject], modelClass: AnyClass) -> AnyObject {
@@ -433,8 +459,8 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 //    }
 //}
 //
-//// MARK: SwiftDictModel - 模型转字典
-//extension SwiftDictModel {
+//// MARK: DictModelManager - 模型转字典
+//extension DictModelManager {
 //    // MARK: 模型转字典
 //    /// 模型转字典
 //    public func dictionaryWithObject(model: AnyObject) -> [String: AnyObject]{
@@ -554,10 +580,10 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 //    }
 //}
 //
-//// MARK: SwiftDictModel主要配置属性 和 初始化方法
-//public class SwiftDictModel {
+//// MARK: DictModelManager主要配置属性 和 初始化方法
+//public class DictModelManager {
 //    // MARK: 单例入口
-//    public static let shareInstance = SwiftDictModel()
+//    public static let shareInstance = DictModelManager()
 //    ///  缓存
 //    private var modelInfoCache = [String : ModelClassInfo]()
 //    ///  命名空间
@@ -641,7 +667,7 @@ func printLog<T>(message: T, file: String = __FILE__, method: String = __FUNCTIO
 //}
 //
 //// MARK: 归档和解档
-//extension SwiftDictModel {
+//extension DictModelManager {
 //    
 //    // MARK: 归档方法
 //    public func encoderObject(obj: AnyObject, encdoer: NSCoder) {
