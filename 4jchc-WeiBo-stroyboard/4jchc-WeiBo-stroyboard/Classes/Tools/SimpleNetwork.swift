@@ -51,13 +51,7 @@ public class SimpleNetwork {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
