@@ -51,9 +51,46 @@ public class SimpleNetwork {
         }
     }
     
+    
+    ///  异步下载网路图像
+    ///
+    ///  :param: urlString  urlString
+    ///  :param: completion 完成回调
+    func requestImage(urlString: String, _ completion: Completion) {
+        
+        // 1. 调用 download 下载图像，如果图片已经被缓存过，就不会再次下载
+        
+        self.downloadImage(urlString) { (result, error) -> () in
+            
+            // 2.1 错误处理
+            if error != nil {
+                completion(result: nil, error: error)
+            } else {
+                // 2.2 图像是保存在沙盒路径中的，文件名是 url ＋ md5
+                let path = self.fullImageCachePath(urlString)
+                // 将图像从沙盒加载到内存
+                let image = UIImage(contentsOfFile: path)
+                
+                // 提示：尾随闭包，如果没有参数，没有返回值，都可以省略！
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(result: image, error: nil)
+                }
+            }
+            
+        }
 
+    }
     
+    ///  完整的 URL 缓存路径
+    func fullImageCachePath(urlString: String) -> String {
+        let path = urlString.md5 as String
+
+
+        return   NSURL(fileURLWithPath: cachePath!).URLByAppendingPathComponent(path).path!
+        //return (cachePath! as NSString).stringByAppendingPathComponent(path)
+    }
     
+
     
     ///  下载多张图片
     ///
@@ -120,13 +157,22 @@ public class SimpleNetwork {
                     // 将文件复制到缓存路径
                     try NSFileManager.defaultManager().copyItemAtPath(location!.path!, toPath: path)
                 } catch _ {
+                    
                 }
                 
                 // 直接回调，不传递任何参数
                 completion(result: nil, error: nil)
-                }.resume()
+                }.resume()}
+        else {
+            let error = NSError(domain: SimpleNetwork.errorDomain, code: -1, userInfo: ["error": "无法创建 URL"])
+            completion(result: nil, error: error)
         }
-    }
+
+            
+            
+            
+        }
+
     
     /// 完整图像缓存路径
     lazy var cachePath: String? = {
@@ -165,6 +211,20 @@ public class SimpleNetwork {
     
     /// 缓存路径的常量 - 类变量不能存储内容，但是可以返回数值
     private static var imageCachePath = "com.itheima.imagecache"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     //MARK: -JSON
