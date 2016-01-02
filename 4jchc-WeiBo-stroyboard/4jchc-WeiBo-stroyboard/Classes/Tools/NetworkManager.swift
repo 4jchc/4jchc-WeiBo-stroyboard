@@ -21,15 +21,17 @@ class NetworkManager {
     // 1. 内存中有一个唯一的实例
     // 2. 提供唯一的全局访问入口
     // let 是定义常量，而且在 swift 中，let 是线程安全的
-    private static let instance = NetworkManager()
-
-    /// 定义一个类变量，提供全局的访问入口
-    class var sharedNetworkManager: NetworkManager {
     
-        return instance
+//    private static let instance = NetworkManager()
+//
+//    /// 定义一个类变量，提供全局的访问入口
+//    class var sharedNetworkManager: NetworkManager {
+//    
+//        return instance
+//    
+//    }
     
-    }
-    
+    static var sharedNetworkManager: NetworkManager = NetworkManager()
     
     
     // 定义了一个类的完成闭包类型

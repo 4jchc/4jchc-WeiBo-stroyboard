@@ -31,6 +31,9 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         return ["statuses": "\(Status.self)"]
     }
     
+    
+    // 定义了一个类的完成闭包类型
+    typealias Completion = (result: AnyObject?, error: NSError?) -> ()
     ///  刷新微博数据 - 专门加载网络数据以及错误处理的回调
     ///  一旦加载成功，负责字典转模型，回调传回转换过的模型数据
     class func loadStatus(completion: (data: StatusesData?, error: NSError?)->()) {
@@ -60,6 +63,8 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         }
     }
 }
+
+
 
 ///  微博模型
 @objc(Status) class Status: NSObject, DictModelProtocol {

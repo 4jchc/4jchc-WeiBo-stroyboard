@@ -25,8 +25,8 @@ class HomeViewController: UITableViewController {
     ///  加载微博数据
     func loadData() {
         
-        //SVProgressHUD.show()
-        
+        SVProgressHUD.show()
+
         StatusesData.loadStatus { (data, error) -> () in
             if error != nil {
                 print(error)
@@ -58,7 +58,6 @@ class HomeViewController: UITableViewController {
 
         let status = self.statusData!.statuses![indexPath.row]
         cell.textLabel?.text = status.text
-        print("_____\(status.text)")
         return cell
     }
 
