@@ -70,7 +70,7 @@ public class DictModelManager {
             // 3. 遍历模型字典
             for (k, v) in infoDict {
                 if let value: AnyObject = dict[k] {
-                    print("*value****\(value)")
+                  
                     if v.isEmpty {
                         if !(value === NSNull()) {
                             (obj as AnyObject).setValue(value, forKey: k)
@@ -79,24 +79,13 @@ public class DictModelManager {
                         let type = "\(value.classForCoder)"
                         
                         if type == "NSDictionary" {
-                            print("v----\(v)")
+              
                             if let subObj: AnyObject = objectWithDictionary(value as! NSDictionary, cls: NSClassFromString("\(v)")!) {
                                 (obj as AnyObject).setValue(subObj, forKey: k)
-                                print("**subObj***\(subObj)")
+              
                             }
                         } else if type == "NSArray" {
-                            
-                            if let i = NSClassFromString(v){
-                                
-                                print("ii\(i)")
-                            }
-                            
-                            
-                           print("---value-\(v)---\(NSClassFromString("\(v)"))-NSClassFromString--\(NSClassFromString(ns + "." + v))")// NSClassFromString(ns + "." + v)!
-                            
-//                            let tempDict = (NSClassFromString(className) as! DictToObject.Type).objectArrayWithKeyValueArray(value as! [[String: AnyObject]])
-//                            
-//                            
+      
                             
                             if let subObj: AnyObject = objectsWithArray((value as? NSArray)!, cls: NSClassFromString("\(v)")!) {
                                 

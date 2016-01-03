@@ -62,11 +62,11 @@ class StatusCell: UITableViewCell {
                     }
                 }
             }
-//            // 认证图标
-//            vipIcon.image = status?.user?.verifiedImage
-//            // 会员图标
-//            memberIcon.image = status?.user?.mbImage
-//            
+            // 认证图标
+            vipIcon.image = status?.user?.verifiedImage
+            // 会员图标
+            memberIcon.image = status?.user?.mbImage
+            
 //            let pSize = calcPictureViewSize()
 //            pictureViewWidth.constant = pSize.viewSize.width
 //            pictureViewHeight.constant = pSize.viewSize.height
