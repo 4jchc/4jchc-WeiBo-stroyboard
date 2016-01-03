@@ -43,7 +43,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         
         if let token = AccessToken.loadAccessToken()?.access_token {
             let params = ["access_token": token]
-            print("***tokentoken**\(token)")
+
             // 发送网络异步请求
             net.requestJSON(.GET, WB_Home_Timeline_URL, params) { (result, error) -> () in
                 
@@ -56,13 +56,63 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
                 // 字典转模型
                 let modelTools = DictModelManager.sharedManager
                 let data = modelTools.objectWithDictionary(result as! NSDictionary, cls: StatusesData.self) as? StatusesData
-                print("*****\(data)")
-                //MARK: -  回调 -> 将模型通知给视图控制器
-                completion(data: data, error: nil)
+                
+                // 如果有下载图像的 url，就先下载图像
+                if let urls = StatusesData.pictureURLs(data?.statuses) {
+                    
+            
+                    net.downloadImages(urls) { (_, _) -> () in
+                        // 回调通知视图控制器刷新数据
+                        completion(data: data, error: nil)
+                    }
+                    //MARK: -  回调 -> 将模型通知给视图控制器
+                } else {
+                    // 如果没有要下载的图像，直接回调 -> 将模型通知给视图控制器
+                    completion(data: data, error: nil)
+                }
+
             }
         }
     }
+    
+    ///  取出给定的微博数据中所有图片的 URL 数组
+    ///
+    ///  :param: statuses 微博数据数组，可以为空
+    ///
+    ///  :returns: 微博数组中的 url 完整数组，可以为空
+    class func pictureURLs(statuses: [Status]?) -> [String]? {
+        
+        // 如果数据为空直接返回
+        if statuses == nil {
+            return nil
+        }
+        
+        // 遍历数组
+        var list = [String]()
+        
+        for status in statuses! {
+            // 继续遍历 pic_urls（原创微博的图片）
+            if let urls = status.pictureUrls {
+                for pic in urls {
+                    list.append(pic.thumbnail_pic!)
+                }
+            }
+        }
+        
+        if list.count > 0 {
+            return list
+        } else {
+            return nil
+        }
+    }
 }
+
+
+    
+    
+    
+    
+
 
 
 
@@ -89,11 +139,26 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     /// 转发微博
     var retweeted_status: Status?
     
+    /// 要显示的配图数组
+    /// 如果是原创微博，就使用 pic_urls
+    /// 如果是转发微博，使用 retweeted_status.pic_urls
+    var pictureUrls: [StatusPictureURL]? {
+        if retweeted_status != nil {
+            return retweeted_status?.pic_urls
+        } else {
+            return pic_urls
+        }
+    }
+    
+    
+    
     static func customClassMapping() -> [String : String]? {
         return ["pic_urls": "\(StatusPictureURL.self)",
         "user": "\(UserInfo.self)",
         "retweeted_status": "\(Status.self)",]
     }
+    
+    
 }
 
 
@@ -106,3 +171,9 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         return nil
     }
 }
+
+
+
+
+
+

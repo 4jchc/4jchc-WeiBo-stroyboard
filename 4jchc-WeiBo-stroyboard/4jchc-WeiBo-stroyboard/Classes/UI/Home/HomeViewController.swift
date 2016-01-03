@@ -54,10 +54,12 @@ class HomeViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! StatusCell
+        
+        let status = self.statusData!.statuses![indexPath.row] as Status
 
-        let status = self.statusData!.statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.status = status
+        
         return cell
     }
 

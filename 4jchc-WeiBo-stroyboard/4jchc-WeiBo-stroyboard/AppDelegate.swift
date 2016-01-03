@@ -38,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             
             
-            let WB_Login_Successed_Notification = "WB_Login_Successed_Notification"
-            NSNotificationCenter.defaultCenter().postNotificationName(WB_Login_Successed_Notification, object: nil)
             // 添加通知监听，监听用户登录成功
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMainInterface", name: WB_Login_Successed_Notification, object: nil)
         }

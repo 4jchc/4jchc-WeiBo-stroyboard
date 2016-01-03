@@ -12,6 +12,7 @@
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
 		962668241C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */; };
+		96413B581C38C3C100083D0F /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96413B571C38C3C100083D0F /* StatusCell.swift */; };
 		966792601C36288C0027141B /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667925F1C36288C0027141B /* UIKit+Extension.swift */; };
 		966792931C3682070027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
 		966792941C3683190027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
@@ -75,6 +76,7 @@
 		962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_WeiBo_stroyboardUITests.swift; sourceTree = "<group>"; };
 		962668251C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
+		96413B571C38C3C100083D0F /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		9667925F1C36288C0027141B /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+Extension.swift"; path = "../../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/UIKit+Extension.swift"; sourceTree = "<group>"; };
 		966792921C3682070027141B /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessToken.swift; path = ../Tools/AccessToken.swift; sourceTree = "<group>"; };
 		966792951C36A9B50027141B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				9667929D1C36B4420027141B /* HomeViewController.swift */,
+				96413B571C38C3C100083D0F /* StatusCell.swift */,
 				9667929E1C36B4420027141B /* Home.storyboard */,
 			);
 			path = Home;
@@ -522,6 +525,7 @@
 				966BF29F1C37FA8B00AD1879 /* SwiftDictModel.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
 				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
+				96413B581C38C3C100083D0F /* StatusCell.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 				966792931C3682070027141B /* AccessToken.swift in Sources */,
