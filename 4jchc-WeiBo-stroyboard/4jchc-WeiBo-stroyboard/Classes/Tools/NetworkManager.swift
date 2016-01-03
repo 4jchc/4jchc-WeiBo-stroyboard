@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-import SimpleNetwork
 
 ///  网路访问接口 - 单例
 ///  用来隔离应用程序和第三方框架之间的网络访问

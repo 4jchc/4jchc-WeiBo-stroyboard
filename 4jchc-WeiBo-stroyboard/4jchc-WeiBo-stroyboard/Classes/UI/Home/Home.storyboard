@@ -75,6 +75,52 @@
                                                 <constraint firstAttribute="height" constant="21" id="Zwb-xc-nSi"/>
                                             </constraints>
                                         </imageView>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7D8-MJ-NMd">
+                                            <rect key="frame" x="8" y="115" width="290" height="90"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.85347861840000006" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="290" id="B7B-Dq-hTL"/>
+                                                <constraint firstAttribute="height" constant="90" id="qEu-zT-2VB"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rsa-hh-7ha">
+                                                <size key="itemSize" width="90" height="90"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="oxX-Ux-38A" customClass="PictureCell" customModule="_jchc_WeiBo_stroyboard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-Vl-vbP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                                <animations/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <animations/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstItem="WsG-Vl-vbP" firstAttribute="top" secondItem="oxX-Ux-38A" secondAttribute="top" id="9kS-Qe-7Cr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WsG-Vl-vbP" secondAttribute="bottom" id="XNW-re-qif"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WsG-Vl-vbP" secondAttribute="trailing" id="YUK-61-lGv"/>
+                                                        <constraint firstItem="WsG-Vl-vbP" firstAttribute="leading" secondItem="oxX-Ux-38A" secondAttribute="leading" id="ZlI-mI-yRi"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="imageView" destination="WsG-Vl-vbP" id="BDd-CM-ieN"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="qXJ-vY-B4L" id="Cnl-O8-P9c"/>
+                                            </connections>
+                                        </collectionView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -82,6 +128,8 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="v1b-hC-Eqd" secondAttribute="trailing" constant="534" id="4vN-eN-WSq"/>
                                         <constraint firstItem="0Qh-eL-Ric" firstAttribute="leading" secondItem="hWp-7i-fhS" secondAttribute="trailing" constant="22" id="52I-2C-uqw"/>
                                         <constraint firstItem="Zgb-12-6lI" firstAttribute="leading" secondItem="6xJ-aG-Wup" secondAttribute="trailing" constant="14" id="8Pk-ax-DM5"/>
+                                        <constraint firstItem="7D8-MJ-NMd" firstAttribute="leading" secondItem="0IU-1Y-hW0" secondAttribute="leading" id="FyP-Ex-euX"/>
+                                        <constraint firstItem="7D8-MJ-NMd" firstAttribute="top" secondItem="0IU-1Y-hW0" secondAttribute="bottom" constant="21" id="KU5-R9-6c3"/>
                                         <constraint firstItem="v1b-hC-Eqd" firstAttribute="leading" secondItem="gce-jk-aPu" secondAttribute="leading" constant="8" id="QQ6-Xl-s5a"/>
                                         <constraint firstItem="hWp-7i-fhS" firstAttribute="top" secondItem="v1b-hC-Eqd" secondAttribute="top" constant="2" id="QYn-gV-ZD2"/>
                                         <constraint firstItem="hWp-7i-fhS" firstAttribute="leading" secondItem="v1b-hC-Eqd" secondAttribute="trailing" constant="14" id="STS-AZ-hwz"/>
@@ -101,6 +149,10 @@
                                     <outlet property="iconImage" destination="v1b-hC-Eqd" id="Vab-pZ-AS6"/>
                                     <outlet property="memberIcon" destination="0Qh-eL-Ric" id="wBD-gj-mpy"/>
                                     <outlet property="nameLabel" destination="hWp-7i-fhS" id="6kH-Af-C67"/>
+                                    <outlet property="pictureView" destination="7D8-MJ-NMd" id="qPj-Zk-5ZQ"/>
+                                    <outlet property="pictureViewHeight" destination="qEu-zT-2VB" id="Xzf-x3-04W"/>
+                                    <outlet property="pictureViewLayout" destination="rsa-hh-7ha" id="Qgl-39-GqK"/>
+                                    <outlet property="pictureViewWidth" destination="B7B-Dq-hTL" id="vI2-vk-qks"/>
                                     <outlet property="sourceLabel" destination="Zgb-12-6lI" id="18l-sv-B8l"/>
                                     <outlet property="timeLabel" destination="6xJ-aG-Wup" id="LDm-xa-dPx"/>
                                     <outlet property="vipIcon" destination="Ghv-nv-lf7" id="TPa-D5-QNJ"/>
