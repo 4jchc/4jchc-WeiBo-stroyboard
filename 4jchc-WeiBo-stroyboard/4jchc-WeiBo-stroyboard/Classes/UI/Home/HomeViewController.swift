@@ -44,7 +44,7 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: 表格数据源 & 代理扩展
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("内容为内容为*****\(self.statusData)")
         
@@ -63,7 +63,24 @@ class HomeViewController: UITableViewController {
         return cell
     }
 
-
+    // 行高的处理
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        // 提示：查询可重用cell不要使用 indexPath
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell") as! StatusCell
+        let status = self.statusData!.statuses![indexPath.row]
+        
+        return cell.cellHeight(status)
+    }
+    
+    // 预估行高，可以提高性能
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 300
+    }
 
 
 }
+
+
+
+

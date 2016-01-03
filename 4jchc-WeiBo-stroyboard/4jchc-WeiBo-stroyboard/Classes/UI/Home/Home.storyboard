@@ -236,6 +236,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
+                                    <outlet property="bottomToolView" destination="Tcx-nL-2DX" id="rar-U6-PCF"/>
                                     <outlet property="contentLabel" destination="0IU-1Y-hW0" id="8Op-Ju-phV"/>
                                     <outlet property="iconImage" destination="v1b-hC-Eqd" id="Vab-pZ-AS6"/>
                                     <outlet property="memberIcon" destination="0Qh-eL-Ric" id="wBD-gj-mpy"/>

@@ -39,8 +39,8 @@ class StatusCell: UITableViewCell {
     
     
 
-//    /// 底部工具视图
-//    @IBOutlet weak var bottomToolView: UIView!
+    /// 底部工具视图
+    @IBOutlet weak var bottomToolView: UIView!
 //    /// 转发微博文本
 //    @IBOutlet weak var forwardLabel: UILabel!
     
@@ -100,18 +100,18 @@ class StatusCell: UITableViewCell {
     }
     
     
-//    ///  返回微博数据对应的行高
-//    func cellHeight(status: Status) -> CGFloat {
-//        
-//        // 设置微博数据
-//        self.status = status
-//        
-//        // 强制更新布局
-//        layoutIfNeeded()
-//        
-//        // 返回工具视图底部的高度
-//        return CGRectGetMaxY(bottomToolView.frame)
-//    }
+    ///  返回微博数据对应的行高
+    func cellHeight(status: Status) -> CGFloat {
+        
+        // 设置微博数据
+        self.status = status
+        
+        // 强制更新布局
+        layoutIfNeeded()
+        
+        // 返回工具视图底部的高度
+        return CGRectGetMaxY(bottomToolView.frame)
+    }
     
     
     
