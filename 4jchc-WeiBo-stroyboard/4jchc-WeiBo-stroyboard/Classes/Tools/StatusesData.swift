@@ -136,7 +136,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     var pic_urls: [StatusPictureURL]?
     /// 用户信息
     var user: UserInfo?
-    /// 转发微博
+    /// 转发微博，如果有就是转发微博，如果没有就是原创微博
     var retweeted_status: Status?
     
     /// 要显示的配图数组

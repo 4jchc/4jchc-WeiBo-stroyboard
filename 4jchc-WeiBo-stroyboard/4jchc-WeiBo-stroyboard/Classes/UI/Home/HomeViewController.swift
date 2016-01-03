@@ -54,9 +54,13 @@ class HomeViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! StatusCell
         
-        let status = self.statusData!.statuses![indexPath.row] as Status
+        // 根据微博数据判断可重用标识符
+        let status = self.statusData!.statuses![indexPath.row]
+        let cellId = StatusCell.cellIdentifier(status)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! StatusCell
+
 
         cell.status = status
         
@@ -67,8 +71,12 @@ class HomeViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         // 提示：查询可重用cell不要使用 indexPath
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell") as! StatusCell
+
         let status = self.statusData!.statuses![indexPath.row]
+        
+        let cellId = StatusCell.cellIdentifier(status)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as! StatusCell
         
         return cell.cellHeight(status)
     }
