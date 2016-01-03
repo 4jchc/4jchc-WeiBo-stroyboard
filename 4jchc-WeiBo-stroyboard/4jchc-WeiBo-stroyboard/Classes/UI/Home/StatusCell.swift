@@ -42,7 +42,7 @@ class StatusCell: UITableViewCell {
     /// 底部工具视图
     @IBOutlet weak var bottomToolView: UIView!
 //    /// 转发微博文本
-//    @IBOutlet weak var forwardLabel: UILabel!
+    @IBOutlet weak var forwardLabel: UILabel!
     
     
     
@@ -81,10 +81,10 @@ class StatusCell: UITableViewCell {
             // 重新刷新配图视图 － 强制数据源方法重新执行
             pictureView.reloadData()
 
-//            // 设置转发微博文字
-//            if status?.retweeted_status != nil {
-//                forwardLabel.text = status!.retweeted_status!.user!.name! + ":" + status!.retweeted_status!.text!
-//            }
+            // 设置转发微博文字
+            if status?.retweeted_status != nil {
+                forwardLabel.text = status!.retweeted_status!.user!.name! + ":" + status!.retweeted_status!.text!
+            }
         }
     }
     
@@ -124,7 +124,7 @@ class StatusCell: UITableViewCell {
         // 设置微博正文换行的宽度
         contentLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 30
         // 如果是原创微博 cell 中不包含 forwardLabel
-        //forwardLabel?.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 30
+        forwardLabel?.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 30
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

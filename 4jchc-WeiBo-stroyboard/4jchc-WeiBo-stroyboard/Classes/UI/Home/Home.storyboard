@@ -528,6 +528,7 @@
                                 <connections>
                                     <outlet property="bottomToolView" destination="MQp-nY-cw3" id="AqC-dy-qGU"/>
                                     <outlet property="contentLabel" destination="hL5-Zq-9ys" id="Jok-4O-es3"/>
+                                    <outlet property="forwardLabel" destination="nbO-j6-c3R" id="ZBV-FV-1Kl"/>
                                     <outlet property="iconImage" destination="1Iq-5c-SAp" id="sIr-bF-2fW"/>
                                     <outlet property="memberIcon" destination="zC6-ux-HwB" id="FC7-0C-Fek"/>
                                     <outlet property="nameLabel" destination="Iux-uL-U1I" id="d9K-Zu-0D8"/>
