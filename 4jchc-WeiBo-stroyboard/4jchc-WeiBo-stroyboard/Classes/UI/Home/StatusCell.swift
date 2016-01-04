@@ -141,8 +141,6 @@ class StatusCell: UITableViewCell {
 
 
 
-
-
 ///  配图视图数据源方法
 extension StatusCell: UICollectionViewDataSource,UICollectionViewDelegate {
     
@@ -154,6 +152,7 @@ extension StatusCell: UICollectionViewDataSource,UICollectionViewDelegate {
             // 判断 `tablViewCell` 是否有闭包
             // ** 如果视图与用户发生交互，应该想办法将消息传递给视图控制器
             if self.photoDidSelected != nil {
+                
                 // 执行闭包
                 self.photoDidSelected!(status: status!, photoIndex: indexPath.item)
             }

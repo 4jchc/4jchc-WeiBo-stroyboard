@@ -74,18 +74,21 @@ class HomeViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(info.cellId, forIndexPath: indexPath) as! StatusCell
         
+
         // 判断表格的闭包是否被设置
         if cell.photoDidSelected == nil {
             
-    
+            weak var weakSelf = self
+
             // 设置闭包
-            cell.photoDidSelected = { (status: Status, photoIndex: Int)->() in
+            cell.photoDidSelected = { (status: Status, photoIndex: Int) in
                 
                 // 使用类方法调用，不需要知道视图控制器太多的内部细节
                 let vc = PhotoBrowserViewController.photoBrowserViewController()
-                vc.urls = info.status.largeUrls
+                
+                vc.urls = status.largeUrls
                 vc.selectedIndex = photoIndex
-                self.presentViewController(vc, animated: true, completion: nil)
+                weakSelf!.presentViewController(vc, animated: true, completion: nil)
 
             }
         }

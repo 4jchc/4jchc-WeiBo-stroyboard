@@ -81,10 +81,11 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) 
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
         
         cell.backgroundColor = UIColor(red: random(), green: random(), blue: random(), alpha: 1.0)
-        
+        // 设置 cell 的 urlString
+        cell.urlString = urls![indexPath.item]
         return cell
     }
     
@@ -136,12 +137,12 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         // 0. 计算图像的宽高比
         
         // 1. 计算图像和屏幕的宽高比
-        var wScale = size.width / self.bounds.size.width
-        var hScale = size.height / self.bounds.size.height
+//        var wScale = size.width / self.bounds.size.width
+//        var hScale = size.height / self.bounds.size.height
         
         // 2. 宽度和高度
-        //        var w = self.bounds.size.width
-        //        var h = self.bounds.size.height
+//                var w = self.bounds.size.width
+//                var h = self.bounds.size.height
         let w = size.width
         let h = size.height
         
@@ -161,15 +162,7 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         //        }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     // ** cell 的大小是 50 * 50，完全没有设置
     override func awakeFromNib() {
         print("\(__FUNCTION__) \(self.bounds)")
@@ -192,10 +185,8 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         // 设置滚动视图的大小
         scrollView!.frame = self.bounds
     }
-    
+
 }
-
-
 
 
 

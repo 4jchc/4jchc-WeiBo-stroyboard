@@ -20,10 +20,14 @@ extension String  {
         let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
         
         CC_MD5(str!, strLen, result)
-        
-        let hash = NSMutableString()
+
+        var hash = String()
+        //let hash = NSMutableString()
         for i in 0..<digestLen {
-            hash.appendFormat("%02x", result[i])
+            
+            hash += String(format: "%02x", arguments: [result[i]])
+            
+            //hash.appendFormat("%02x", result[i])
         }
         
         result.dealloc(digestLen)
