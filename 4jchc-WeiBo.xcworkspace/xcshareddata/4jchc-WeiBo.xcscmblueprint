@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0B126B5F5803F4030E7820E02F3FAA5646C14E49",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0982A900DC4067090E9FD09FAA500E3433FE87D2" : 0,
+    "0B126B5F5803F4030E7820E02F3FAA5646C14E49" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "29BCEE6F-B8E8-470A-9DF2-DC29BBC91168",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0982A900DC4067090E9FD09FAA500E3433FE87D2" : "4jchc-Extension\/",
+    "0B126B5F5803F4030E7820E02F3FAA5646C14E49" : "4jchc-WeiBo-stroyboard\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "4jchc-WeiBo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "4jchc-WeiBo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/4jchc\/4jchc-Extension.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0982A900DC4067090E9FD09FAA500E3433FE87D2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/4jchc\/4jchc-WeiBo-stroyboard.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B126B5F5803F4030E7820E02F3FAA5646C14E49"
+    }
+  ]
+}
