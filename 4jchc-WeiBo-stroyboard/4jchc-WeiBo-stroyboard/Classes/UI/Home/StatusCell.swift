@@ -106,7 +106,8 @@ class StatusCell: UITableViewCell {
         // 设置微博数据
         self.status = status
         
-        // 强制更新布局
+        // 强制更新布局 - 如果执行非常频繁，性能并不好！
+        // 计算行高的方法应该尽量简单！
         layoutIfNeeded()
         
         // 返回工具视图底部的高度

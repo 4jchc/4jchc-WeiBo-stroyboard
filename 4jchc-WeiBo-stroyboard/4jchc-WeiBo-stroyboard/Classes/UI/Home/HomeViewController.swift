@@ -16,6 +16,11 @@ class HomeViewController: UITableViewController {
         loadData()
     }
     
+    /// 行高缓存
+    lazy var rowHeightCache: NSCache? = {
+        return NSCache()
+    }()
+    
     
     /// 微博数据
     var statusData: StatusesData?
@@ -111,6 +116,22 @@ class HomeViewController: UITableViewController {
 //        return cell
 //    }
 
+    
+    
+    
+    // 行高的处理，即使有预估行高，仍然会计算三次！只计算一次！
+    /**
+    缓存：NSCache
+    1. 使用和 NSDictionary 非常类似
+    2. 线程安全的
+    3. 如果内存紧张，会自动释放
+    
+    要缓存的信息：行高，什么来做 key? － 微博 id
+    ** 使用 NSCache
+    * 如果使用 NSCache，需要保证，对象即使被释放，仍然能够再次创建！
+    * 使用 NSCache 一定要注意 key，对于表格应用，要尽量不要用 indexPath
+    一旦下拉刷新或者上拉刷新，所有的数据需要重新计算！
+    */
     // 行高的处理
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
@@ -118,9 +139,21 @@ class HomeViewController: UITableViewController {
         // 提取cell信息
         let info = cellInfo(indexPath)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(info.cellId) as! StatusCell
+        // 判断是否已经缓存了行高
+        if let h = rowHeightCache?.objectForKey("\(info.status.id)") as? NSNumber {
+            print("从缓存返回 \(h)")
+            return CGFloat(h.floatValue)
+        } else {
+            print("计算行高 \(__FUNCTION__) \(indexPath)")
+            let cell = tableView.dequeueReusableCellWithIdentifier(info.cellId) as! StatusCell
+            let height = cell.cellHeight(info.status)
+            
+            // 将行高添加到缓存 - swift 中向 NSCache/NSArray/NSDictrionary 中添加数值不需要包装
+            rowHeightCache!.setObject(height, forKey: "\(info.status.id)")
+            
+            return height//cell.cellHeight(info.status)
+        }
         
-        return cell.cellHeight(info.status)
         
     }
     

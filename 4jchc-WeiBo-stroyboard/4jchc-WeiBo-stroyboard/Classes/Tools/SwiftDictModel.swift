@@ -48,10 +48,10 @@ public class DictModelManager {
     ///
     ///  - returns: 模型对象
     public func objectWithDictionary(dict: NSDictionary, cls: AnyClass) -> AnyObject? {
-        
+        //***********************************************************
         // 动态获取命名空间
         let ns = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
-        print("-NSClassFromString----\(ns + "." + "DictModelManager")")
+
         
         if  let i = NSClassFromString(ns + "." + "DictModelManager"){
             
@@ -60,6 +60,10 @@ public class DictModelManager {
         
         
         print("\(NSClassFromString("DictModelManager"))")
+        //***********************************************************
+        
+        
+        
         // 1. 模型信息
         let infoDict = fullModelInfo(cls)
         

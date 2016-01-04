@@ -41,6 +41,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="IyG-9k-KqI" id="HaF-Cz-TPF"/>
+                                    <outlet property="delegate" destination="IyG-9k-KqI" id="OWe-5Y-OFD"/>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAk-Iz-4eB">

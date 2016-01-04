@@ -97,7 +97,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-Vl-vbP">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-Vl-vbP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                 <animations/>
                                                             </imageView>
@@ -365,7 +365,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tll-H7-SND">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tll-H7-SND">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                 <animations/>
                                                             </imageView>
