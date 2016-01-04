@@ -139,19 +139,32 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     /// 转发微博，如果有就是转发微博，如果没有就是原创微博
     var retweeted_status: Status?
     
+
+    
     /// 要显示的配图数组
     /// 如果是原创微博，就使用 pic_urls
     /// 如果是转发微博，使用 retweeted_status.pic_urls
     var pictureUrls: [StatusPictureURL]? {
-        if retweeted_status != nil {
-            return retweeted_status?.pic_urls
-        } else {
-            return pic_urls
+        get {
+            if retweeted_status != nil {
+                return retweeted_status?.pic_urls
+            } else {
+                return pic_urls
+            }
+        }
+    }
+    
+    /// 所有大图的 URL － 计算属性
+    var largeUrls: [String]? {
+        get {
+            // 可以使用 kvc 直接拿值
+            let urls = self.valueForKeyPath("pictureUrls.large_pic") as? NSArray
+            return urls as? [String]
         }
     }
     
     
-    
+
     static func customClassMapping() -> [String : String]? {
         return ["pic_urls": "\(StatusPictureURL.self)",
         "user": "\(UserInfo.self)",
@@ -164,13 +177,35 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
 
 
 ///  微博配图模型
-@objc(StatusPictureURL) class StatusPictureURL: NSObject,DictModelProtocol {
+@objc(StatusPictureURL) class StatusPictureURL: NSObject {
+    
     ///  缩略图 URL
-    var thumbnail_pic: String?
-    static func customClassMapping() -> [String : String]? {
-        return nil
+    var thumbnail_pic: String? {
+        didSet {
+            // 生成大图的 URL，将 thumbnail_pic 替换成 large
+            // 1. 定义一个字符串
+            let str = thumbnail_pic! as NSString
+            // 2. 直接替换字符串
+            large_pic = str.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+            
+            
+//            // 1. 查找thumbnail_pic在字符串中出现的范围
+//            let range = (str).rangeOfString("thumbnail")
+//            // 3. 处理字符串
+//            // 判断是否找打对应的字符串
+//            if range.location != NSNotFound {
+//                // 拼接大图 url 地址
+//                large_pic = str.substringToIndex(range.location) + "large" + str.substringFromIndex(range.location + range.length)
+//            }
+  
+        }
     }
+    
+    ///  大图 URL
+    var large_pic: String?
 }
+
+
 
 
 

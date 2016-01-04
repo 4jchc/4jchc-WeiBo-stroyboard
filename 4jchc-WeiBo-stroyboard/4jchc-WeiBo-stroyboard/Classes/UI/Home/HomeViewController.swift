@@ -78,7 +78,8 @@ class HomeViewController: UITableViewController {
                 
                 // 使用类方法调用，不需要知道视图控制器太多的内部细节
                 let vc = PhotoBrowserViewController.photoBrowserViewController()
-                
+                vc.urls = info.status.largeUrls
+                vc.selectedIndex = photoIndex
                 self.presentViewController(vc, animated: true, completion: nil)
 
             }
