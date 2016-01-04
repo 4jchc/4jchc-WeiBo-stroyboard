@@ -39,6 +39,8 @@
 		966BF2A11C38030D00AD1879 /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */; };
 		96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
 		96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96780EFD1C356AD1006A1555 /* NetworkManager.swift */; };
+		968969391C3A1E3100EAF75B /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968969381C3A1E3100EAF75B /* PhotoBrowserViewController.swift */; };
+		9689693B1C3A1E4100EAF75B /* PhotoBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9689693A1C3A1E4100EAF75B /* PhotoBrowser.storyboard */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
 		96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
 		96C56A311C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
@@ -101,6 +103,8 @@
 		966BF29D1C37FA8B00AD1879 /* SwiftDictModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDictModel.swift; sourceTree = "<group>"; };
 		966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNetwork.swift; sourceTree = "<group>"; };
 		96780EFD1C356AD1006A1555 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		968969381C3A1E3100EAF75B /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		9689693A1C3A1E4100EAF75B /* PhotoBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoBrowser.storyboard; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
@@ -223,8 +227,9 @@
 		96389A6F1C352F7A008B5EDD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				968969371C3A1DA200EAF75B /* PhotoBrowser(照片浏览器) */,
 				966792AD1C36B4FE0027141B /* Compose(撰写微博) */,
-				96389A701C352F7A008B5EDD /* Discover */,
+				96389A701C352F7A008B5EDD /* Discover(发现) */,
 				96389A711C352F7A008B5EDD /* Home */,
 				96389A721C352F7A008B5EDD /* Main */,
 				96389A751C352F7A008B5EDD /* Message */,
@@ -234,12 +239,13 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		96389A701C352F7A008B5EDD /* Discover */ = {
+		96389A701C352F7A008B5EDD /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
 				966792A11C36B48A0027141B /* DiscoverViewController.swift */,
 				966792A21C36B48A0027141B /* Discover.storyboard */,
 			);
+			name = "Discover(发现)";
 			path = Discover;
 			sourceTree = "<group>";
 		};
@@ -306,6 +312,15 @@
 				966792AF1C36B5250027141B /* ComposeViewController.swift */,
 			);
 			path = "Compose(撰写微博)";
+			sourceTree = "<group>";
+		};
+		968969371C3A1DA200EAF75B /* PhotoBrowser(照片浏览器) */ = {
+			isa = PBXGroup;
+			children = (
+				968969381C3A1E3100EAF75B /* PhotoBrowserViewController.swift */,
+				9689693A1C3A1E4100EAF75B /* PhotoBrowser.storyboard */,
+			);
+			path = "PhotoBrowser(照片浏览器)";
 			sourceTree = "<group>";
 		};
 		A0D66FE29AE892BDD3BCDA8A /* Pods */ = {
@@ -435,6 +450,7 @@
 				9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */,
 				96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */,
 				9667929C1C36B3B50027141B /* Message.storyboard in Resources */,
+				9689693B1C3A1E4100EAF75B /* PhotoBrowser.storyboard in Resources */,
 				966792AC1C36B4B30027141B /* Main.storyboard in Resources */,
 				966792A01C36B4420027141B /* Home.storyboard in Resources */,
 				966792981C36A9C90027141B /* Profile.storyboard in Resources */,
@@ -518,6 +534,7 @@
 				966792AB1C36B4B30027141B /* MainTabBar.swift in Sources */,
 				966792A31C36B48A0027141B /* DiscoverViewController.swift in Sources */,
 				966BF29E1C37FA8B00AD1879 /* String+Hash.swift in Sources */,
+				968969391C3A1E3100EAF75B /* PhotoBrowserViewController.swift in Sources */,
 				966792961C36A9B50027141B /* ProfileViewController.swift in Sources */,
 				966792AA1C36B4B30027141B /* MainTabBarController.swift in Sources */,
 				966792601C36288C0027141B /* UIKit+Extension.swift in Sources */,

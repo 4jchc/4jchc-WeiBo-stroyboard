@@ -38,15 +38,14 @@ class HomeViewController: UITableViewController {
                 // 刷新表格数据
                 self.statusData = data
                 self.tableView.reloadData()
-                 print("内*****\(data)")
-                print("内容为内*****\(self.statusData)")
+
             }
         }
     }
 
     // MARK: 表格数据源 & 代理扩展
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("内容为内容为*****\(self.statusData)")
+ 
         
         return self.statusData?.statuses?.count ?? 0
 
@@ -76,7 +75,12 @@ class HomeViewController: UITableViewController {
     
             // 设置闭包
             cell.photoDidSelected = { (status: Status, photoIndex: Int)->() in
-                print("\(status.text) \(photoIndex)")
+                
+                // 使用类方法调用，不需要知道视图控制器太多的内部细节
+                let vc = PhotoBrowserViewController.photoBrowserViewController()
+                
+                self.presentViewController(vc, animated: true, completion: nil)
+
             }
         }
         
