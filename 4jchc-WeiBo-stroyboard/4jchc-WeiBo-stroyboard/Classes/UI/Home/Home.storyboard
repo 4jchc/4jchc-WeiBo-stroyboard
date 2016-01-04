@@ -119,6 +119,7 @@
                                             </cells>
                                             <connections>
                                                 <outlet property="dataSource" destination="qXJ-vY-B4L" id="Cnl-O8-P9c"/>
+                                                <outlet property="delegate" destination="qXJ-vY-B4L" id="gbq-do-FVq"/>
                                             </connections>
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcx-nL-2DX">
@@ -386,6 +387,7 @@
                                             </cells>
                                             <connections>
                                                 <outlet property="dataSource" destination="VE1-S4-NWj" id="ht2-b3-ZCK"/>
+                                                <outlet property="delegate" destination="VE1-S4-NWj" id="aHE-yR-bKg"/>
                                             </connections>
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQp-nY-cw3">

@@ -132,6 +132,9 @@ class StatusCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // 定义照片被选择的闭包（参数：选中的微博数据&照片索引）
+    var photoDidSelected: ((status: Status, photoIndex: Int)->())?
 }
 
 
@@ -140,8 +143,25 @@ class StatusCell: UITableViewCell {
 
 
 ///  配图视图数据源方法
-extension StatusCell: UICollectionViewDataSource {
+extension StatusCell: UICollectionViewDataSource,UICollectionViewDelegate {
     
+    
+        /// cell 被选中方法
+        func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+            
+            // 把点击事件传递给 tableViewCell
+            // 判断 `tablViewCell` 是否有闭包
+            // ** 如果视图与用户发生交互，应该想办法将消息传递给视图控制器
+            if self.photoDidSelected != nil {
+                // 执行闭包
+                self.photoDidSelected!(status: status!, photoIndex: indexPath.item)
+            }
+            
+            print("\(indexPath) \(self)")
+        }
+    
+    
+
     ///  配图数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 配图的数量

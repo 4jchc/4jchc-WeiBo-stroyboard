@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftDictModel
+
 
 /**
     关于业务模型

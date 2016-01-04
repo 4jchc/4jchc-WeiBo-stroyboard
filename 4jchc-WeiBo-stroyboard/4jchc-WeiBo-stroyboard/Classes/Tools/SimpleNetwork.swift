@@ -130,11 +130,13 @@ public class SimpleNetwork {
     ///  - parameter completion: 完成回调
     func downloadImage(urlString: String, _ completion: Completion) {
         
-        // 1. 将下载的图像 url 进行 md5
-        var path = urlString.md5
-        // 2. 目标路径
+//        // 1. 将下载的图像 url 进行 md5
+//        var path = urlString.md5
+//        // 2. 目标路径
+//        path = (cachePath! as NSString).stringByAppendingPathComponent(path)
         
-        path = (cachePath! as NSString).stringByAppendingPathComponent(path)
+        let path = fullImageCachePath(urlString)
+        
         
         // 2.1 缓存检测，如果文件已经下载完成直接返回
         if NSFileManager.defaultManager().fileExistsAtPath(path) {

@@ -9,7 +9,6 @@
 import UIKit
 
 
-import SwiftDictModel
 
 // 定义全局常量
 let WB_Login_Successed_Notification = "WB_Login_Successed_Notification"

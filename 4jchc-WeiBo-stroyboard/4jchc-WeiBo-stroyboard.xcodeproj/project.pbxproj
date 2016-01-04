@@ -13,6 +13,8 @@
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
 		962668241C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668231C33B16500BDD8FE /* _jchc_WeiBo_stroyboardUITests.swift */; };
 		96413B581C38C3C100083D0F /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96413B571C38C3C100083D0F /* StatusCell.swift */; };
+		96413B591C3928B600083D0F /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */; };
+		96413B5A1C3931AD00083D0F /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF29C1C37FA8B00AD1879 /* String+Hash.swift */; };
 		966792601C36288C0027141B /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667925F1C36288C0027141B /* UIKit+Extension.swift */; };
 		966792931C3682070027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
 		966792941C3683190027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
@@ -538,8 +540,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96413B591C3928B600083D0F /* SimpleNetwork.swift in Sources */,
 				96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */,
 				96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */,
+				96413B5A1C3931AD00083D0F /* String+Hash.swift in Sources */,
 				96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 				966792941C3683190027141B /* AccessToken.swift in Sources */,
