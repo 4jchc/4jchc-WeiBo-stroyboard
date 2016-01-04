@@ -73,6 +73,7 @@ public class SimpleNetwork {
                 
                 // 提示：尾随闭包，如果没有参数，没有返回值，都可以省略！
                 dispatch_async(dispatch_get_main_queue()) {
+                    
                     completion(result: image, error: nil)
                 }
             }
