@@ -125,16 +125,67 @@ class PhotoCell: UICollectionViewCell {
                 
                 print(result)
                 if result != nil {
-                    // 设置图像
-                    self.imageView!.image = result as? UIImage
                     
-                    self.imageView!.sizeToFit()
+                    if let image = result as? UIImage {
+                        // 设置图像
+                        self.setupImageView(image)
+                    
+//                    self.imageView!.image = result as? UIImage
+//                    
+//                    self.imageView!.sizeToFit()
 //                    let image = result as! UIImage
 //                    self.calcImageSize(image.size)
                 }
             }
         }
     }
+    
+}
+    ///  根据图像设置图像视图
+    /**
+    网络图片的类型
+    - 长图
+    - 短图
+    
+    1. 如何区分长图还是短图！
+    - 都以宽度为基准缩放
+    - 如果高度没有屏幕高，就是短图，垂直居中
+    - 如果高度超出屏幕，就是长图，顶端对齐，方便滚动
+    
+    */
+    func setupImageView(image: UIImage) {
+        // 1. 准备参数
+        let imageSize = image.size
+        let screenSize = self.bounds.size
+        
+        // 2. 按照宽度进行缩放，目标宽度 screenSize.width
+        // 只需要计算目标高度
+        let h = screenSize.width / imageSize.width * imageSize.height
+        
+        // 直接设置看结果
+        let rect = CGRectMake(0, 0, screenSize.width, h)
+        imageView!.frame = rect
+        imageView!.image = image
+        scrollView!.frame = self.bounds
+        
+        // 区分长图和短图
+        if rect.size.height > screenSize.height {
+            print("长图")
+            // 设置滚动区域
+            scrollView!.contentSize = rect.size
+        } else {
+            print("短图")
+            // 需要垂直居中，设置 inset
+            let y = (screenSize.height - h) * 0.5
+            scrollView?.contentInset = UIEdgeInsetsMake(y, 0, 0, 0)
+        }
+    }
+    
+    
+    
+    
+    
+    
     
     ///  计算图像大小
 //    func calcImageSize(size: CGSize) {
