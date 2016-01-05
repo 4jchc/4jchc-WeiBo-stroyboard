@@ -48,7 +48,6 @@ class PhotoBrowserViewController: UIViewController {
      7. viewDidAppear -> 视图已经出现
      */
     override func viewWillLayoutSubviews() {
-
     // 视图将要布局前，此时视图的 frame 已经是全屏的了
 
         print("\(__FUNCTION__) \(view.frame)")
@@ -62,13 +61,60 @@ class PhotoBrowserViewController: UIViewController {
         photoView.pagingEnabled = true
     }
     
+    override func viewDidLayoutSubviews() {
+        // 设置数据
+        print("\(__FUNCTION__)")
+        
+        /**
+         viewWillAppear 执行是在数据源方法执行之前就调用了，滚动视图是无法滚动的
+         ** viewWillLayoutSubviews - 这两个方法，在使用的时候，一定要仔细测试，涉及到和子视图数据联动的关系
+         ** viewDidLayoutSubviews  - 能够通知子视图直接切换界面
+         数据源
+         awakeFromNib - 加载 cell，开始下载图像 - 直接下载第0张图片
+         cell - layoutSubviews
+         viewDidAppear - collectionView 滚动，就会出现图片切换的效果！
+         */
+        let indexPath = NSIndexPath(forItem: selectedIndex, inSection: 0)
+        photoView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: false)
+        
+    }
+    
     // 关闭
     @IBAction func close() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // 保存到相册
+    @IBAction func save() {
+        print("save")
+        
+        // 1. 拿到图片 － 从 collectionView 中取出当前显示的图片
+        if let indexPath = photoView.indexPathsForVisibleItems().last {
+            
+            // 2. 根据索引取 cell
+            let cell = photoView.cellForItemAtIndexPath(indexPath) as! PhotoCell
+            
+            // 3. 从 cell 中取出图片
+            if let image = cell.imageView?.image {
+                // 4. 保存图像
+                UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+            }
+        }
+    }
+
+    // 保存到相册的回调
+    // - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        
+        if error != nil {
+            SVProgressHUD.showInfoWithStatus("保存出错")
+        } else {
+            SVProgressHUD.showInfoWithStatus("保存成功")
+        }
+    }
+    
+    
 }
-
-
 
 
 ///  UICollectionView 的数据源方法
