@@ -98,7 +98,7 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 
 //MARK: - 照片浏览的 cell
 ///  照片浏览的 cell
-class PhotoCell: UICollectionViewCell {
+class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
     
     /// 单张图片缩放的滚动视图
     var scrollView: UIScrollView?
@@ -153,7 +153,14 @@ class PhotoCell: UICollectionViewCell {
     - 如果高度超出屏幕，就是长图，顶端对齐，方便滚动
     
     */
+    /// 是否是短图的标记
+    var isShortImage = false
+    
     func setupImageView(image: UIImage) {
+        // 0. 将 scrollView 的滚动参数重置
+        scrollView?.contentOffset = CGPointZero
+        scrollView?.contentSize = CGSizeZero
+        scrollView?.contentInset = UIEdgeInsetsZero
         // 1. 准备参数
         let imageSize = image.size
         let screenSize = self.bounds.size
@@ -173,15 +180,31 @@ class PhotoCell: UICollectionViewCell {
             print("长图")
             // 设置滚动区域
             scrollView!.contentSize = rect.size
+             isShortImage = false
         } else {
             print("短图")
             // 需要垂直居中，设置 inset
             let y = (screenSize.height - h) * 0.5
             scrollView?.contentInset = UIEdgeInsetsMake(y, 0, 0, 0)
+            isShortImage = true
         }
     }
     
+    // MARK: - UIScrollView 代理方法
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
     
+    // 重新让图片居中 - 只有短图需要居中
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+        print("------ \(scrollView) \(view)")
+        if isShortImage {
+            // 如果是缩放视图，缩放完成后，bound和frame的大小是不一致的
+            let y = (frame.size.height - imageView!.frame.size.height) * 0.5
+            scrollView.contentInset = UIEdgeInsetsMake(y, 0, 0, 0)
+
+        }
+    }
     
     
     
@@ -226,7 +249,7 @@ class PhotoCell: UICollectionViewCell {
         // 创建界面元素
         scrollView = UIScrollView()
         self.addSubview(scrollView!)
-//        scrollView!.delegate = self
+        scrollView!.delegate = self
         scrollView!.maximumZoomScale = 2.0
         scrollView!.minimumZoomScale = 1
         
