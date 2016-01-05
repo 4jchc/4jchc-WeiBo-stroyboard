@@ -98,16 +98,20 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 
 //MARK: - 照片浏览的 cell
 ///  照片浏览的 cell
-class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
+class PhotoCell: UICollectionViewCell {
     
     /// 单张图片缩放的滚动视图
     var scrollView: UIScrollView?
     /// 显示图像的图像视图
     var imageView: UIImageView?
-    
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return imageView!
-    }
+    /// 图像的 URL - 函数会先于 layoutSubviews 函数执行
+    /**
+    - scrollview 的大小没有被设置
+    - cell 的大小已经被设置，由视图控制器 viewWillLayoutSubviews 函数中设置的 layout 的 itemsize 导致的！
+    */
+//    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+//        return imageView!
+//    }
     
     
     /// 图像的 URL
@@ -124,16 +128,16 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
                     // 设置图像
                     self.imageView!.image = result as? UIImage
                     
-                    //self.imageView!.sizeToFit()
-                    let image = result as! UIImage
-                    self.calcImageSize(image.size)
+                    self.imageView!.sizeToFit()
+//                    let image = result as! UIImage
+//                    self.calcImageSize(image.size)
                 }
             }
         }
     }
     
     ///  计算图像大小
-    func calcImageSize(size: CGSize) {
+//    func calcImageSize(size: CGSize) {
         // 0. 计算图像的宽高比
         
         // 1. 计算图像和屏幕的宽高比
@@ -143,16 +147,16 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         // 2. 宽度和高度
 //                var w = self.bounds.size.width
 //                var h = self.bounds.size.height
-        let w = size.width
-        let h = size.height
-        
-        imageView!.frame = bounds
-        if (h / w) > 2 {
-            imageView!.contentMode = UIViewContentMode.ScaleAspectFill
-            scrollView!.contentSize = size
-        } else {
-            imageView!.contentMode = .ScaleAspectFit
-        }
+//        let w = size.width
+//        let h = size.height
+//        
+//        imageView!.frame = bounds
+//        if (h / w) > 2 {
+//            imageView!.contentMode = UIViewContentMode.ScaleAspectFill
+//            scrollView!.contentSize = size
+//        } else {
+//            imageView!.contentMode = .ScaleAspectFit
+//        }
         
         //        if wScale > hScale {
         //            // 计算目标高度
@@ -161,15 +165,17 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         //            // 计算目标宽度
         //        }
         
-    }
+//    }
 
+    
+    
     // ** cell 的大小是 50 * 50，完全没有设置
     override func awakeFromNib() {
         print("\(__FUNCTION__) \(self.bounds)")
         // 创建界面元素
         scrollView = UIScrollView()
         self.addSubview(scrollView!)
-        scrollView!.delegate = self
+//        scrollView!.delegate = self
         scrollView!.maximumZoomScale = 2.0
         scrollView!.minimumZoomScale = 1
         
@@ -178,6 +184,7 @@ class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
         scrollView!.addSubview(imageView!)
     }
     
+     // 只有 cell 的布局发生变化的时候，才会被执行
     override func layoutSubviews() {
         super.layoutSubviews()
         
