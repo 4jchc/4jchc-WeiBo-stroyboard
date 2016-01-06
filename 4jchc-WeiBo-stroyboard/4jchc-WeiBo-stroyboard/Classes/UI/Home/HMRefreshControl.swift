@@ -202,63 +202,63 @@ class RefreshView: UIView {
         })
     }
     
-//    // MARK: - 上拉刷新部分代码
-//    // parentView 默认是强引用，会对视图控制器中的tableView进行强引用
-//    // OC 中设置代理，代理必须要使用 weak
-//    //    var parentView: UITableView?
-//    weak var parentView: UITableView?
-//    
-//    // 给 parentView 添加观察
-//    func addPullupOberserver(parentView: UITableView, pullupLoadData: ()->()) {
-//        
-//        // 1. 记录要观察的表格视图
-//        self.parentView = parentView
-//        
-//        // 2. 记录上拉加载数据的闭包
-//        self.pullupLoadData = pullupLoadData
-//        
-//        self.parentView!.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
-//    }
-//    
-//    // KVO 的代码
-//    /***
-//    使用观察者的时候，被观察对象释放之前，一定要先注销观察者！
-//    */
-//    deinit {
-//        print("刷新视图 88")
-//        // 注意** 不一定写在 deinit 中就一定保险的
-//        // EXC_BAD_INSTRUCTION OC 中的野指针！
-//        //        parentView!.removeObserver(self, forKeyPath: "contentOffset")
-//    }
-//    
-//    // 上拉加载数据标记
-//    var isPullupLoading = false
-//    // 上拉加载数据闭包
-//    var pullupLoadData: (()->())?
-//    
-//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        
-//        // 1. 如果在 tableView 的顶部，不进行刷新，直接返回
-//        if self.frame.origin.y == 0 {
-//            return
-//        }
-//        
-//        if (parentView!.bounds.size.height + parentView!.contentOffset.y) > CGRectGetMaxY(self.frame) {
-//            // 2. 保证上拉加载数据的判断只有一次是有效的
-//            if !isPullupLoading {
-//                print("上拉加载数据！！！")
-//                isPullupLoading = true
-//                
-//                // 播放转轮动画
-//                showLoading()
-//                
-//                // 3. 判断闭包是否存在，如果存在，执行闭包
-//                if pullupLoadData != nil {
-//                    pullupLoadData!()
-//                }
-//            }
-//        }
-//    }
+    // MARK: - 上拉刷新部分代码
+    // parentView 默认是强引用，会对视图控制器中的tableView进行强引用
+    // OC 中设置代理，代理必须要使用 weak
+    //    var parentView: UITableView?
+    weak var parentView: UITableView?
+    
+    // 给 parentView 添加观察
+    func addPullupOberserver(parentView: UITableView, pullupLoadData: ()->()) {
+        
+        // 1. 记录要观察的表格视图
+        self.parentView = parentView
+        
+        // 2. 记录上拉加载数据的闭包
+        self.pullupLoadData = pullupLoadData
+        
+        self.parentView!.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
+    }
+    
+    // KVO 的代码
+    /***
+    使用观察者的时候，被观察对象释放之前，一定要先注销观察者！
+    */
+    deinit {
+        print("刷新视图 88")
+        // 注意** 不一定写在 deinit 中就一定保险的
+        // EXC_BAD_INSTRUCTION OC 中的野指针！
+        //        parentView!.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
+    // 上拉加载数据标记
+    var isPullupLoading = false
+    // 上拉加载数据闭包
+    var pullupLoadData: (()->())?
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        // 1. 如果在 tableView 的顶部，不进行刷新，直接返回
+        if self.frame.origin.y == 0 {
+            return
+        }
+        
+        if (parentView!.bounds.size.height + parentView!.contentOffset.y) > CGRectGetMaxY(self.frame) {
+            // 2. 保证上拉加载数据的判断只有一次是有效的
+            if !isPullupLoading {
+                print("上拉加载数据！！！")
+                isPullupLoading = true
+                
+                // 播放转轮动画
+                showLoading()
+                
+                // 3. 判断闭包是否存在，如果存在，执行闭包
+                if pullupLoadData != nil {
+                    pullupLoadData!()
+                }
+            }
+        }
+    }
     
     
 }

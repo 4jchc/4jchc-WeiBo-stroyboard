@@ -12,7 +12,16 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 添加 tableView 的footer
+        tableView.tableFooterView = pullupView
+
+        // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
+        pullupView.addPullupOberserver(tableView) {
+            print("上拉加载数据啦～～～～～")
+            
+            self.pullupView.isPullupLoading = false
+            //            self.pullupView.stopLoading()
+        }
         self.loadData()
     }
     
@@ -20,7 +29,13 @@ class HomeViewController: UITableViewController {
     lazy var rowHeightCache: NSCache? = {
         return NSCache()
     }()
-    
+    lazy var pullupView: RefreshView = {
+        let v = NSBundle.mainBundle().loadNibNamed("HMRefreshView", owner: nil, options: nil).last as! RefreshView
+        v.tipView.hidden = true
+        v.loadingView.hidden = false
+        
+        return v
+    }()
     
     /// 微博数据
     var statusData: StatusesData?
