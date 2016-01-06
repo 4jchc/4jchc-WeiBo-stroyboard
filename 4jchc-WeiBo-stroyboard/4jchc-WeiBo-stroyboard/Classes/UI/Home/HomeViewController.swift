@@ -12,14 +12,17 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 添加 tableView 的footer，tableView会对 pullupView 强引用
         // 添加 tableView 的footer
         tableView.tableFooterView = pullupView
 
         // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
+        // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
+        weak var weakSelf = self
         pullupView.addPullupOberserver(tableView) {
             print("上拉加载数据啦～～～～～")
             
-            self.pullupView.isPullupLoading = false
+            weakSelf!.pullupView.isPullupLoading = false
             //            self.pullupView.stopLoading()
         }
         self.loadData()
@@ -40,7 +43,12 @@ class HomeViewController: UITableViewController {
     /// 微博数据
     var statusData: StatusesData?
     
-
+    deinit {
+        print("主页视图控制器被释放!!!!!!")
+        
+        // 主动释放加载刷新视图对tableView的观察
+        tableView.removeObserver(pullupView, forKeyPath: "contentOffset")
+    }
 
     ///  加载微博数据
     /**
@@ -53,7 +61,7 @@ class HomeViewController: UITableViewController {
 
         // 主动开始加载数据
         refreshControl?.beginRefreshing()
-        
+        weak var weakSelf = self
         StatusesData.loadStatus { (data, error) -> () in
             // 隐藏刷新控件
             self.refreshControl?.endRefreshing()
@@ -65,8 +73,8 @@ class HomeViewController: UITableViewController {
             }
             if data != nil {
                 // 刷新表格数据
-                self.statusData = data
-                self.tableView.reloadData()
+                weakSelf!.statusData = data
+                weakSelf!.tableView.reloadData()
             }
         }
     }
