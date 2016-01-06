@@ -145,11 +145,14 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 //MARK: - 照片浏览的 cell
 ///  照片浏览的 cell
 class PhotoCell: UICollectionViewCell,UIScrollViewDelegate {
-    
+    //MARK: - 纯代码
     /// 单张图片缩放的滚动视图
     var scrollView: UIScrollView?
     /// 显示图像的图像视图
     var imageView: UIImageView?
+    
+
+    
     /// 图像的 URL - 函数会先于 layoutSubviews 函数执行
     /**
     - scrollview 的大小没有被设置

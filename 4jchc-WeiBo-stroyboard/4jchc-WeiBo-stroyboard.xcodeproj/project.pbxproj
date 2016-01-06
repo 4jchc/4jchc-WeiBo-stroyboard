@@ -47,6 +47,8 @@
 		96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
 		96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
 		96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */; };
+		96ED35FD1C3CD85B00C56CFA /* HMRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED35FC1C3CD85B00C56CFA /* HMRefreshControl.swift */; };
+		96ED35FF1C3CD87800C56CFA /* HMRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED35FE1C3CD87800C56CFA /* HMRefreshView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewControllerTests.swift; sourceTree = "<group>"; };
+		96ED35FC1C3CD85B00C56CFA /* HMRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMRefreshControl.swift; sourceTree = "<group>"; };
+		96ED35FE1C3CD87800C56CFA /* HMRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMRefreshView.xib; sourceTree = "<group>"; };
 		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +259,8 @@
 				9667929D1C36B4420027141B /* HomeViewController.swift */,
 				96413B571C38C3C100083D0F /* StatusCell.swift */,
 				9667929E1C36B4420027141B /* Home.storyboard */,
+				96ED35FC1C3CD85B00C56CFA /* HMRefreshControl.swift */,
+				96ED35FE1C3CD87800C56CFA /* HMRefreshView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96ED35FF1C3CD87800C56CFA /* HMRefreshView.xib in Resources */,
 				9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */,
 				96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */,
 				9667929C1C36B3B50027141B /* Message.storyboard in Resources */,
@@ -545,6 +552,7 @@
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
 				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
 				96413B581C38C3C100083D0F /* StatusCell.swift in Sources */,
+				96ED35FD1C3CD85B00C56CFA /* HMRefreshControl.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 				966792931C3682070027141B /* AccessToken.swift in Sources */,

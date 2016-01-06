@@ -13,7 +13,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
+        self.loadData()
     }
     
     /// 行高缓存
@@ -28,26 +28,44 @@ class HomeViewController: UITableViewController {
 
 
     ///  加载微博数据
-    func loadData() {
-        
-        SVProgressHUD.show()
+    /**
+    Refresh控件高度是 60 点
+    */
+    
+    @IBAction func loadData() {
 
+
+
+        // 主动开始加载数据
+        refreshControl?.beginRefreshing()
+        
         StatusesData.loadStatus { (data, error) -> () in
+            // 隐藏刷新控件
+            self.refreshControl?.endRefreshing()
+            
             if error != nil {
                 print(error)
                 SVProgressHUD.showInfoWithStatus("你的网络不给力")
                 return
             }
-            SVProgressHUD.dismiss()
             if data != nil {
                 // 刷新表格数据
                 self.statusData = data
                 self.tableView.reloadData()
-
             }
         }
     }
 
+
+
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: 表格数据源 & 代理扩展
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
  

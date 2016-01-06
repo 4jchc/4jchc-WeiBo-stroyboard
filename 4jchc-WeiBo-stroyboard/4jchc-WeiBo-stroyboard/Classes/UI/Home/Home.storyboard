@@ -550,6 +550,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="首页" id="ngX-8g-Xuq"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="N82-Bg-pcF" customClass="HMRefreshControl" customModule="_jchc_WeiBo_stroyboard" customModuleProvider="target">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <connections>
+                            <action selector="loadData" destination="dDo-VF-Ah4" eventType="valueChanged" id="DSi-mn-hXv"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbK-gK-ynz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
