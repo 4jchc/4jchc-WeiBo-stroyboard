@@ -26,14 +26,37 @@ class ComposeViewController: UIViewController ,UITextViewDelegate{
         l.frame = CGRectMake(5, 8, 0, 0)
         // 可以根据文本的内容大小，自动调整
         l.sizeToFit()
-        
+    
         return l
     }()
     @IBOutlet weak var textView: UITextView!
 
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     
-    
+    /// 将要使用 replacementText 添加到 textView 的 range 位置
+    /// 能够在用户输入之前进行判断
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        // 删除键或者其他的功能键如何判断？
+        if text.isEmpty {
+            print("是删除吗？")
+            return true
+        }
+        
+        // 在 textView 控件中，没有代理方法监听回车键！
+        // 以下代码是在 textView 中拦截回车键的办法
+        if text == "\n" {
+            print("回车键")
+            view.endEditing(true)
+        }
+        
+        // 微博文字通常限制 140 个字
+        if textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) + text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10 {
+            return false
+        }
+        
+        return true
+    }
     func textViewDidChange(textView: UITextView) {
         print(textView.text)
        
