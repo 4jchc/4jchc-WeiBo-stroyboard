@@ -12,39 +12,41 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupPullupView()
+        self.loadData(0)
+     
+    }
+    
+    /// 设置上拉加载数据视图
+    func setupPullupView() {
         // 添加 tableView 的footer，tableView会对 pullupView 强引用
         tableView.tableFooterView = pullupView
-
+        
         // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
-        // 之所以设置成 weak 是为了避免循环引用，但是 self 的对象可能会随时被销毁！
-        // 需要注意一个细节，一旦某种原因，self 被释放掉，内部的 weakSelf 再执行就会崩溃！
-        // 推荐写法：weakSelf?，一旦 self 被释放，不会影响程序的执行！
-        // git 一定要在"阶段性工作"告一段落后提交！
         weak var weakSelf = self
-
         pullupView.addPullupOberserver(tableView) {
-            print("上拉加载数据啦～～～～～")
+            //            println("上拉加载数据啦～～～～～")
+            
             // 获取到 maxId
             if let maxId = self.statusData?.statuses?.last?.id {
                 // 加载 maxId 之前的数据
                 weakSelf?.loadData(maxId - 1)
             }
-            weakSelf?.pullupView.isPullupLoading = false
-            //            self.pullupView.stopLoading()
         }
-        self.loadData()
     }
+    
+    
+    
+    
     
     /// 行高缓存
     lazy var rowHeightCache: NSCache? = {
         return NSCache()
     }()
     lazy var pullupView: RefreshView = {
-        let v = NSBundle.mainBundle().loadNibNamed("HMRefreshView", owner: nil, options: nil).last as! RefreshView
-        v.tipView.hidden = true
-        v.loadingView.hidden = false
-        
-        return v
+  
+        return RefreshView.refreshView(true)
     }()
     
     /// 微博数据
@@ -61,10 +63,11 @@ class HomeViewController: UITableViewController {
     /**
     Refresh控件高度是 60 点
     */
-    
-    @IBAction func loadData(maxId: Int = 0) {
-
-
+    @IBAction func loadData(){
+        
+        loadData(0)
+    }
+     func loadData(maxId: Int = 0) {
 
         // 主动开始加载数据
         refreshControl?.beginRefreshing()
@@ -94,8 +97,9 @@ class HomeViewController: UITableViewController {
                     weakSelf?.tableView.reloadData()
                     
                     // 重新设置刷新视图的属性
-                    weakSelf?.pullupView.isPullupLoading = false
-                    weakSelf?.pullupView.stopLoading()
+                    weakSelf?.pullupView.pullupFinished()
+//                    weakSelf?.pullupView.isPullupLoading = false
+//                    weakSelf?.pullupView.stopLoading()
                 }
 
             }

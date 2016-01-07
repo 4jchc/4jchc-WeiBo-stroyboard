@@ -20,8 +20,10 @@ import UIKit
 class HMRefreshControl: UIRefreshControl {
     
     lazy var refreshView: RefreshView = {
-        let v = NSBundle.mainBundle().loadNibNamed("HMRefreshView", owner: nil, options: nil).last as! RefreshView
-        return v
+        
+                return RefreshView.refreshView(false)
+        
+
     }()
     
     ///  提示：refresh control 中不要重写 layoutSubviews，本方法调用非常频繁
@@ -139,6 +141,21 @@ class HMRefreshControl: UIRefreshControl {
 
 ///  刷新控件内部视图
 class RefreshView: UIView {
+    
+    
+    /// 从 xib 加载刷新视图
+    class func refreshView(isLoading: Bool = false) -> RefreshView {
+        let v = NSBundle.mainBundle().loadNibNamed("HMRefreshView", owner: nil, options: nil).last as! RefreshView
+        v.tipView.hidden = isLoading
+        v.loadingView.hidden = !isLoading
+        
+        return v
+    }
+    
+    
+    
+    
+    
     ///  提示视图
     @IBOutlet weak var tipView: UIView!
     ///  提示图标
@@ -259,6 +276,13 @@ class RefreshView: UIView {
             }
         }
     }
-    
+    /// 上拉刷新完成
+    func pullupFinished() {
+        // 重新设置刷新视图的属性
+        isPullupLoading = false
+        
+        // 停止动画
+        stopLoading()
+    }
     
 }
