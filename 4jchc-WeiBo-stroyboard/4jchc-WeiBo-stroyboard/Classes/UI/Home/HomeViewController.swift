@@ -13,16 +13,23 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 添加 tableView 的footer，tableView会对 pullupView 强引用
-        // 添加 tableView 的footer
         tableView.tableFooterView = pullupView
 
         // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
-        // 让上拉刷新视图 监听 tableView 的 contentOffset 动作
+        // 之所以设置成 weak 是为了避免循环引用，但是 self 的对象可能会随时被销毁！
+        // 需要注意一个细节，一旦某种原因，self 被释放掉，内部的 weakSelf 再执行就会崩溃！
+        // 推荐写法：weakSelf?，一旦 self 被释放，不会影响程序的执行！
+        // git 一定要在"阶段性工作"告一段落后提交！
         weak var weakSelf = self
+
         pullupView.addPullupOberserver(tableView) {
             print("上拉加载数据啦～～～～～")
-            
-            weakSelf!.pullupView.isPullupLoading = false
+            // 获取到 maxId
+            if let maxId = self.statusData?.statuses?.last?.id {
+                // 加载 maxId 之前的数据
+                weakSelf?.loadData(maxId - 1)
+            }
+            weakSelf?.pullupView.isPullupLoading = false
             //            self.pullupView.stopLoading()
         }
         self.loadData()
@@ -55,14 +62,14 @@ class HomeViewController: UITableViewController {
     Refresh控件高度是 60 点
     */
     
-    @IBAction func loadData() {
+    @IBAction func loadData(maxId: Int = 0) {
 
 
 
         // 主动开始加载数据
         refreshControl?.beginRefreshing()
         weak var weakSelf = self
-        StatusesData.loadStatus { (data, error) -> () in
+        StatusesData.loadStatus(maxId)  { (data, error) -> () in
             // 隐藏刷新控件
             self.refreshControl?.endRefreshing()
             
@@ -72,9 +79,25 @@ class HomeViewController: UITableViewController {
                 return
             }
             if data != nil {
-                // 刷新表格数据
-                weakSelf!.statusData = data
-                weakSelf!.tableView.reloadData()
+
+                // 刷新新数据
+                if maxId == 0 {
+                    // 刷新表格数据
+                    weakSelf?.statusData = data
+                    weakSelf?.tableView.reloadData()
+                } else {
+                    print("加载到了新数据！")
+                    // 拼接数据，数组的拼接
+                    let list = weakSelf!.statusData!.statuses! + data!.statuses!
+                    weakSelf!.statusData?.statuses = list
+                    
+                    weakSelf?.tableView.reloadData()
+                    
+                    // 重新设置刷新视图的属性
+                    weakSelf?.pullupView.isPullupLoading = false
+                    weakSelf?.pullupView.stopLoading()
+                }
+
             }
         }
     }
@@ -129,7 +152,7 @@ class HomeViewController: UITableViewController {
                 
                 vc.urls = status.largeUrls
                 vc.selectedIndex = photoIndex
-                weakSelf!.presentViewController(vc, animated: true, completion: nil)
+                weakSelf?.presentViewController(vc, animated: true, completion: nil)
 
             }
         }

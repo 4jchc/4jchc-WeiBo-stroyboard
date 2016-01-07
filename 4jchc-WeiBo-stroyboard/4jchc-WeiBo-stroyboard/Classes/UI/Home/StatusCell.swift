@@ -125,6 +125,7 @@ class StatusCell: UITableViewCell {
         // 设置微博正文换行的宽度
         contentLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 30
         // 如果是原创微博 cell 中不包含 forwardLabel
+                // forwardLabel?.函数，类似于OC中给 nil 发送空消息
         forwardLabel?.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 30
     }
 

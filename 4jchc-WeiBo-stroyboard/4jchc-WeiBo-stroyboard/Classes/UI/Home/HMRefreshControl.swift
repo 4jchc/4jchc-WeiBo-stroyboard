@@ -216,8 +216,8 @@ class RefreshView: UIView {
         
         // 2. 记录上拉加载数据的闭包
         self.pullupLoadData = pullupLoadData
-        
-        self.parentView!.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
+        //添加观察者
+        self.parentView?.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
     }
     
     // KVO 的代码

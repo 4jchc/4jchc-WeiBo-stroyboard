@@ -36,13 +36,15 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     typealias Completion = (result: AnyObject?, error: NSError?) -> ()
     ///  刷新微博数据 - 专门加载网络数据以及错误处理的回调
     ///  一旦加载成功，负责字典转模型，回调传回转换过的模型数据
-    class func loadStatus(completion: (data: StatusesData?, error: NSError?)->()) {
+    ///  增加一个 max_id 的参数，就能够支持上拉加载数据，max_id 如果等于 0，就是刷新最新的数据！
+    ///  maxId: Int = 0，指定函数的参数默认数值，如果不传，就是 0
+    class func loadStatus(maxId: Int = 0, completion: (data: StatusesData?, error: NSError?)->()) {
         
         let net = NetworkManager.sharedNetworkManager
         print("AccessToken.loadAccessToken()?.access_token---\(AccessToken.loadAccessToken()?.access_token)")
         
         if let token = AccessToken.loadAccessToken()?.access_token {
-            let params = ["access_token": token]
+            let params = ["access_token": token,"max_id": "\(maxId)"]
 
             // 发送网络异步请求
             net.requestJSON(.GET, WB_Home_Timeline_URL, params) { (result, error) -> () in

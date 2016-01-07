@@ -32,7 +32,7 @@ class MainTabBarController: UITabBarController {
             // modal 撰写微博 视图控制器
             let sb = UIStoryboard(name: "Compose", bundle: nil)
             
-            weakSelf!.presentViewController(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+            weakSelf?.presentViewController(sb.instantiateInitialViewController()!, animated: true, completion: nil)
         }
         
         
