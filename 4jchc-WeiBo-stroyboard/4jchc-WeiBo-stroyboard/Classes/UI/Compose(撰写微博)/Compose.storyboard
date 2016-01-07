@@ -106,26 +106,17 @@
                                     <outlet property="delegate" destination="SmY-gy-lCw" id="0rh-9b-ZEw"/>
                                 </connections>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享新鲜事..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jX-ZW-Fb0">
-                                <rect key="frame" x="25" y="73" width="105" height="22"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.72933382601351349" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gNb-63-LYo" firstAttribute="leading" secondItem="fiz-cK-hnv" secondAttribute="leading" id="2aE-qP-D2Y"/>
                             <constraint firstItem="gNb-63-LYo" firstAttribute="top" secondItem="Erc-yr-jqS" secondAttribute="bottom" id="6GQ-N0-1bS"/>
-                            <constraint firstItem="8jX-ZW-Fb0" firstAttribute="leading" secondItem="Erc-yr-jqS" secondAttribute="leading" constant="5" id="6bY-l9-Hw2"/>
                             <constraint firstItem="hRr-Sz-qBu" firstAttribute="top" secondItem="gNb-63-LYo" secondAttribute="bottom" id="DnD-dT-SJB"/>
                             <constraint firstItem="Erc-yr-jqS" firstAttribute="top" secondItem="A7G-L3-5jt" secondAttribute="bottom" id="Qys-xJ-2th"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Erc-yr-jqS" secondAttribute="trailing" id="R1c-67-Qf0"/>
                             <constraint firstAttribute="trailing" secondItem="gNb-63-LYo" secondAttribute="trailing" id="R8b-AX-ayP"/>
                             <constraint firstItem="Erc-yr-jqS" firstAttribute="leading" secondItem="fiz-cK-hnv" secondAttribute="leadingMargin" id="dhY-mp-iJe"/>
-                            <constraint firstItem="Erc-yr-jqS" firstAttribute="top" secondItem="8jX-ZW-Fb0" secondAttribute="bottom" constant="-31" id="jXA-WL-qO4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="撰写微博" id="Itq-WJ-HQ4">
@@ -137,7 +128,8 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="发送" id="TC9-T9-67G"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="placeHolderLabel" destination="8jX-ZW-Fb0" id="5vL-nJ-bU5"/>
+                        <outlet property="sendButton" destination="TC9-T9-67G" id="W7c-rU-za7"/>
+                        <outlet property="textView" destination="Erc-yr-jqS" id="K1s-6K-cyA"/>
                         <outlet property="toolBarBottomConstraint" destination="DnD-dT-SJB" id="Yrf-sX-8U6"/>
                     </connections>
                 </viewController>
