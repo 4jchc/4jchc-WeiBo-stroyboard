@@ -81,6 +81,9 @@
                                             <animations/>
                                             <state key="normal" image="compose_emoticonbutton_background"/>
                                             <state key="highlighted" image="compose_emoticonbutton_background_highlighted"/>
+                                            <connections>
+                                                <action selector="selectEmote" destination="SmY-gy-lCw" eventType="touchUpInside" id="zm9-DM-b8X"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rgh-Z9-Ems"/>

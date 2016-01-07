@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gKq-wc-gwz">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--Emoticons View Controller-->
+        <scene sceneID="VnY-kv-m8W">
+            <objects>
+                <viewController id="gKq-wc-gwz" customClass="EmoticonsViewController" customModule="_jchc_WeiBo_stroyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QNf-49-R0u"/>
+                        <viewControllerLayoutGuide type="bottom" id="gOV-tc-FuY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCb-0K-rrz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbX-8z-mC7">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="最近" id="jao-mI-OQR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gxu-Uf-inU"/>
+                                    <barButtonItem title="默认" id="e4J-2b-7iZ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KLF-ga-p6y"/>
+                                    <barButtonItem title="emoji" id="2qP-3B-AZy"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="f9W-Sc-xHp"/>
+                                    <barButtonItem title="浪小花" id="Unr-aK-5G5"/>
+                                </items>
+                            </toolbar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1fn-AY-hH3">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <animations/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rg6-rA-c5n">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="RXo-QG-4hS">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SbX-8z-mC7" firstAttribute="top" secondItem="1fn-AY-hH3" secondAttribute="bottom" id="1jg-mA-63s"/>
+                            <constraint firstAttribute="trailing" secondItem="1fn-AY-hH3" secondAttribute="trailing" id="RHv-Ef-uRi"/>
+                            <constraint firstItem="SbX-8z-mC7" firstAttribute="leading" secondItem="sCb-0K-rrz" secondAttribute="leading" id="X0P-3K-toZ"/>
+                            <constraint firstItem="gOV-tc-FuY" firstAttribute="top" secondItem="SbX-8z-mC7" secondAttribute="bottom" id="ZE8-Mc-hHI"/>
+                            <constraint firstAttribute="trailing" secondItem="SbX-8z-mC7" secondAttribute="trailing" id="cgh-yz-oqR"/>
+                            <constraint firstItem="1fn-AY-hH3" firstAttribute="leading" secondItem="sCb-0K-rrz" secondAttribute="leading" id="fR0-ua-eWQ"/>
+                            <constraint firstItem="1fn-AY-hH3" firstAttribute="top" secondItem="QNf-49-R0u" secondAttribute="bottom" id="qWx-cs-Sjh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALZ-SW-knD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621" y="422"/>
+        </scene>
+    </scenes>
+</document>

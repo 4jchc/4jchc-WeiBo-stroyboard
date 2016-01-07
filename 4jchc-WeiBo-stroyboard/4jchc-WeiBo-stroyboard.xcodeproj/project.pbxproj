@@ -42,6 +42,8 @@
 		968969391C3A1E3100EAF75B /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968969381C3A1E3100EAF75B /* PhotoBrowserViewController.swift */; };
 		9689693B1C3A1E4100EAF75B /* PhotoBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9689693A1C3A1E4100EAF75B /* PhotoBrowser.storyboard */; };
 		96B09A641C3E88F2006D97CE /* Emoticons in Resources */ = {isa = PBXBuildFile; fileRef = 96B09A631C3E88F2006D97CE /* Emoticons */; };
+		96B09A661C3E8990006D97CE /* EmoticonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B09A651C3E8990006D97CE /* EmoticonsViewController.swift */; };
+		96B09A681C3E89AF006D97CE /* Emoticons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B09A671C3E89AF006D97CE /* Emoticons.storyboard */; };
 		96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */; };
 		96C56A301C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
 		96C56A311C356FFE0009F9F3 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */; };
@@ -109,6 +111,8 @@
 		968969381C3A1E3100EAF75B /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		9689693A1C3A1E4100EAF75B /* PhotoBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoBrowser.storyboard; sourceTree = "<group>"; };
 		96B09A631C3E88F2006D97CE /* Emoticons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Emoticons; sourceTree = "<group>"; };
+		96B09A651C3E8990006D97CE /* EmoticonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonsViewController.swift; sourceTree = "<group>"; };
+		96B09A671C3E89AF006D97CE /* Emoticons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Emoticons.storyboard; sourceTree = "<group>"; };
 		96C56A231C356C190009F9F3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 			children = (
 				966792AE1C36B5250027141B /* Compose.storyboard */,
 				966792AF1C36B5250027141B /* ComposeViewController.swift */,
+				96B09A651C3E8990006D97CE /* EmoticonsViewController.swift */,
+				96B09A671C3E89AF006D97CE /* Emoticons.storyboard */,
 			);
 			path = "Compose(撰写微博)";
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				9667929C1C36B3B50027141B /* Message.storyboard in Resources */,
 				9689693B1C3A1E4100EAF75B /* PhotoBrowser.storyboard in Resources */,
 				966792AC1C36B4B30027141B /* Main.storyboard in Resources */,
+				96B09A681C3E89AF006D97CE /* Emoticons.storyboard in Resources */,
 				96B09A641C3E88F2006D97CE /* Emoticons in Resources */,
 				966792A01C36B4420027141B /* Home.storyboard in Resources */,
 				966792981C36A9C90027141B /* Profile.storyboard in Resources */,
@@ -553,6 +560,7 @@
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 				966BF2981C37617000AD1879 /* StatusesData.swift in Sources */,
 				966BF29F1C37FA8B00AD1879 /* SwiftDictModel.swift in Sources */,
+				96B09A661C3E8990006D97CE /* EmoticonsViewController.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
 				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
 				96413B581C38C3C100083D0F /* StatusCell.swift in Sources */,

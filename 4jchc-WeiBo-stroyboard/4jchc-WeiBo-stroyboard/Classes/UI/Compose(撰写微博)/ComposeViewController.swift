@@ -62,6 +62,8 @@ class ComposeViewController: UIViewController {
         
         // 注册通知
         registerNotification()
+        // 添加子视图控制器 － 可以保证响应者链条正常传递
+        self.addChildViewController(emoticonsVC!)
     }
     
     /// 设置 UI
@@ -113,7 +115,39 @@ class ComposeViewController: UIViewController {
         }
     
     }
+    // MARK: - 选择表情部分代码
+    /// 表情视图控制器
+    lazy var emoticonsVC: EmoticonsViewController? = {
+        let sb = UIStoryboard(name: "Emoticons", bundle: nil)
+        return sb.instantiateInitialViewController() as? EmoticonsViewController
+    }()
 
+    
+
+    /// 选择表情
+    @IBAction func selectEmote() {
+        
+        // inputView == nil 就使用的是系统的键盘
+        print(textView.inputView)
+        
+        // 关闭键盘
+        textView.resignFirstResponder()
+        
+        // 更换 textView 的输入视图[键盘]
+        // 如果要更换文本框的输入视图，需要注意当前文本框不能处于输入状态
+        //        let v = UIView(frame: CGRectMake(0, 0, 320, 216))
+        //        v.backgroundColor = UIColor.redColor()
+        
+        if textView.inputView == nil {
+            textView.inputView = emoticonsVC?.view
+        } else {
+            textView.inputView = nil
+        }
+        
+        // 开启键盘
+        textView.becomeFirstResponder()
+    }
+    
 }
 /// UITextView 的扩展
 
