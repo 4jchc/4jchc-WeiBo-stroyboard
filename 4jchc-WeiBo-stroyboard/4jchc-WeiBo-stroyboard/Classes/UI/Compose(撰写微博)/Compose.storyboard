@@ -125,7 +125,11 @@
                                 <action selector="cancel:" destination="SmY-gy-lCw" id="1OC-Sg-CBY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="发送" id="TC9-T9-67G"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="发送" id="TC9-T9-67G">
+                            <connections>
+                                <action selector="sendStatus:" destination="SmY-gy-lCw" id="R4w-Y3-Ktn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="sendButton" destination="TC9-T9-67G" id="W7c-rU-za7"/>

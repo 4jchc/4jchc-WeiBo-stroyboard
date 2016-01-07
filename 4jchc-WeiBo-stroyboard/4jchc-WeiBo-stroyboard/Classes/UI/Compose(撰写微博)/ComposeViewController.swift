@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController ,UITextViewDelegate{
+class ComposeViewController: UIViewController {
 
     ///  取消
     @IBAction func cancel(sender: UIBarButtonItem) {
@@ -33,53 +33,54 @@ class ComposeViewController: UIViewController ,UITextViewDelegate{
 
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     
-    /// 将要使用 replacementText 添加到 textView 的 range 位置
-    /// 能够在用户输入之前进行判断
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+
+    
+    
+    /// 发送微博
+    @IBAction func sendStatus(sender: UIBarButtonItem) {
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
         
-        // 删除键或者其他的功能键如何判断？
-        if text.isEmpty {
-            print("是删除吗？")
-            return true
+        if let token = AccessToken.loadAccessToken()?.access_token {
+            let params = ["access_token": token,
+                "status": textView.text!]
+            
+            let net = NetworkManager.sharedNetworkManager
+            // 重点提示：params中一定都要确保有值，否则会提示 .POST 不正确！
+            net.requestJSON(.POST, urlString, params) { (result, error) -> () in
+                SVProgressHUD.showInfoWithStatus("微博发送成功")
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
-        
-        // 在 textView 控件中，没有代理方法监听回车键！
-        // 以下代码是在 textView 中拦截回车键的办法
-        if text == "\n" {
-            print("回车键")
-            view.endEditing(true)
-        }
-        
-        // 微博文字通常限制 140 个字
-        if textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) + text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10 {
-            return false
-        }
-        
-        return true
-    }
-    func textViewDidChange(textView: UITextView) {
-        print(textView.text)
-       
-        placeHolderLabel!.hidden = !textView.text.isEmpty
-        sendButton.enabled = !textView.text.isEmpty
-    }
-    /// 滚动视图开始被拖拽
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        textView.resignFirstResponder()
     }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 设置 UI
+        setupUI()
+        
+        // 注册通知
+        registerNotification()
+    }
+    
+    /// 设置 UI
+    func setupUI() {
         // 文本框默认不支持滚动，设置此属性后，能够滚动！
         textView.alwaysBounceVertical = true
         textView.addSubview(placeHolderLabel!)
+        
         // 设置文本框的默认焦点
         textView.becomeFirstResponder()
+    }
+    
+    /// 注册键盘通知
+    func registerNotification() {
         // 添加观察者，监听键盘框架的变化
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardFrameChanged:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardFrameChanged:", name: UIKeyboardWillHideNotification, object: nil)
     }
+    
     
     deinit {
         
@@ -113,7 +114,54 @@ class ComposeViewController: UIViewController ,UITextViewDelegate{
     
     }
 
+}
+/// UITextView 的扩展
 
+extension ComposeViewController: UITextViewDelegate {
+    
 
+    /// 将要使用 replacementText 添加到 textView 的 range 位置
+    /// 能够在用户输入之前进行判断
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        // 删除键或者其他的功能键如何判断？
+        if text.isEmpty {
+            print("是删除吗？")
+            return true
+        }
+        
+        // 在 textView 控件中，没有代理方法监听回车键！
+        // 以下代码是在 textView 中拦截回车键的办法
+        if text == "\n" {
+            print("回车键")
+            view.endEditing(true)
+        }
+        
+        // 微博文字通常限制 140 个字
+        if textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) + text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10 {
+            return false
+        }
+        
+        return true
+    }
+    func textViewDidChange(textView: UITextView) {
+        print(textView.text)
+        
+        placeHolderLabel!.hidden = !textView.text.isEmpty
+        sendButton.enabled = !textView.text.isEmpty
+    }
+    /// 滚动视图开始被拖拽
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        textView.resignFirstResponder()
+    }
 
 }
+
+
+
+
+
+
+
+
+
