@@ -34,7 +34,11 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     
 
-    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 关闭键盘
+        textView.resignFirstResponder()
+    }
     
     /// 发送微博
     @IBAction func sendStatus(sender: UIBarButtonItem) {

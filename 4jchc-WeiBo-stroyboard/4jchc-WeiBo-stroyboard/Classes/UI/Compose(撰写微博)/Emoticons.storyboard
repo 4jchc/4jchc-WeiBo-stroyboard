@@ -40,7 +40,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="RXo-QG-4hS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmoticonsCell" id="RXo-QG-4hS">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,6 +52,9 @@
                                         <animations/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="gKq-wc-gwz" id="Cio-07-DXu"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <animations/>
@@ -66,6 +69,10 @@
                             <constraint firstItem="1fn-AY-hH3" firstAttribute="top" secondItem="QNf-49-R0u" secondAttribute="bottom" id="qWx-cs-Sjh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="1fn-AY-hH3" id="fSx-cW-3bz"/>
+                        <outlet property="layout" destination="Rg6-rA-c5n" id="Ihe-ae-f3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALZ-SW-knD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
