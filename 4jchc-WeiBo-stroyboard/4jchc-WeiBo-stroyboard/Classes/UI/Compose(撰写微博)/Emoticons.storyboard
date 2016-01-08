@@ -51,8 +51,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <animations/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="l" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgu-3l-4JU">
-                                                    <rect key="frame" x="0.0" y="4" width="50" height="46"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgu-3l-4JU">
+                                                    <rect key="frame" x="0.0" y="4" width="50" height="43"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -64,11 +64,12 @@
                                         </view>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstItem="tgu-3l-4JU" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="DgZ-qw-Vv2"/>
+                                            <constraint firstItem="tgu-3l-4JU" firstAttribute="centerX" secondItem="RXo-QG-4hS" secondAttribute="centerX" id="Bcz-jq-SAM"/>
                                             <constraint firstAttribute="trailing" secondItem="93I-2h-BhX" secondAttribute="trailing" id="FOw-iE-oib"/>
                                             <constraint firstItem="93I-2h-BhX" firstAttribute="top" secondItem="RXo-QG-4hS" secondAttribute="top" id="Iva-SP-TtR"/>
-                                            <constraint firstAttribute="trailing" secondItem="tgu-3l-4JU" secondAttribute="trailing" id="SO9-ak-I2N"/>
-                                            <constraint firstAttribute="bottom" secondItem="tgu-3l-4JU" secondAttribute="bottom" id="WdW-D8-4Pe"/>
+                                            <constraint firstAttribute="trailing" secondItem="tgu-3l-4JU" secondAttribute="trailing" id="gfw-aB-OHH"/>
+                                            <constraint firstItem="tgu-3l-4JU" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="h0n-CZ-hpl"/>
+                                            <constraint firstItem="tgu-3l-4JU" firstAttribute="centerY" secondItem="RXo-QG-4hS" secondAttribute="centerY" id="hLN-ea-96f"/>
                                             <constraint firstItem="93I-2h-BhX" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="oNM-YG-JMw"/>
                                             <constraint firstAttribute="bottom" secondItem="93I-2h-BhX" secondAttribute="bottom" id="x1r-6a-mxy"/>
                                         </constraints>
