@@ -153,47 +153,32 @@ extension ComposeViewController: EmoticonsViewControllerDelegate {
     func emoticonsViewControllerDidSelectEmoticon(vc: EmoticonsViewController, emoticon: Emoticon) {
         print("\(emoticon.chs)")
         
-        // 设置文本
+        var str: String?
         if emoticon.chs != nil {
-            
-            textView.setTextEmoticon(emoticon)
-            
-//            // 3.6 测试！！！－ 结果：text中并不会包含控件！
-//            // 无论修改 text 还是 attributedText 属性，都会影响到 textView 中的显示！
-//            // 需要解决的问题：能够显示图片，但是要拿到带 "[]" 文本
-//            //            println(textView.text)
-//            //            println(textView.attributedText)
-//            // 遍历 属性文本
-//            
-//            // 遍历属性文本，寻找思路！
-//            // 1. 如果是文本，字典中没有 ： NSAttachment
-//            //  可以利用 range 提取文字?
-//            // 2. 如果是图片，字典中有 ： NSAttachment
-//            //  说明：是一个图片 -> 如何把图片变成文字
-//            
-//            var result = String()
-//            let textRange = NSMakeRange(0, textView.attributedText.length)
-//            textView.attributedText.enumerateAttributesInRange(textRange, options: NSAttributedStringEnumerationOptions(), usingBlock: { (dict, range, _) -> Void in
-//                
-//                print("--------")
-//                //                println(dict)
-//                //                println(range)
-//                if let attachment = dict["NSAttachment"] as? EmoteTextAttachment {
-//                    // 图片
-//                    print("表情符号 \(attachment.emoteString)")
-//                    result += attachment.emoteString!
-//                } else {
-//                    print("文本？？？")
-//                    let str = (self.textView.attributedText.string as NSString).substringWithRange(range)
-//                    print(str)
-//                    result += str
-//                }
-//            })
-//            print("完整结果 \(result)")
-            
+            str = emoticon.chs!
         } else if emoticon.emoji != nil {
-            // 应该在用户光标位置“插入”表情文本
-            textView.replaceRange(textView.selectedTextRange!, withText: emoticon.emoji!)
+            str = emoticon.emoji
+        }
+        if str == nil {
+            return
+        }
+        
+        // 手动调用代理方法 - 是否能够插入文本
+        if textView(textView, shouldChangeTextInRange: textView.selectedRange, replacementText: str!) {
+            // 可以替换文本
+            // 设置文本
+            if emoticon.chs != nil {
+                // 设置表情 attributeString，没有修改 text，以下两个代理方法，都不会被调用
+                textView.setTextEmoticon(emoticon)
+                
+                // 手动调用 didChage 方法
+                textViewDidChange(textView)
+            } else if emoticon.emoji != nil {
+                // 应该在用户光标位置“插入”表情文本
+                // 会调用 didChange - text 会变化
+                // 不会调用 shouldChangeTextInRange - 判断是否需要修改 range 中的内容
+                textView.replaceRange(textView.selectedTextRange!, withText: emoticon.emoji!)
+            }
         }
     }
 }
@@ -222,8 +207,19 @@ extension ComposeViewController: UITextViewDelegate {
             view.endEditing(true)
         }
         
+        
         // 微博文字通常限制 140 个字
-        if textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) + text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10 {
+        // lengthOfBytesUsingEncoding 返回的是 UTF8 编码的字节长度！
+        // NSString.length 返回的字符的个数
+        // 注意：text 当前并没有表情符号的内容
+        let len1 = (self.textView.fullText() as NSString).length
+        let len2 = (text as NSString).length
+        //        println("\(text) --- \(len2)")
+        //        println("\(textView.text) --- \(len2)")
+        
+        if (len1 + len2) > 140 {
+//        // 微博文字通常限制 140 个字
+//        if textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) + text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10 {
             return false
         }
         
@@ -232,9 +228,12 @@ extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         print(textView.text)
 
-        self.textView.placeHolderLabel!.hidden = !self.textView.text.isEmpty
-        sendButton.enabled = !textView.text.isEmpty
+        let fullText = self.textView.fullText()
+        
+        self.textView.placeHolderLabel!.hidden = !fullText.isEmpty
+        sendButton.enabled = !fullText.isEmpty
     }
+    
     /// 滚动视图开始被拖拽
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         textView.resignFirstResponder()
