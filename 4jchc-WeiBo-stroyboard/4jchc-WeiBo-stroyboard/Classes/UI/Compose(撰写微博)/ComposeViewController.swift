@@ -166,26 +166,31 @@ extension ComposeViewController: EmoticonsViewControllerDelegate {
         
         // 设置文本
         if emoticon.chs != nil {
+            // 在文本中插入表情的文本 - [晕]
+            //            textView.replaceRange(textView.selectedTextRange!, withText: emoticon.chs!)
             // 图文混排的入口
-            let str = emoticon.chs
             
             // 1. 图像附件 － 一个附件对应一个独立的字符，可以用删除键直接咔嚓！
-            let attachment = NSTextAttachment()
-            attachment.image = UIImage(contentsOfFile: emoticon.imagePath!)
-            // 设置高度
-            let height = textView.font!.lineHeight
-            attachment.bounds = CGRectMake(0, 0, height, height)
-            
-            // 2. 带图像的属性文本
-            let attributeString = NSAttributedString(attachment: attachment)
+            //            var attachment = NSTextAttachment()
+            //            attachment.image = UIImage(contentsOfFile: emoticon.imagePath!)
+            //            // 设置高度
+            //            let height = textView.font.lineHeight
+            //            attachment.bounds = CGRectMake(0, 0, height, height)
+            //
+            //            // 2. 带图像的属性文本
+            //            var attributeString = NSAttributedString(attachment: attachment)
+            let attributeString = EmoteTextAttachment.attributeString(emoticon, height: textView.font!.lineHeight)
             
             // 3. 替换 textView 中的属性文本
-            // 3.1 可变的属性文本
+            // 3.1 可变的属性文本 － 实例化一个 NSMutableAttributedString，每个对象都会有默认属性
             let strM = NSMutableAttributedString(attributedString: textView.attributedText)
             strM.replaceCharactersInRange(textView.selectedRange, withAttributedString: attributeString)
             // 3.2 设置完文本属性之后，字体会发生变化 － 定义在 NSAttributedString.h 头文件中
             // 设置整个属性字符串中的文本属性
+            
             let range = NSMakeRange(0, strM.length)
+            // 让 可变的属性文本 的字体 和 textView 的保持一致！
+            // 设置之后，就不会影响文本框中的文字属性！
             strM.addAttribute(NSFontAttributeName, value: textView.font!, range: range)
             
             // 3.3 记录光标位置 location 对应光标的位置
@@ -198,8 +203,38 @@ extension ComposeViewController: EmoticonsViewControllerDelegate {
             // 3.5 重新设置光标位置
             textView.selectedRange = NSMakeRange(location + 1, 0)
             
-            // 3.6 测试！！！
-            print(textView.text)
+            // 3.6 测试！！！－ 结果：text中并不会包含控件！
+            // 无论修改 text 还是 attributedText 属性，都会影响到 textView 中的显示！
+            // 需要解决的问题：能够显示图片，但是要拿到带 "[]" 文本
+            //            println(textView.text)
+            //            println(textView.attributedText)
+            // 遍历 属性文本
+            
+            // 遍历属性文本，寻找思路！
+            // 1. 如果是文本，字典中没有 ： NSAttachment
+            //  可以利用 range 提取文字?
+            // 2. 如果是图片，字典中有 ： NSAttachment
+            //  说明：是一个图片 -> 如何把图片变成文字
+            
+            var result = String()
+            let textRange = NSMakeRange(0, textView.attributedText.length)
+            textView.attributedText.enumerateAttributesInRange(textRange, options: NSAttributedStringEnumerationOptions(), usingBlock: { (dict, range, _) -> Void in
+                
+                print("--------")
+                //                println(dict)
+                //                println(range)
+                if let attachment = dict["NSAttachment"] as? EmoteTextAttachment {
+                    // 图片
+                    print("表情符号 \(attachment.emoteString)")
+                    result += attachment.emoteString!
+                } else {
+                    print("文本？？？")
+                    let str = (self.textView.attributedText.string as NSString).substringWithRange(range)
+                    print(str)
+                    result += str
+                }
+            })
+            print("完整结果 \(result)")
             
         } else if emoticon.emoji != nil {
             // 应该在用户光标位置“插入”表情文本
