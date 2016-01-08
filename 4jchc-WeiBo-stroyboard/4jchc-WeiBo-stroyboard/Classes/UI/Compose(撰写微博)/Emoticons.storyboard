@@ -40,16 +40,31 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmoticonsCell" id="RXo-QG-4hS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmoticonsCell" id="RXo-QG-4hS" customClass="EmoticonCell" customModule="_jchc_WeiBo_stroyboard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="93I-2h-BhX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="93I-2h-BhX" secondAttribute="trailing" id="FOw-iE-oib"/>
+                                            <constraint firstItem="93I-2h-BhX" firstAttribute="top" secondItem="RXo-QG-4hS" secondAttribute="top" id="Iva-SP-TtR"/>
+                                            <constraint firstItem="93I-2h-BhX" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="oNM-YG-JMw"/>
+                                            <constraint firstAttribute="bottom" secondItem="93I-2h-BhX" secondAttribute="bottom" id="x1r-6a-mxy"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="iconView" destination="93I-2h-BhX" id="drA-Uh-fU9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

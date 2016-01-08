@@ -14,6 +14,11 @@ class EmoticonsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    /// 表情符号分组数组，每一个分组包含21个表情
+    lazy var emoticonSection: [EmoticonsSection]? = {
+        return EmoticonsSection.loadEmoticons()
+    }()
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -55,16 +60,19 @@ extension EmoticonsViewController: UICollectionViewDataSource {
     
     /// 返回分组数量
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 3
+        
+    
+        return emoticonSection?.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 21
+        
+            return emoticonSection![section].emoticons.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EmoticonsCell", forIndexPath: indexPath) 
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EmoticonsCell", forIndexPath: indexPath) as! EmoticonCell
 //        if indexPath.item > 2 && indexPath.item < 42{
 //            
 //            cell.backgroundColor = UIColor.orangeColor()
@@ -76,7 +84,31 @@ extension EmoticonsViewController: UICollectionViewDataSource {
             cell.backgroundColor = UIColor.redColor()
         }
         
+        cell.emoticon = emoticonSection![indexPath.section].emoticons[indexPath.item]
         return cell
     }
 
 }
+
+
+/// 表情的 cell
+class EmoticonCell: UICollectionViewCell {
+    
+    @IBOutlet weak var iconView: UIImageView!
+    
+    var emoticon: Emoticon? {
+        didSet {
+            if let path = emoticon?.imagePath {
+                iconView.image = UIImage(contentsOfFile: path)
+            } else {
+                iconView.image = nil
+            }
+        }
+    }
+}
+
+
+
+
+
+

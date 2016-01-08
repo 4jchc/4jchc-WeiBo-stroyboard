@@ -48,7 +48,7 @@ class EmoticonsSection {
             result += loadEmoticons(dict)
         }
         
-        return [EmoticonsSection]()
+         return result
     }
     
     /// 使用 dict 加载 group_path 对应的表情符号数组
@@ -84,7 +84,7 @@ class EmoticonsSection {
         var result = [EmoticonsSection]()
         
         for i in 0..<objCount {
-            // 1. 创建对象
+            // 1. 创建对象（路径就已经存在了）
             let emoticon = EmoticonsSection(dict: dict)
             
             // 2. 填充对象内部的表情符号数据
@@ -103,11 +103,12 @@ class EmoticonsSection {
                     dict = list[j] as? NSDictionary
                 }
                 
-                let em = Emoticon(dict: dict)
+                let em = Emoticon(dict: dict, path: emoticon.path)
                 emoticon.emoticons.append(em)
             }
             // 再添加一项，给末尾的删除按钮，需要再实例化一个空的表情对象
-            emoticon.emoticons.append(Emoticon(dict: nil))
+            emoticon.emoticons.append(Emoticon(dict: nil, path: nil))
+
             
             // 3. 将对象添加到数组
             result.append(emoticon)
@@ -127,11 +128,19 @@ class Emoticon {
     var chs: String?
     /// 表情符号的图片 - 本地做图文混排使用的图片
     var png: String?
-    init(dict: NSDictionary?) {
+    /// 图像的完整路径
+    var imagePath: String?
+    init(dict: NSDictionary?, path: String?) {
         code = dict?["code"] as? String
         type = dict?["type"] as? String
         chs = dict?["chs"] as? String
         png = dict?["png"] as? String
+        
+        if path != nil && png != nil {
+   
+        imagePath = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath).URLByAppendingPathComponent("Emoticons/\(path!)/\(png!)").path!
+     
+        }
     }
 }
 
