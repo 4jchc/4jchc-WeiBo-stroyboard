@@ -10,15 +10,28 @@ import Foundation
 
 /// 表情符号分组
 class EmoticonsSection {
+    /// 平时定义对象属性的时候，都是使用可选类型 ?
+    /// 原因：没有构造函数给对象属性设置初始数值
     /// 分组名称
-    var name: String?
+    var name: String
     /// 类型
-    var type: String?
+    var type: String
     /// 路径
-    var path: String?
+    var path: String
     /// 表情符号的数组(每一个 section中应该包含21个表情符号，界面处理是最方便的)
     /// 其中21个表情符号中，最后一个删除(就不能使用plist中的数据)
-    var emoticons: [Emoticon]?
+    var emoticons: [Emoticon]
+    
+    /// 使用字典实例化对象
+    /// 构造函数，能够给对象直接设置初始数值，凡事设置过的属性，都可以是必选项
+    /// 在构造函数中，不需要 super，直接给属性分配空间&初始化
+    init(dict: NSDictionary) {
+        name = dict["emoticon_group_name"] as! String
+        type = dict["emoticon_group_type"] as! String
+        path = dict["emoticon_group_path"] as! String
+        emoticons = [Emoticon]()
+    }
+    
     
     /// 加载表情符号分组数据
     class func loadEmoticons() -> [EmoticonsSection] {
@@ -61,7 +74,46 @@ class EmoticonsSection {
         
         
         
-        return [EmoticonsSection]()
+        // 生成数组，每20个就建立一个 EmoticonsSection 对象
+        let emoticonCount = 20
+        // 计算总共需要建立多少个对象
+        let objCount = (list.count - 1) / emoticonCount + 1
+        
+        print("对象个数 \(objCount)")
+        // 循环创建对象，依次填充表情数组
+        var result = [EmoticonsSection]()
+        
+        for i in 0..<objCount {
+            // 1. 创建对象
+            let emoticon = EmoticonsSection(dict: dict)
+            
+            // 2. 填充对象内部的表情符号数据
+            // 遍历数组 0~19, 20~39, 40~69....
+            print("---")
+            for count in 0..<20 {
+                // 计算数组下标
+                let j = count + i * emoticonCount
+                
+                // 判断对应 j 下标，在数组中是否存在
+                var dict: NSDictionary? = nil
+                
+                if j < list.count {
+                    // 数组中有内容
+                    // 实例化表情符号对象
+                    dict = list[j] as? NSDictionary
+                }
+                
+                let em = Emoticon(dict: dict)
+                emoticon.emoticons.append(em)
+            }
+            // 再添加一项，给末尾的删除按钮，需要再实例化一个空的表情对象
+            emoticon.emoticons.append(Emoticon(dict: nil))
+            
+            // 3. 将对象添加到数组
+            result.append(emoticon)
+        }
+        
+        return result
     }
 }
 
@@ -75,6 +127,12 @@ class Emoticon {
     var chs: String?
     /// 表情符号的图片 - 本地做图文混排使用的图片
     var png: String?
+    init(dict: NSDictionary?) {
+        code = dict?["code"] as? String
+        type = dict?["type"] as? String
+        chs = dict?["chs"] as? String
+        png = dict?["png"] as? String
+    }
 }
 
 
