@@ -155,42 +155,8 @@ extension ComposeViewController: EmoticonsViewControllerDelegate {
         
         // 设置文本
         if emoticon.chs != nil {
-            // 在文本中插入表情的文本 - [晕]
-            //            textView.replaceRange(textView.selectedTextRange!, withText: emoticon.chs!)
-            // 图文混排的入口
             
-            // 1. 图像附件 － 一个附件对应一个独立的字符，可以用删除键直接咔嚓！
-            //            var attachment = NSTextAttachment()
-            //            attachment.image = UIImage(contentsOfFile: emoticon.imagePath!)
-            //            // 设置高度
-            //            let height = textView.font.lineHeight
-            //            attachment.bounds = CGRectMake(0, 0, height, height)
-            //
-            //            // 2. 带图像的属性文本
-            //            var attributeString = NSAttributedString(attachment: attachment)
-            let attributeString = EmoteTextAttachment.attributeString(emoticon, height: textView.font!.lineHeight)
-            
-            // 3. 替换 textView 中的属性文本
-            // 3.1 可变的属性文本 － 实例化一个 NSMutableAttributedString，每个对象都会有默认属性
-            let strM = NSMutableAttributedString(attributedString: textView.attributedText)
-            strM.replaceCharactersInRange(textView.selectedRange, withAttributedString: attributeString)
-            // 3.2 设置完文本属性之后，字体会发生变化 － 定义在 NSAttributedString.h 头文件中
-            // 设置整个属性字符串中的文本属性
-            
-            let range = NSMakeRange(0, strM.length)
-            // 让 可变的属性文本 的字体 和 textView 的保持一致！
-            // 设置之后，就不会影响文本框中的文字属性！
-            strM.addAttribute(NSFontAttributeName, value: textView.font!, range: range)
-            
-            // 3.3 记录光标位置 location 对应光标的位置
-            let location = textView.selectedRange.location
-            
-            // 3.4 设置 textView 中的文本 － 把图片插入之后，直接替换整个文本
-            // 结果会导致光标移动到文本末尾
-            textView.attributedText =  strM
-            
-            // 3.5 重新设置光标位置
-            textView.selectedRange = NSMakeRange(location + 1, 0)
+            textView.setTextEmoticon(emoticon)
             
             // 3.6 测试！！！－ 结果：text中并不会包含控件！
             // 无论修改 text 还是 attributedText 属性，都会影响到 textView 中的显示！
