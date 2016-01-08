@@ -39,8 +39,17 @@ class EmoticonsSection {
         // 1. 路径
         let path = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath).URLByAppendingPathComponent("Emoticons/emoticons.plist").path!
         //let path = (NSBundle.mainBundle().bundlePath as NSString).stringByAppendingPathComponent("Emoticons/emoticons.plist")
-        let array = NSArray(contentsOfFile: path)
+
+        var array = NSArray(contentsOfFile: path)!
         
+        // 1.1 对数组进行排序，字段是 type
+        array = array.sortedArrayUsingComparator { (dict1, dict2) -> NSComparisonResult in
+            let type1 = dict1["emoticon_group_type"] as! String
+            let type2 = dict2["emoticon_group_type"] as! String
+            
+            // compare 函数可以比较非常多的 OC 的数据对象，NSString, NSNumber，NSDate...
+            return type1.compare(type2)
+        }
         // 2. 遍历数组
         var result = [EmoticonsSection]()
         for dict in array as! [NSDictionary] {
