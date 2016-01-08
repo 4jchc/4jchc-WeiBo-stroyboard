@@ -80,6 +80,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="gKq-wc-gwz" id="Cio-07-DXu"/>
+                                    <outlet property="delegate" destination="gKq-wc-gwz" id="GfG-Aj-FeI"/>
                                 </connections>
                             </collectionView>
                         </subviews>

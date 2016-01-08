@@ -14,6 +14,9 @@ class EmoticonsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // 2. 定义代理 － weak，千万不要忘记 weak
+    weak var delegate: EmoticonsViewControllerDelegate?
+    
     /// 表情符号分组数组，每一个分组包含21个表情
     lazy var emoticonSection: [EmoticonsSection]? = {
         return EmoticonsSection.loadEmoticons()
@@ -53,11 +56,37 @@ class EmoticonsViewController: UIViewController {
     }
 }
 
+// 1. 定义协议
+/**
+在 swift 中，除了类，还有"结构体"以及"枚举"都可以遵守协议！
+weak 关键字，是用在 ARC 中管理对象内存属性，weak 关键字只能描述一个对象
+
+也可以使用 @objc，要保证所有的参数，都是 OC 的
+*/
+protocol EmoticonsViewControllerDelegate: NSObjectProtocol {
+    /// 选中了某一个标枪
+    func emoticonsViewControllerDidSelectEmoticon(vc: EmoticonsViewController, emoticon: Emoticon)
+}
+
 /**
  接下来准备数据的时候，需要考虑每一个分组都刚好有21个cell
  */
-extension EmoticonsViewController: UICollectionViewDataSource {
+extension EmoticonsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
+    /// 根据 indexPath 返回表情数据
+    func emoticon(indexPath: NSIndexPath) -> Emoticon {
+        return emoticonSection![indexPath.section].emoticons[indexPath.item]
+    }
+    
+    /// cell 被选中
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        // 通过代理传递撰写微博视图控制器做后续处理
+        print(emoticon(indexPath))
+        // 3. 通知代理执行方法，注意这里的 ?
+        // 使用 ? 不需要判断代理是否实现方法
+        delegate?.emoticonsViewControllerDidSelectEmoticon(self, emoticon: emoticon(indexPath))
+    }
     /// 返回分组数量
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
@@ -74,7 +103,8 @@ extension EmoticonsViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EmoticonsCell", forIndexPath: indexPath) as! EmoticonCell
 
-        cell.emoticon = emoticonSection![indexPath.section].emoticons[indexPath.item]
+       // cell.emoticon = emoticonSection![indexPath.section].emoticons[indexPath.item]
+        cell.emoticon = emoticon(indexPath)
         return cell
     }
 

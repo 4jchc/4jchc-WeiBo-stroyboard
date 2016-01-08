@@ -123,7 +123,12 @@ class ComposeViewController: UIViewController {
     /// 表情视图控制器
     lazy var emoticonsVC: EmoticonsViewController? = {
         let sb = UIStoryboard(name: "Emoticons", bundle: nil)
-        return sb.instantiateInitialViewController() as? EmoticonsViewController
+        let vc = sb.instantiateInitialViewController() as? EmoticonsViewController
+        
+        // 1. 设置代理
+        vc?.delegate = self
+        
+        return vc
     }()
 
     
@@ -153,6 +158,16 @@ class ComposeViewController: UIViewController {
     }
     
 }
+// 2. 遵守协议(通过 extension)并且实现方法！
+extension ComposeViewController: EmoticonsViewControllerDelegate {
+    
+    func emoticonsViewControllerDidSelectEmoticon(vc: EmoticonsViewController, emoticon: Emoticon) {
+        print("\(emoticon.chs)")
+    }
+}
+
+
+
 /// UITextView 的扩展
 
 extension ComposeViewController: UITextViewDelegate {
