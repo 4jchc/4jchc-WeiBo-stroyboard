@@ -73,17 +73,7 @@ extension EmoticonsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EmoticonsCell", forIndexPath: indexPath) as! EmoticonCell
-//        if indexPath.item > 2 && indexPath.item < 42{
-//            
-//            cell.backgroundColor = UIColor.orangeColor()
-//        }
-        if indexPath.section == 1 {
-            cell.backgroundColor = UIColor.orangeColor()
-        }
-        else {
-            cell.backgroundColor = UIColor.redColor()
-        }
-        
+
         cell.emoticon = emoticonSection![indexPath.section].emoticons[indexPath.item]
         return cell
     }
@@ -95,14 +85,18 @@ extension EmoticonsViewController: UICollectionViewDataSource {
 class EmoticonCell: UICollectionViewCell {
     
     @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var emojiLabel: UILabel!
     
     var emoticon: Emoticon? {
         didSet {
+            // 设置图像
             if let path = emoticon?.imagePath {
                 iconView.image = UIImage(contentsOfFile: path)
             } else {
                 iconView.image = nil
             }
+            // 设置 emoji
+            emojiLabel.text = emoticon?.emoji
         }
     }
 }

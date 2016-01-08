@@ -51,18 +51,29 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <animations/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="l" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgu-3l-4JU">
+                                                    <rect key="frame" x="0.0" y="4" width="50" height="46"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
                                         <constraints>
+                                            <constraint firstItem="tgu-3l-4JU" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="DgZ-qw-Vv2"/>
                                             <constraint firstAttribute="trailing" secondItem="93I-2h-BhX" secondAttribute="trailing" id="FOw-iE-oib"/>
                                             <constraint firstItem="93I-2h-BhX" firstAttribute="top" secondItem="RXo-QG-4hS" secondAttribute="top" id="Iva-SP-TtR"/>
+                                            <constraint firstAttribute="trailing" secondItem="tgu-3l-4JU" secondAttribute="trailing" id="SO9-ak-I2N"/>
+                                            <constraint firstAttribute="bottom" secondItem="tgu-3l-4JU" secondAttribute="bottom" id="WdW-D8-4Pe"/>
                                             <constraint firstItem="93I-2h-BhX" firstAttribute="leading" secondItem="RXo-QG-4hS" secondAttribute="leading" id="oNM-YG-JMw"/>
                                             <constraint firstAttribute="bottom" secondItem="93I-2h-BhX" secondAttribute="bottom" id="x1r-6a-mxy"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="emojiLabel" destination="tgu-3l-4JU" id="Anu-2K-5kx"/>
                                             <outlet property="iconView" destination="93I-2h-BhX" id="drA-Uh-fU9"/>
                                         </connections>
                                     </collectionViewCell>

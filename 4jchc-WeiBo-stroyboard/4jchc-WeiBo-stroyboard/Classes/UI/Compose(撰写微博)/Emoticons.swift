@@ -122,6 +122,10 @@ class EmoticonsSection {
 class Emoticon {
     /// emoji 的16进制字符串
     var code: String?
+    /// emoji 字符串
+    var emoji: String?
+
+    
     /// 类型
     var type: String?
     /// 表情符号的文本 - 发送给服务器的文本
@@ -140,6 +144,15 @@ class Emoticon {
    
         imagePath = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath).URLByAppendingPathComponent("Emoticons/\(path!)/\(png!)").path!
      
+        }
+        
+        // 计算 emoji
+        if code != nil {
+            let scanner = NSScanner(string: code!)
+            // 提示：如果要传递指针，不能使用 let，var 才能修改数值
+            var value: UInt32 = 0
+            scanner.scanHexInt(&value)
+            emoji = "\(Character(UnicodeScalar(value)))"
         }
     }
 }
