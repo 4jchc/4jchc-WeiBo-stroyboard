@@ -116,7 +116,9 @@ class EmoticonsSection {
                 emoticon.emoticons.append(em)
             }
             // 再添加一项，给末尾的删除按钮，需要再实例化一个空的表情对象
-            emoticon.emoticons.append(Emoticon(dict: nil, path: nil))
+            let em = Emoticon(dict: nil, path: nil)
+            em.isDeleteButton = true
+            emoticon.emoticons.append(em)
 
             
             // 3. 将对象添加到数组
@@ -143,6 +145,12 @@ class Emoticon {
     var png: String?
     /// 图像的完整路径
     var imagePath: String?
+    
+    
+    /// 是否是删除按钮
+    var isDeleteButton = false
+    
+    
     init(dict: NSDictionary?, path: String?) {
         code = dict?["code"] as? String
         type = dict?["type"] as? String

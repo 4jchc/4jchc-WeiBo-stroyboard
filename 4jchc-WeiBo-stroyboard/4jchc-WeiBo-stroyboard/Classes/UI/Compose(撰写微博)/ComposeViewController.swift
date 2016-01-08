@@ -151,7 +151,15 @@ class ComposeViewController: UIViewController {
 extension ComposeViewController: EmoticonsViewControllerDelegate {
     
     func emoticonsViewControllerDidSelectEmoticon(vc: EmoticonsViewController, emoticon: Emoticon) {
-        print("\(emoticon.chs)")
+//        print("\(emoticon.chs)")
+        
+        // 判断是否是删除按钮
+        if emoticon.isDeleteButton {
+            // 删除文字
+            textView.deleteBackward()
+            
+            return
+        }
         
         var str: String?
         if emoticon.chs != nil {
