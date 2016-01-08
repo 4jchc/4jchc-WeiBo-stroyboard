@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A0D339C93307E34370AAB8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 503A0840797DA44F7E728B29 /* libPods.a */; };
+		961607201C3F51A100B81009 /* Emoticons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616071F1C3F51A100B81009 /* Emoticons.swift */; };
 		962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668031C33B16500BDD8FE /* AppDelegate.swift */; };
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		503A0840797DA44F7E728B29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE91D3988CD1737FDAD5AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9616071F1C3F51A100B81009 /* Emoticons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticons.swift; sourceTree = "<group>"; };
 		962668001C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4jchc-WeiBo-stroyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668031C33B16500BDD8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9626680A1C33B16500BDD8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				966792AE1C36B5250027141B /* Compose.storyboard */,
 				966792AF1C36B5250027141B /* ComposeViewController.swift */,
+				9616071F1C3F51A100B81009 /* Emoticons.swift */,
 				96B09A651C3E8990006D97CE /* EmoticonsViewController.swift */,
 				96B09A671C3E89AF006D97CE /* Emoticons.storyboard */,
 			);
@@ -563,6 +566,7 @@
 				96B09A661C3E8990006D97CE /* EmoticonsViewController.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
 				966792A91C36B4B30027141B /* MainNavViewController.swift in Sources */,
+				961607201C3F51A100B81009 /* Emoticons.swift in Sources */,
 				96413B581C38C3C100083D0F /* StatusCell.swift in Sources */,
 				96ED35FD1C3CD85B00C56CFA /* HMRefreshControl.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
