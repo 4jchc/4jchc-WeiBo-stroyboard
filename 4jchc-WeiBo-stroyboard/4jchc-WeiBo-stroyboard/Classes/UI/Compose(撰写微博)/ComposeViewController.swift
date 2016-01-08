@@ -29,16 +29,16 @@ class ComposeViewController: UIViewController {
     
         return l
     }()
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: ComposeTextView!
 
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     
 
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        // 关闭键盘
-        textView.resignFirstResponder()
-    }
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        // 关闭键盘
+//        textView.resignFirstResponder()
+//    }
     
     /// 发送微博
     @IBAction func sendStatus(sender: UIBarButtonItem) {
@@ -61,20 +61,15 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 设置 UI
-        setupUI()
-        
+
         // 注册通知
         registerNotification()
         // 添加子视图控制器 － 可以保证响应者链条正常传递
         self.addChildViewController(emoticonsVC!)
     }
     
-    /// 设置 UI
-    func setupUI() {
-        // 文本框默认不支持滚动，设置此属性后，能够滚动！
-        textView.alwaysBounceVertical = true
-        textView.addSubview(placeHolderLabel!)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         // 设置文本框的默认焦点
         textView.becomeFirstResponder()
@@ -277,7 +272,7 @@ extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         print(textView.text)
         
-        placeHolderLabel!.hidden = !textView.text.isEmpty
+        self.textView.placeHolderLabel!.hidden = !self.textView.text.isEmpty
         sendButton.enabled = !textView.text.isEmpty
     }
     /// 滚动视图开始被拖拽
@@ -285,6 +280,7 @@ extension ComposeViewController: UITextViewDelegate {
         textView.resignFirstResponder()
     }
 
+    
 }
 
 

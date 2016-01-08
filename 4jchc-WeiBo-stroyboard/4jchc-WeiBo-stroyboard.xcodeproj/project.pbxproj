@@ -10,6 +10,7 @@
 		7A0D339C93307E34370AAB8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 503A0840797DA44F7E728B29 /* libPods.a */; };
 		961607201C3F51A100B81009 /* Emoticons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616071F1C3F51A100B81009 /* Emoticons.swift */; };
 		961607221C3F96ED00B81009 /* EmoteTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */; };
+		961607241C3F991B00B81009 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607231C3F991B00B81009 /* ComposeTextView.swift */; };
 		962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668031C33B16500BDD8FE /* AppDelegate.swift */; };
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		5FE91D3988CD1737FDAD5AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9616071F1C3F51A100B81009 /* Emoticons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticons.swift; sourceTree = "<group>"; };
 		961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoteTextAttachment.swift; sourceTree = "<group>"; };
+		961607231C3F991B00B81009 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		962668001C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4jchc-WeiBo-stroyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668031C33B16500BDD8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9626680A1C33B16500BDD8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				966792AE1C36B5250027141B /* Compose.storyboard */,
 				966792AF1C36B5250027141B /* ComposeViewController.swift */,
+				961607231C3F991B00B81009 /* ComposeTextView.swift */,
 				9616071F1C3F51A100B81009 /* Emoticons.swift */,
 				96B09A651C3E8990006D97CE /* EmoticonsViewController.swift */,
 				96B09A671C3E89AF006D97CE /* Emoticons.storyboard */,
@@ -554,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961607241C3F991B00B81009 /* ComposeTextView.swift in Sources */,
 				966BF2A11C38030D00AD1879 /* SimpleNetwork.swift in Sources */,
 				966792AB1C36B4B30027141B /* MainTabBar.swift in Sources */,
 				966792A31C36B48A0027141B /* DiscoverViewController.swift in Sources */,
