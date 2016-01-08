@@ -38,7 +38,7 @@ class ComposeViewController: UIViewController {
         
         if let token = AccessToken.loadAccessToken()?.access_token {
             let params = ["access_token": token,
-                "status": textView.text!]
+                "status": textView.fullText()]
             
             let net = NetworkManager.sharedNetworkManager
             // 重点提示：params中一定都要确保有值，否则会提示 .POST 不正确！
@@ -158,38 +158,38 @@ extension ComposeViewController: EmoticonsViewControllerDelegate {
             
             textView.setTextEmoticon(emoticon)
             
-            // 3.6 测试！！！－ 结果：text中并不会包含控件！
-            // 无论修改 text 还是 attributedText 属性，都会影响到 textView 中的显示！
-            // 需要解决的问题：能够显示图片，但是要拿到带 "[]" 文本
-            //            println(textView.text)
-            //            println(textView.attributedText)
-            // 遍历 属性文本
-            
-            // 遍历属性文本，寻找思路！
-            // 1. 如果是文本，字典中没有 ： NSAttachment
-            //  可以利用 range 提取文字?
-            // 2. 如果是图片，字典中有 ： NSAttachment
-            //  说明：是一个图片 -> 如何把图片变成文字
-            
-            var result = String()
-            let textRange = NSMakeRange(0, textView.attributedText.length)
-            textView.attributedText.enumerateAttributesInRange(textRange, options: NSAttributedStringEnumerationOptions(), usingBlock: { (dict, range, _) -> Void in
-                
-                print("--------")
-                //                println(dict)
-                //                println(range)
-                if let attachment = dict["NSAttachment"] as? EmoteTextAttachment {
-                    // 图片
-                    print("表情符号 \(attachment.emoteString)")
-                    result += attachment.emoteString!
-                } else {
-                    print("文本？？？")
-                    let str = (self.textView.attributedText.string as NSString).substringWithRange(range)
-                    print(str)
-                    result += str
-                }
-            })
-            print("完整结果 \(result)")
+//            // 3.6 测试！！！－ 结果：text中并不会包含控件！
+//            // 无论修改 text 还是 attributedText 属性，都会影响到 textView 中的显示！
+//            // 需要解决的问题：能够显示图片，但是要拿到带 "[]" 文本
+//            //            println(textView.text)
+//            //            println(textView.attributedText)
+//            // 遍历 属性文本
+//            
+//            // 遍历属性文本，寻找思路！
+//            // 1. 如果是文本，字典中没有 ： NSAttachment
+//            //  可以利用 range 提取文字?
+//            // 2. 如果是图片，字典中有 ： NSAttachment
+//            //  说明：是一个图片 -> 如何把图片变成文字
+//            
+//            var result = String()
+//            let textRange = NSMakeRange(0, textView.attributedText.length)
+//            textView.attributedText.enumerateAttributesInRange(textRange, options: NSAttributedStringEnumerationOptions(), usingBlock: { (dict, range, _) -> Void in
+//                
+//                print("--------")
+//                //                println(dict)
+//                //                println(range)
+//                if let attachment = dict["NSAttachment"] as? EmoteTextAttachment {
+//                    // 图片
+//                    print("表情符号 \(attachment.emoteString)")
+//                    result += attachment.emoteString!
+//                } else {
+//                    print("文本？？？")
+//                    let str = (self.textView.attributedText.string as NSString).substringWithRange(range)
+//                    print(str)
+//                    result += str
+//                }
+//            })
+//            print("完整结果 \(result)")
             
         } else if emoticon.emoji != nil {
             // 应该在用户光标位置“插入”表情文本

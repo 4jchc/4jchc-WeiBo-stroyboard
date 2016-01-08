@@ -59,6 +59,25 @@ class ComposeTextView: UITextView {
         // 2.5 重新设置光标位置
         selectedRange = NSMakeRange(location + 1, 0)
     }
+    
+    /// 返回文本框中完成文字 - 将表情图片转换成表情符号
+    func fullText() -> String {
+        var result = String()
+        let textRange = NSMakeRange(0, attributedText.length)
+        
+        attributedText.enumerateAttributesInRange(textRange, options: NSAttributedStringEnumerationOptions(), usingBlock: { (dict, range, _) -> Void in
+            
+            if let attachment = dict["NSAttachment"] as? EmoteTextAttachment {
+                // 图片
+                result += attachment.emoteString!
+            } else {
+                result += (self.attributedText.string as NSString).substringWithRange(range)
+            }
+        })
+        print("微博文本：\(result)")
+        
+        return result
+    }
 
 }
 
