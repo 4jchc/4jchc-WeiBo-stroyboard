@@ -57,7 +57,8 @@ class StatusCell: UITableViewCell {
             print("status!.text\(status?.source)")
             nameLabel.text = status?.user?.name
             timeLabel.text = status?.created_at
-            sourceLabel.text = status?.source
+            sourceLabel.text = status!.sourceStr
+//            sourceLabel.text = status?.source
             contentLabel.text = status?.text
             
             // 头像

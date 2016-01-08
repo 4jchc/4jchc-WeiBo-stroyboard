@@ -128,6 +128,12 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     var text: String?
     ///  微博来源
     var source: String?
+    
+    /// 去掉 href 的来源字符串
+    var sourceStr: String {
+        return source?.removeHref() ?? ""
+    }
+    
     ///  转发数
     var reposts_count: Int = 0
     ///  评论数
