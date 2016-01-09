@@ -31,6 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(net.downloadImages(urls, { (result, error) -> () in
 //            print("OK")
 //        }))
+        // 打开数据库
+        SQLite.sharedSQLite.openDatabase("readme.db")
+        
+        // 加载数据测试代码
+        StatusesData.loadStatus(0) { (data, error) -> () in
+            print("OK")
+        }
+        
+        
+        
+        
+        
         if let token = AccessToken.loadAccessToken() {
 //            print(token.debugDescription)
             print(token.uid)

@@ -60,6 +60,10 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
                 let modelTools = DictModelManager.sharedManager
                 let data = modelTools.objectWithDictionary(result as! NSDictionary, cls: StatusesData.self) as? StatusesData
                 
+                
+                // 保存微博数据
+                Status.saveStatusData(data?.statuses)
+                
                 // 如果有下载图像的 url，就先下载图像
                 if let urls = StatusesData.pictureURLs(data?.statuses) {
                     
@@ -150,6 +154,41 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     
 
     
+    
+    ///  保存微博数据
+    class func saveStatusData(statuses: [Status]?) {
+        if statuses == nil {
+            return
+        }
+        
+        // TODO: - 保存数据
+        // 0. 开启事务
+        SQLite.sharedSQLite.execSQL("BEGIN TRANSACTION")
+        
+        // 1. 遍历微博数组
+        for s in statuses! {
+            // 1. 配图记录(保存谁，谁负责)
+            if !StatusPictureURL.savePictures(s.id, pictures: s.pic_urls) {
+                // 一旦出现错误就“回滚” - 放弃所有的操作
+                print("配图记录插入错误")
+                SQLite.sharedSQLite.execSQL("ROLLBACK TRANSACTION")
+                break
+            }
+            
+            // 2. 用户记录
+            // 3. 微博记录
+            // 4. 转发微博的记录（用户/配图）
+        }
+        
+        // 5. 提交事务
+        SQLite.sharedSQLite.execSQL("COMMIT TRANSACTION")
+    }
+    
+    
+    
+    
+    
+    
     /// 要显示的配图数组
     /// 如果是原创微博，就使用 pic_urls
     /// 如果是转发微博，使用 retweeted_status.pic_urls
@@ -212,8 +251,32 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     
     ///  大图 URL
     var large_pic: String?
+    
+    ///  插入到数据库
+    func insertDB(statusId: Int) -> Bool {
+        let sql = "INSERT INTO T_StatusPic (statusId, thumbnail_pic) VALUES (\(statusId), '\(thumbnail_pic!)');"
+        
+        return SQLite.sharedSQLite.execSQL(sql)
+    }
+    
+    ///  将配图数组保存到数据库
+    class func savePictures(statusId: Int, pictures: [StatusPictureURL]?) -> Bool {
+        
+        if pictures == nil {
+            // 没有图需要保存，就继续后续的工作
+            return true
+        }
+        
+        for pic in pictures! {
+            // 一旦保存图片失败
+            if !pic.insertDB(statusId) {
+                // 直接返回
+                return false
+            }
+        }
+        return true
+    }
 }
-
 
 
 
