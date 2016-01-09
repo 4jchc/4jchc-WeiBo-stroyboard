@@ -12,6 +12,9 @@
 		961607221C3F96ED00B81009 /* EmoteTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */; };
 		961607241C3F991B00B81009 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607231C3F991B00B81009 /* ComposeTextView.swift */; };
 		961607261C3FB29600B81009 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607251C3FB29600B81009 /* String+Extension.swift */; };
+		961D7C121C40E727007264B3 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D7C111C40E727007264B3 /* SQLite.swift */; };
+		961D7C141C40E814007264B3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 961D7C131C40E814007264B3 /* libsqlite3.tbd */; };
+		961D7C161C40E936007264B3 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D7C151C40E936007264B3 /* String+Regex.swift */; };
 		962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962668031C33B16500BDD8FE /* AppDelegate.swift */; };
 		9626680B1C33B16500BDD8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626680A1C33B16500BDD8FE /* Assets.xcassets */; };
 		9626680E1C33B16500BDD8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626680C1C33B16500BDD8FE /* LaunchScreen.storyboard */; };
@@ -82,6 +85,9 @@
 		961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoteTextAttachment.swift; sourceTree = "<group>"; };
 		961607231C3F991B00B81009 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		961607251C3FB29600B81009 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/String+Extension.swift"; sourceTree = "<group>"; };
+		961D7C111C40E727007264B3 /* SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
+		961D7C131C40E814007264B3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		961D7C151C40E936007264B3 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		962668001C33B16500BDD8FE /* 4jchc-WeiBo-stroyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4jchc-WeiBo-stroyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962668031C33B16500BDD8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9626680A1C33B16500BDD8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961D7C141C40E814007264B3 /* libsqlite3.tbd in Frameworks */,
 				7A0D339C93307E34370AAB8F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +241,8 @@
 		96389A6D1C352F7A008B5EDD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				961D7C151C40E936007264B3 /* String+Regex.swift */,
+				961D7C111C40E727007264B3 /* SQLite.swift */,
 				961607251C3FB29600B81009 /* String+Extension.swift */,
 				966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */,
 				966BF29C1C37FA8B00AD1879 /* String+Hash.swift */,
@@ -362,6 +371,7 @@
 		DF0E580792EF28217D3D0F83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				961D7C131C40E814007264B3 /* libsqlite3.tbd */,
 				503A0840797DA44F7E728B29 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -574,6 +584,7 @@
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
 				966BF2981C37617000AD1879 /* StatusesData.swift in Sources */,
 				966BF29F1C37FA8B00AD1879 /* SwiftDictModel.swift in Sources */,
+				961D7C161C40E936007264B3 /* String+Regex.swift in Sources */,
 				961607221C3F96ED00B81009 /* EmoteTextAttachment.swift in Sources */,
 				96B09A661C3E8990006D97CE /* EmoticonsViewController.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
@@ -582,6 +593,7 @@
 				96413B581C38C3C100083D0F /* StatusCell.swift in Sources */,
 				96ED35FD1C3CD85B00C56CFA /* HMRefreshControl.swift in Sources */,
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
+				961D7C121C40E727007264B3 /* SQLite.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
 				966792931C3682070027141B /* AccessToken.swift in Sources */,
 				966BF2971C37617000AD1879 /* UserInfo.swift in Sources */,

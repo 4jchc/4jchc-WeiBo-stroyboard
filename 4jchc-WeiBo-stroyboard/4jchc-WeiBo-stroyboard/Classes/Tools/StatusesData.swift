@@ -29,6 +29,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     
     static func customClassMapping() -> [String: String]? {
         return ["statuses": "\(Status.self)"]
+        
     }
     
     
