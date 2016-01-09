@@ -275,6 +275,14 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
             // 没有图需要保存，就继续后续的工作
             return true
         }
+        // 为了避免图片数据会被重复插入，在插入数据前需要先判断一下
+        // 判断数据库中是否已经存在 statsId = statusId 图片记录！
+        let sql = "SELECT count(*) FROM T_StatusPic WHERE statusId = \(statusId);"
+        if SQLite.sharedSQLite.execCount(sql) > 0 {
+            return true
+        }
+        
+        // 更新微博图片
         
         for pic in pictures! {
             // 一旦保存图片失败
