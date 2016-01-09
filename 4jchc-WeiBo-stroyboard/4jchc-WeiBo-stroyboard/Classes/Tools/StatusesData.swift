@@ -175,7 +175,16 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
                 break
             }
             
-            // 2. 用户记录
+
+            // 2. 用户记录 － 由于不能左右服务器返回的数据
+            if s.user != nil {
+                if !s.user!.insertDB() {
+                    print("插入用户数据错误")
+                    SQLite.sharedSQLite.execSQL("ROLLBACK TRANSACTION")
+                    break
+                }
+            }
+            
             // 3. 微博记录
             // 4. 转发微博的记录（用户/配图）
         }
