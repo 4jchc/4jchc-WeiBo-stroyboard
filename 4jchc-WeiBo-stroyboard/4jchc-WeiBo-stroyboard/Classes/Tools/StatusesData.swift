@@ -163,6 +163,15 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         
         // TODO: - 保存数据
         // 0. 开启事务
+        // 保存数据
+        // 0. 开启事务
+        // 关于事务，需要注意：
+        // 1> BEGIN TRANSACTION & COMMIT TRANSACTION 要配对出现
+        // 2> 如果出现错误，可以 ROLLBACK 回滚，注意不要重复 ROLLBACK
+        // 3> 在 SQL 操作中，默认都会有一隐含的事务，只是执行一句话，结果就是 true/false
+        // 用于批量数据插入的！
+        // 不要在多个线程中，同时对数据库进行读写操作！可以创建一个串行队列！把所有数据操作任务，顺序放在队列中执行即可！
+        // SQLite 本身的性能已经很好了，大量数据操作不会占用很长的时间！
         SQLite.sharedSQLite.execSQL("BEGIN TRANSACTION")
         
         // 1. 遍历微博数组
