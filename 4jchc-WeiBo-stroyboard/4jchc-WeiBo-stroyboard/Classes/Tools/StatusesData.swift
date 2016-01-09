@@ -167,6 +167,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         
         // 1. 遍历微博数组
         for s in statuses! {
+            
             // 1. 配图记录(保存谁，谁负责)
             if !StatusPictureURL.savePictures(s.id, pictures: s.pic_urls) {
                 // 一旦出现错误就“回滚” - 放弃所有的操作
@@ -186,7 +187,23 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
             }
             
             // 3. 微博记录
+            
+            if !s.insertDB() {
+                print("插入微博数据错误")
+                SQLite.sharedSQLite.execSQL("ROLLBACK TRANSACTION")
+                break
+            }
+            
             // 4. 转发微博的记录（用户/配图）
+            if s.retweeted_status != nil {
+                // 存在转发微博
+                // 保存转发微博
+                if !s.retweeted_status!.insertDB() {
+                    print("插入转发微博数据错误")
+                    SQLite.sharedSQLite.execSQL("ROLLBACK TRANSACTION")
+                    break
+                }
+            }
         }
         
         // 5. 提交事务
@@ -228,7 +245,26 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         "retweeted_status": "\(Status.self)",]
     }
     
-//    Make sure all changes have been pulled from the remote repository and try again.
+    // 保存微博数据
+    func insertDB() -> Bool {
+        // 提示：如果 Xcode 6.3 Bata 2/3 直接写 ?? 会非常非常慢
+        let userId = user?.id ?? 0
+        let retId = retweeted_status?.id ?? 0
+        
+        // 判断数据是否已经存在，如果存在就不再插入
+        var sql = "SELECT count(*) FROM T_Status WHERE id = \(id);"
+        if SQLite.sharedSQLite.execCount(sql) > 0 {
+            return true
+        }
+        
+        // 之所以只使用 INSERT，是因为 INSERT AND REPLACE 会在更新数据的时候，直接将 refresh 重新设置为 0
+        sql = "INSERT INTO T_Status \n" +
+            "(id, text, source, created_at, reposts_count, comments_count, attitudes_count, userId, retweetedId) \n" +
+            "VALUES \n" +
+        "(\(id), '\(text!)', '\(source!)', '\(created_at!)', \(reposts_count), \(comments_count), \(attitudes_count), \(userId), \(retId));"
+        
+        return SQLite.sharedSQLite.execSQL(sql)
+    }
 }
 
 
