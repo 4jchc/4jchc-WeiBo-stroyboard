@@ -39,8 +39,17 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     ///  一旦加载成功，负责字典转模型，回调传回转换过的模型数据
     ///  增加一个 max_id 的参数，就能够支持上拉加载数据，max_id 如果等于 0，就是刷新最新的数据！
     ///  maxId: Int = 0，指定函数的参数默认数值，如果不传，就是 0
-    class func loadStatus(maxId: Int = 0, completion: (data: StatusesData?, error: NSError?)->()) {
+    ///  topId: 是视图控制器中 statues 的第一条微博的 id，topId 和 maxId 之间就是 statuses 中的所有数据
+    class func loadStatus(maxId: Int = 0, topId: Int, completion: (data: StatusesData?, error: NSError?)->()) {
         
+        // TODO: - 上拉刷新，判断是否可以从本地缓存加载数据
+        if maxId > 0 {
+            
+        }
+        
+        // 以下是从网络加载数据
+
+        // 发送网络异步请求
         let net = NetworkManager.sharedNetworkManager
         print("AccessToken.loadAccessToken()?.access_token---\(AccessToken.loadAccessToken()?.access_token)")
         
@@ -64,6 +73,9 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
                 // 保存微博数据
                 Status.saveStatusData(data?.statuses)
                 
+                // 如果 maxId > 0，表示是上拉刷新，将 maxId & topId 之间的所有数据的 refresh 状态修改成 1
+                self.updateRefreshState(maxId, topId: topId)
+                
                 // 如果有下载图像的 url，就先下载图像
                 if let urls = StatusesData.pictureURLs(data?.statuses) {
                     
@@ -81,6 +93,15 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
             }
         }
     }
+    
+    ///  更新 maxId & topId 之间记录的刷新状态
+    class func updateRefreshState(maxId: Int, topId: Int) {
+        let sql = "UPDATE T_Status SET refresh = 1 \n" +
+        "WHERE id BETWEEN \(maxId) AND \(topId);"
+        
+        SQLite.sharedSQLite.execSQL(sql)
+    }
+    
     
     ///  取出给定的微博数据中所有图片的 URL 数组
     ///
@@ -112,6 +133,8 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
             return nil
         }
     }
+    
+    
 }
 
 

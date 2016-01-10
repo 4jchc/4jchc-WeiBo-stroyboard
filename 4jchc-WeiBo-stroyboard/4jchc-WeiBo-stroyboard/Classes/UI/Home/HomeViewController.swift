@@ -9,6 +9,9 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
+    
+    /// 微博数据 - statuses 中维护了当前 tableView 显示的所有数据
+    /// statuses 中的所有数据都是连续的！
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,7 @@ class HomeViewController: UITableViewController {
             //            println("上拉加载数据啦～～～～～")
             
             // 获取到 maxId
-            if let maxId = self.statusData?.statuses?.last?.id {
+            if let maxId = weakSelf!.statusData?.statuses?.last?.id {
                 // 加载 maxId 之前的数据
                 weakSelf?.loadData(maxId - 1)
             }
@@ -72,7 +75,9 @@ class HomeViewController: UITableViewController {
         // 主动开始加载数据
         refreshControl?.beginRefreshing()
         weak var weakSelf = self
-        StatusesData.loadStatus(maxId)  { (data, error) -> () in
+        // TODO: - 要修改刷新数据
+        StatusesData.loadStatus(maxId: maxId, topId: 0) { (data, error) -> () in
+    
             // 隐藏刷新控件
             self.refreshControl?.endRefreshing()
             
@@ -88,7 +93,7 @@ class HomeViewController: UITableViewController {
                     // 刷新表格数据
                     weakSelf?.statusData = data
                     weakSelf?.tableView.reloadData()
-                } else {
+                } else {    // 上拉刷新
                     print("加载到了新数据！")
                     // 拼接数据，数组的拼接
                     let list = weakSelf!.statusData!.statuses! + data!.statuses!

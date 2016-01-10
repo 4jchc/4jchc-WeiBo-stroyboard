@@ -34,11 +34,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 打开数据库
         SQLite.sharedSQLite.openDatabase("readme.db")
         
-        // 加载数据测试代码
-        StatusesData.loadStatus(0) { (data, error) -> () in
-            print("OK")
+        // 加载数据测试代码 － 第一次刷新，都是从服务器加载数据！
+        StatusesData.loadStatus(0, topId: 0) { (data, error) -> () in
+            // 第一次加载的数据
+            if let statuses = data?.statuses {
+                // 模拟上拉刷新
+                // 取出最后一条记录中的 id，id -1 -> maxId
+                let mId = statuses.last!.id
+                let tId = statuses.first!.id
+                print("maxId \(mId) ---- topId \(tId)")
+                
+                // 上拉刷新
+                StatusesData.loadStatus((mId - 1), topId: tId, completion: { (data, error) -> () in
+                    print("第一次上拉刷新结束")
+                    
+                    // 再一次加载的数据
+                    if let statuses = data?.statuses {
+                        // 模拟上拉刷新
+                        // 取出最后一条记录中的 id，id -1 -> maxId
+                        let mId = statuses.last!.id
+                        let tId = statuses.first!.id
+                        print("2222 maxId \(mId) ---- topId \(tId)")
+                        
+                        // 上拉刷新
+                        StatusesData.loadStatus((mId - 1), topId: tId, completion: { (data, error) -> () in
+                            print("第二次上拉刷新结束")
+                        })
+                    }
+                })
+            }
         }
-        
         
         
         
