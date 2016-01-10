@@ -44,7 +44,16 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         
         // TODO: - 上拉刷新，判断是否可以从本地缓存加载数据
         if maxId > 0 {
-            
+            // 检查本地数据，如果存在本地数据，直接返回
+            if let result = checkLocalData(maxId) {
+                print("加载本地数据...")
+                // 从本地加载了数据，直接回调
+                let data = StatusesData()
+                data.statuses = result
+                
+                completion(data: data, error: nil)
+                return
+            }
         }
         
         // 以下是从网络加载数据
@@ -93,6 +102,30 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
             }
         }
     }
+    
+    
+    ///  检查本地数据，判断本地是否存在小于 maxId 的连续数据
+    ///  如果存在，直接返回本地的数据
+    ///  如果不存在，返回 nil，调用方加载网络数据
+    class func checkLocalData(maxId: Int) -> [Status]? {
+        // 1. 判断 refresh 标记
+        let sql = "SELECT count(*) FROM T_Status \n" +
+        "WHERE id = (\(maxId) + 1) AND refresh = 1"
+        
+        if SQLite.sharedSQLite.execCount(sql) == 0 {
+            return nil
+        } else {
+            print("应该加载本地数据")
+            // TODO: 生成应用程序需要的结果集合直接返回即可！
+        }
+        
+        return nil
+    }
+    
+    
+    
+    
+    
     
     ///  更新 maxId & topId 之间记录的刷新状态
     class func updateRefreshState(maxId: Int, topId: Int) {

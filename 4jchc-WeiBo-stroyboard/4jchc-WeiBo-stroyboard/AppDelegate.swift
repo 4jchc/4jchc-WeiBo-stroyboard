@@ -33,7 +33,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }))
         // 打开数据库
         SQLite.sharedSQLite.openDatabase("readme.db")
+        // 检查沙盒中是否已经保存的 token
+        // 如果已经存在 token，应该直接显示主界面
+        if let token = AccessToken.loadAccessToken() {
+            print(token.debugDescription)
+            print(token.uid)
+            
+            showMainInterface()
+        } else {
+            // 添加通知监听，监听用户登录成功
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMainInterface", name: WB_Login_Successed_Notification, object: nil)
+        }
         
+        return true
+    }
+    
+    ///  测试上拉刷新数据的代码
+    func demoLoadData() {
         // 加载数据测试代码 － 第一次刷新，都是从服务器加载数据！
         StatusesData.loadStatus(0, topId: 0) { (data, error) -> () in
             // 第一次加载的数据
@@ -65,22 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
-        
-        
-        if let token = AccessToken.loadAccessToken() {
-//            print(token.debugDescription)
-            print(token.uid)
-            showMainInterface()
-        } else {
-            
-            
-            // 添加通知监听，监听用户登录成功
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMainInterface", name: WB_Login_Successed_Notification, object: nil)
-        }
-
-
-        return true
     }
     
     ///  显示主界面

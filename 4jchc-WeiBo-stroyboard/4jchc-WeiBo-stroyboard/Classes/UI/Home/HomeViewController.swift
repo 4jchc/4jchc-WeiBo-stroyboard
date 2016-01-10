@@ -17,7 +17,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         
         setupPullupView()
-        self.loadData(0)
+        self.loadData()
      
     }
     
@@ -32,9 +32,11 @@ class HomeViewController: UITableViewController {
             //            println("上拉加载数据啦～～～～～")
             
             // 获取到 maxId
-            if let maxId = weakSelf!.statusData?.statuses?.last?.id {
-                // 加载 maxId 之前的数据
-                weakSelf?.loadData(maxId - 1)
+            if let statuses = weakSelf?.statusData?.statuses {
+                let maxId = statuses.last!.id
+                let topId = statuses.first!.id
+                
+                weakSelf?.loadData(maxId - 1, topId: topId)
             }
         }
     }
@@ -68,15 +70,17 @@ class HomeViewController: UITableViewController {
     */
     @IBAction func loadData(){
         
-        loadData(0)
+         loadData(0, topId: 0)
     }
-     func loadData(maxId: Int = 0) {
+    func loadData(maxId: Int, topId: Int) {
 
         // 主动开始加载数据
         refreshControl?.beginRefreshing()
         weak var weakSelf = self
-        // TODO: - 要修改刷新数据
-        StatusesData.loadStatus(maxId: maxId, topId: 0) { (data, error) -> () in
+        // 要修改刷新数据
+        StatusesData.loadStatus( maxId, topId: topId) { (data, error) -> () in
+
+
     
             // 隐藏刷新控件
             self.refreshControl?.endRefreshing()
