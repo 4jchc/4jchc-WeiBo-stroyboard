@@ -84,7 +84,7 @@ class StatusCell: UITableViewCell {
 
             // 设置转发微博文字
             if status?.retweeted_status != nil {
-                forwardLabel.text = status!.retweeted_status!.user!.name! + ":" + status!.retweeted_status!.text!
+                forwardLabel.text = (status?.retweeted_status?.user?.name ?? "") + ":" + (status?.retweeted_status?.text ?? "")
             }
         }
     }

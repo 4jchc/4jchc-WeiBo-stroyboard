@@ -11,7 +11,6 @@
 		961607201C3F51A100B81009 /* Emoticons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616071F1C3F51A100B81009 /* Emoticons.swift */; };
 		961607221C3F96ED00B81009 /* EmoteTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */; };
 		961607241C3F991B00B81009 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607231C3F991B00B81009 /* ComposeTextView.swift */; };
-		961607261C3FB29600B81009 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961607251C3FB29600B81009 /* String+Extension.swift */; };
 		961D7C121C40E727007264B3 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D7C111C40E727007264B3 /* SQLite.swift */; };
 		961D7C141C40E814007264B3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 961D7C131C40E814007264B3 /* libsqlite3.tbd */; };
 		961D7C161C40E936007264B3 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D7C151C40E936007264B3 /* String+Regex.swift */; };
@@ -22,9 +21,6 @@
 		96413B581C38C3C100083D0F /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96413B571C38C3C100083D0F /* StatusCell.swift */; };
 		96413B591C3928B600083D0F /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */; };
 		96413B5A1C3931AD00083D0F /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF29C1C37FA8B00AD1879 /* String+Hash.swift */; };
-		966792601C36288C0027141B /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667925F1C36288C0027141B /* UIKit+Extension.swift */; };
-		966792931C3682070027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
-		966792941C3683190027141B /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792921C3682070027141B /* AccessToken.swift */; };
 		966792961C36A9B50027141B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792951C36A9B50027141B /* ProfileViewController.swift */; };
 		966792981C36A9C90027141B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792971C36A9C90027141B /* Profile.storyboard */; };
 		9667929A1C36B3A10027141B /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792991C36B3A10027141B /* MessageViewController.swift */; };
@@ -39,8 +35,6 @@
 		966792AC1C36B4B30027141B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792A81C36B4B30027141B /* Main.storyboard */; };
 		966792B01C36B5250027141B /* Compose.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966792AE1C36B5250027141B /* Compose.storyboard */; };
 		966792B11C36B5250027141B /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966792AF1C36B5250027141B /* ComposeViewController.swift */; };
-		966BF2971C37617000AD1879 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2951C37617000AD1879 /* UserInfo.swift */; };
-		966BF2981C37617000AD1879 /* StatusesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2961C37617000AD1879 /* StatusesData.swift */; };
 		966BF29E1C37FA8B00AD1879 /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF29C1C37FA8B00AD1879 /* String+Hash.swift */; };
 		966BF29F1C37FA8B00AD1879 /* SwiftDictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF29D1C37FA8B00AD1879 /* SwiftDictModel.swift */; };
 		966BF2A11C38030D00AD1879 /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */; };
@@ -57,6 +51,12 @@
 		96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
 		96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */; };
 		96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */; };
+		96DDBF831C424E6B00A752E6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF821C424E6B00A752E6 /* String+Extension.swift */; };
+		96DDBF851C424E8000A752E6 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF841C424E8000A752E6 /* UIKit+Extension.swift */; };
+		96DDBF8B1C42623800A752E6 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF881C42623800A752E6 /* AccessToken.swift */; };
+		96DDBF8C1C42623800A752E6 /* StatusesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF891C42623800A752E6 /* StatusesData.swift */; };
+		96DDBF8D1C42623800A752E6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF8A1C42623800A752E6 /* UserInfo.swift */; };
+		96DDBF8E1C42662F00A752E6 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDBF881C42623800A752E6 /* AccessToken.swift */; };
 		96ED35FD1C3CD85B00C56CFA /* HMRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED35FC1C3CD85B00C56CFA /* HMRefreshControl.swift */; };
 		96ED35FF1C3CD87800C56CFA /* HMRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED35FE1C3CD87800C56CFA /* HMRefreshView.xib */; };
 /* End PBXBuildFile section */
@@ -84,7 +84,6 @@
 		9616071F1C3F51A100B81009 /* Emoticons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticons.swift; sourceTree = "<group>"; };
 		961607211C3F96ED00B81009 /* EmoteTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoteTextAttachment.swift; sourceTree = "<group>"; };
 		961607231C3F991B00B81009 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
-		961607251C3FB29600B81009 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/String+Extension.swift"; sourceTree = "<group>"; };
 		961D7C111C40E727007264B3 /* SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 		961D7C131C40E814007264B3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		961D7C151C40E936007264B3 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
@@ -100,8 +99,6 @@
 		962668251C33B16500BDD8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96389A881C352F88008B5EDD /* HMWeibo-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMWeibo-Bridge.h"; sourceTree = "<group>"; };
 		96413B571C38C3C100083D0F /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
-		9667925F1C36288C0027141B /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+Extension.swift"; path = "../../../../../../4jchc-Extension/4jchc-Extension/4jchc-Extension/Extension【扩展延伸】/UIKit+Extension.swift"; sourceTree = "<group>"; };
-		966792921C3682070027141B /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessToken.swift; path = ../Tools/AccessToken.swift; sourceTree = "<group>"; };
 		966792951C36A9B50027141B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		966792971C36A9C90027141B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		966792991C36B3A10027141B /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -116,8 +113,6 @@
 		966792A81C36B4B30027141B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		966792AE1C36B5250027141B /* Compose.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Compose.storyboard; sourceTree = "<group>"; };
 		966792AF1C36B5250027141B /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
-		966BF2951C37617000AD1879 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../Tools/UserInfo.swift; sourceTree = "<group>"; };
-		966BF2961C37617000AD1879 /* StatusesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusesData.swift; path = ../Tools/StatusesData.swift; sourceTree = "<group>"; };
 		966BF29C1C37FA8B00AD1879 /* String+Hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hash.swift"; sourceTree = "<group>"; };
 		966BF29D1C37FA8B00AD1879 /* SwiftDictModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDictModel.swift; sourceTree = "<group>"; };
 		966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNetwork.swift; sourceTree = "<group>"; };
@@ -131,6 +126,11 @@
 		96C56A2E1C356FFE0009F9F3 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		96C56A2F1C356FFE0009F9F3 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		96C56A341C3570240009F9F3 /* OAuthViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewControllerTests.swift; sourceTree = "<group>"; };
+		96DDBF821C424E6B00A752E6 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		96DDBF841C424E8000A752E6 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		96DDBF881C42623800A752E6 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		96DDBF891C42623800A752E6 /* StatusesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusesData.swift; sourceTree = "<group>"; };
+		96DDBF8A1C42623800A752E6 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		96ED35FC1C3CD85B00C56CFA /* HMRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMRefreshControl.swift; sourceTree = "<group>"; };
 		96ED35FE1C3CD87800C56CFA /* HMRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMRefreshView.xib; sourceTree = "<group>"; };
 		9F8E7CC691A056456F9ADFC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,9 +231,9 @@
 		96389A6A1C352F7A008B5EDD /* BusinessModel */ = {
 			isa = PBXGroup;
 			children = (
-				966BF2951C37617000AD1879 /* UserInfo.swift */,
-				966BF2961C37617000AD1879 /* StatusesData.swift */,
-				966792921C3682070027141B /* AccessToken.swift */,
+				96DDBF881C42623800A752E6 /* AccessToken.swift */,
+				96DDBF891C42623800A752E6 /* StatusesData.swift */,
+				96DDBF8A1C42623800A752E6 /* UserInfo.swift */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -243,8 +243,8 @@
 			children = (
 				961D7C151C40E936007264B3 /* String+Regex.swift */,
 				961D7C111C40E727007264B3 /* SQLite.swift */,
-				961607251C3FB29600B81009 /* String+Extension.swift */,
 				966BF2A01C38030D00AD1879 /* SimpleNetwork.swift */,
+				96DDBF821C424E6B00A752E6 /* String+Extension.swift */,
 				966BF29C1C37FA8B00AD1879 /* String+Hash.swift */,
 				966BF29D1C37FA8B00AD1879 /* SwiftDictModel.swift */,
 				96780EFD1C356AD1006A1555 /* NetworkManager.swift */,
@@ -331,7 +331,7 @@
 		9667925C1C3628160027141B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9667925F1C36288C0027141B /* UIKit+Extension.swift */,
+				96DDBF841C424E8000A752E6 /* UIKit+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -571,20 +571,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				961607241C3F991B00B81009 /* ComposeTextView.swift in Sources */,
+				96DDBF8B1C42623800A752E6 /* AccessToken.swift in Sources */,
 				966BF2A11C38030D00AD1879 /* SimpleNetwork.swift in Sources */,
 				966792AB1C36B4B30027141B /* MainTabBar.swift in Sources */,
 				966792A31C36B48A0027141B /* DiscoverViewController.swift in Sources */,
 				966BF29E1C37FA8B00AD1879 /* String+Hash.swift in Sources */,
 				968969391C3A1E3100EAF75B /* PhotoBrowserViewController.swift in Sources */,
-				961607261C3FB29600B81009 /* String+Extension.swift in Sources */,
 				966792961C36A9B50027141B /* ProfileViewController.swift in Sources */,
 				966792AA1C36B4B30027141B /* MainTabBarController.swift in Sources */,
-				966792601C36288C0027141B /* UIKit+Extension.swift in Sources */,
+				96DDBF831C424E6B00A752E6 /* String+Extension.swift in Sources */,
 				966792B11C36B5250027141B /* ComposeViewController.swift in Sources */,
 				96780EFE1C356AD1006A1555 /* NetworkManager.swift in Sources */,
-				966BF2981C37617000AD1879 /* StatusesData.swift in Sources */,
+				96DDBF8D1C42623800A752E6 /* UserInfo.swift in Sources */,
 				966BF29F1C37FA8B00AD1879 /* SwiftDictModel.swift in Sources */,
+				96DDBF8C1C42623800A752E6 /* StatusesData.swift in Sources */,
 				961D7C161C40E936007264B3 /* String+Regex.swift in Sources */,
+				96DDBF851C424E8000A752E6 /* UIKit+Extension.swift in Sources */,
 				961607221C3F96ED00B81009 /* EmoteTextAttachment.swift in Sources */,
 				96B09A661C3E8990006D97CE /* EmoticonsViewController.swift in Sources */,
 				9667929F1C36B4420027141B /* HomeViewController.swift in Sources */,
@@ -595,8 +597,6 @@
 				96C56A321C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				961D7C121C40E727007264B3 /* SQLite.swift in Sources */,
 				962668041C33B16500BDD8FE /* AppDelegate.swift in Sources */,
-				966792931C3682070027141B /* AccessToken.swift in Sources */,
-				966BF2971C37617000AD1879 /* UserInfo.swift in Sources */,
 				9667929A1C36B3A10027141B /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,13 +605,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DDBF8E1C42662F00A752E6 /* AccessToken.swift in Sources */,
 				96413B591C3928B600083D0F /* SimpleNetwork.swift in Sources */,
 				96C56A351C3570240009F9F3 /* OAuthViewControllerTests.swift in Sources */,
 				96C56A241C356C190009F9F3 /* NetworkManagerTests.swift in Sources */,
 				96413B5A1C3931AD00083D0F /* String+Hash.swift in Sources */,
 				96C56A331C356FFE0009F9F3 /* OAuthViewController.swift in Sources */,
 				96780EFF1C356AD1006A1555 /* NetworkManager.swift in Sources */,
-				966792941C3683190027141B /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

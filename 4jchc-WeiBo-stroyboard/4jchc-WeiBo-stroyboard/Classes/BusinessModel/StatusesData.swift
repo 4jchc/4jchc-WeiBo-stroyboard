@@ -114,12 +114,32 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         
         if SQLite.sharedSQLite.execCount(sql) == 0 {
             return nil
-        } else {
-            print("应该加载本地数据")
-            // TODO: 生成应用程序需要的结果集合直接返回即可！
         }
         
-        return nil
+        print("应该加载本地数据")
+        // 生成应用程序需要的结果集合直接返回即可！
+        // 结果集合中包含微博的数组，同时，需要把分散保存在数据表中的数据，再次整合！
+        let resultSQL = "SELECT id, text, source, created_at, reposts_count, \n" +
+            "comments_count, attitudes_count, userId, retweetedId FROM T_Status \n" +
+            "WHERE id < \(maxId) \n" +
+            "ORDER BY id DESC \n" +
+        "LIMIT 20"
+        
+        // 实例化微博数据数组
+        var statuses = [Status]()
+        
+        /// 查询返回结果集合
+        let recordSet = SQLite.sharedSQLite.execRecordSet(resultSQL)
+        ///  遍历数组，建立目标微博数据数组
+        for record in recordSet {
+            statuses.append(Status(record: record as! [AnyObject]))
+        }
+        
+        if statuses.count == 0 {
+            return nil
+        } else {
+            return statuses
+        }
     }
     
     
@@ -192,6 +212,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     
     /// 去掉 href 的来源字符串
     var sourceStr: String {
+        
         return source?.removeHref() ?? ""
     }
     
@@ -276,10 +297,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
     }
     
     
-    
-    
-    
-    
+
     /// 要显示的配图数组
     /// 如果是原创微博，就使用 pic_urls
     /// 如果是转发微博，使用 retweeted_status.pic_urls
@@ -309,6 +327,63 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         "user": "\(UserInfo.self)",
         "retweeted_status": "\(Status.self)",]
     }
+    override init() {
+        super.init()
+    }
+
+    ///  使用数据库的结果集合，实例化微博数据
+    ///  构造函数，实例化并且返回对象
+    init(record: [AnyObject]?) {
+        // id, text, source, created_at, reposts_count, comments_count, attitudes_count, userId, retweetedId
+        id = record![0] as! Int
+        text = record![1] as? String
+        source = record![2] as? String
+        created_at = record![3] as? String
+        reposts_count = record![4] as! Int
+        comments_count = record![5] as! Int
+        attitudes_count = record![6] as! Int
+        
+        // 用户对象
+        let userId = record![7] as! Int
+        user = UserInfo(pkId: userId)
+        // 转发微博对象
+        let retId = record![8] as! Int
+        // 如果有转发数据
+        if retId > 0 {
+            retweeted_status = Status(pkId: retId)
+        }
+        // 配图数组
+        pic_urls = StatusPictureURL.pictureUrls(id)
+    }
+
+    
+    
+    ///  使用数据库的主键实例化对象
+    ///  convenience 不是主构造函数，简化的构造函数，必须调用默认的构造函数
+        convenience init(pkId: Int) {
+            
+            // 使用主键查询数据库
+            let sql = "SELECT id, text, source, created_at, reposts_count, \n" +
+                "comments_count, attitudes_count, userId, retweetedId FROM T_Status \n" +
+            "WHERE id = \(pkId) "
+            
+            let record1 = SQLite.sharedSQLite.execRow(sql)
+            
+            //self.init(pkId: pkId)
+            self.init(record: record1)
+        
+            // 如果为 0，表示没有转发数据，直接返回
+            if pkId == 0 {
+                return
+            }
+            
+        }
+
+    
+    
+    
+    
+    
     
     // 保存微博数据
     func insertDB() -> Bool {
@@ -331,6 +406,7 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
         return SQLite.sharedSQLite.execSQL(sql)
     }
 }
+
 
 
 
@@ -358,9 +434,36 @@ private let WB_Home_Timeline_URL = "https://api.weibo.com/2/statuses/home_timeli
   
         }
     }
+    override init() {
+        super.init()
+    }
     
     ///  大图 URL
     var large_pic: String?
+    ///  使用数据库结果集合实例化对象
+    init(record: [AnyObject]) {
+        thumbnail_pic = record[0] as? String
+    }
+    
+    ///  如果要返回对象的数组，可以使用类函数
+    ///  给定一个微博代号，返回改微博代号对应配图数组，0~9张配图
+    class func pictureUrls(statusId: Int) -> [StatusPictureURL]? {
+        let sql = "SELECT thumbnail_pic FROM T_StatusPic WHERE status_id = \(statusId)"
+        let recordSet = SQLite.sharedSQLite.execRecordSet(sql)
+        
+        // 实例化数组
+        var list = [StatusPictureURL]()
+        for record in recordSet {
+            list.append(StatusPictureURL(record: record as! [AnyObject]))
+        }
+        
+        if list.count == 0 {
+            return nil
+        } else {
+            return list
+        }
+    }
+    
     
     ///  插入到数据库
     func insertDB(statusId: Int) -> Bool {
