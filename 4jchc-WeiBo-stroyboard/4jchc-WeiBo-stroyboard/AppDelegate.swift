@@ -31,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(net.downloadImages(urls, { (result, error) -> () in
 //            print("OK")
 //        }))
+        
+        
+        // 测试发布代图片的微博
+        uploadPicture()
+        
+        
+        
+        
+        
         // 打开数据库
         SQLite.sharedSQLite.openDatabase("readme.db")
         // 检查沙盒中是否已经保存的 token
@@ -82,6 +91,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    func uploadPicture() {
+        let urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+        let token = AccessToken.loadAccessToken()
+        
+        let params = ["access_token": token!.access_token!, "status": "测试一下"]
+        let image = UIImage(named: "compose_photo_preview_right")
+        let data = UIImagePNGRepresentation(image!)
+        
+        NetworkManager.sharedNetworkManager.postUpload(urlString, params: params, fieldName: "pic", dataList: [data!], filenames: ["oooo"]) { (result, error) -> () in
+            
+            print(NSThread.currentThread())
+        }
+    }
+    
+    
+    
+    
     
     ///  显示主界面
     func showMainInterface() {

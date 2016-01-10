@@ -63,6 +63,11 @@ class NetworkManager {
         return net.fullImageCachePath(urlString)
     }
     
+    func postUpload(urlString: String, params: [String: String]?, fieldName: String, dataList: [NSData], filenames: [String], completion: Completion) {
+        
+        net.postUpload(urlString, params: params, fieldName: fieldName, dataList: dataList, filenames: filenames, completion: completion)
+    }
+    
     ///  下载多张图片
     ///
     ///  :param: urls       图片 URL 数组

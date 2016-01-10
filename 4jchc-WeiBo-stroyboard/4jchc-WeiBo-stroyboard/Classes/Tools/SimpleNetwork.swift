@@ -51,7 +51,80 @@ public class SimpleNetwork {
         }
     }
     
+    // MARK: - 上传图片和文件
+    ///  上传文件
+    ///
+    ///  :param: urlString  urlString
+    ///  :param: params     参数字典
+    ///  :param: fieldName  服务器字段名，有些服务器可以随便写，有些服务器需要咨询后台
+    ///  :param: dataList   要上传文件的二进制数据数组
+    ///  :param: filenames  要保存在服务器上的文件名称，新浪的服务器，也可以随便写
+    ///  :param: completion 回调
+    func postUpload(urlString: String, params: [String: String]?, fieldName: String, dataList: [NSData], filenames: [String], completion: Completion) {
+        
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        
+        request.setValue("multipart/form-data; boundary=\(boundary!)", forHTTPHeaderField: "Content-Type")
+        
+        let httpData = formData(params, fieldName: fieldName, dataList: dataList, filenames: filenames)
+        
+        NSURLSession.sharedSession().uploadTaskWithRequest(request, fromData: httpData) { (data, response, error) -> Void in
+            
+            let result = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(result)
+            print(response)
+            
+            if error != nil {
+                completion(result: nil, error: error)
+            } else {
+                completion(result: nil, error: nil)
+            }
+            
+            }.resume()
+    }
     
+    lazy var boundary: String? = {
+        return String(format: "%08x%08x", arguments: [arc4random(), arc4random()])
+    }()
+    
+    ///  生成要上传给服务器的二进制数据 (multipart/form-data)
+    private func formData(params: [String: String]?, fieldName: String, dataList: [NSData], filenames: [String]) -> NSData {
+        let httpBody = NSMutableData()
+        
+        // 1. 拼接要上传给服务器的参数
+        if params != nil {
+            for (k, v) in params! {
+                var bodyStr = "--\(boundary!)\r\n"
+                bodyStr += "Content-Disposition: form-data; name=\"\(k)\";\r\n\r\n"
+                
+                httpBody.appendData(bodyStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+                httpBody.appendData(v.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+                httpBody.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+            }
+        }
+        // 2. 拼接要上传的二进制文件数据
+        var index = 0
+        for data in dataList {
+            var bodyStr = "--\(boundary!)\r\n"
+            bodyStr += "Content-Disposition: form-data; name=\"\(fieldName)\"; filename=\"\(filenames[index])\"\r\n"
+            bodyStr += "Content-Type: application/octet-stream\r\n\r\n"
+            
+            httpBody.appendData(bodyStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+            httpBody.appendData(data)
+            httpBody.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+            
+            index++
+        }
+        
+        // 3. 收尾字符串
+        httpBody.appendData("--\(boundary!)--\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!)
+        
+        return httpBody
+    }
+    
+    // MARK: - 图片下载
     ///  异步下载网路图像
     ///
     ///  :param: urlString  urlString
